@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<!-- SECTION: entry -->
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>打工人国庆新疆自驾 · 不踩坑指南</title>
+<style>
+:root{--p:#2F6F5E;--p-d:#1F4D40;--a:#5B9BD5;--bg:#F5F2EB;--card:#FFFFFF;--ink:#2C3630;--ink2:#6E7F74;--green:#4E9A7F;--blue:#5B9BD5;--orange:#8B6914;--purple:#6B8E7B;--rest:#E3EEF9;--acc:#8B6914;--shadow:0 2px 12px rgba(60,90,75,.12);--page:67.5rem}
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--ink);font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB",sans-serif;line-height:1.6}
+button{font-family:inherit;cursor:pointer}
+img{display:block;max-width:100%}
+/* SECTION: header */
+.hero{position:relative;background:linear-gradient(160deg,#1F4D40 0%,#2F6F5E 55%,#4E9A7F 100%);color:#fff;overflow:hidden}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.38}
+.hero-in{position:relative;max-width:var(--page);margin:0 auto;padding:34px 20px 26px}
+.hero h1{font-size:clamp(22px,4.6vw,36px);letter-spacing:2px;text-shadow:0 2px 8px rgba(15,45,35,.45)}
+.hero p{margin-top:8px;font-size:clamp(13px,2.4vw,17px);opacity:.95;letter-spacing:1px}
+.hero .chips{margin-top:14px;display:flex;flex-wrap:wrap;gap:8px}
+.hero .chip{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.4);border-radius:999px;padding:3px 12px;font-size:12px;backdrop-filter:blur(2px)}
+/* SECTION: nav */
+nav{position:sticky;top:0;z-index:50;background:rgba(245,242,235,.96);backdrop-filter:blur(6px);border-bottom:2px solid var(--a);box-shadow:0 2px 8px rgba(60,90,75,.10)}
+.nav-in{max-width:var(--page);margin:0 auto;display:flex;gap:6px;overflow-x:auto;padding:8px 12px;scrollbar-width:thin}
+.nav-in button{flex:0 0 auto;border:none;background:transparent;color:var(--ink2);font-size:14px;padding:7px 14px;border-radius:999px;white-space:nowrap;transition:.15s}
+.nav-in button.on{background:var(--p);color:#fff;font-weight:600;box-shadow:0 2px 8px rgba(47,111,94,.38)}
+main{max-width:var(--page);margin:0 auto;padding:18px 14px 40px}
+section.mod{display:none}
+section.mod.on{display:block;animation:fade .25s}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1}}
+h2.mt{font-size:20px;color:var(--p-d);margin:6px 0 4px;display:flex;align-items:center;gap:8px}
+h2.mt::before{content:"";width:6px;height:20px;border-radius:3px;background:linear-gradient(var(--p),var(--a))}
+p.ms{font-size:13px;color:var(--ink2);margin-bottom:12px}
+/* SECTION: map */
+.map-tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:10px}
+.pill{border:1.5px solid var(--a);background:#fff;color:var(--ink);border-radius:999px;padding:5px 13px;font-size:13px;transition:.15s}
+.pill.on{background:var(--p);border-color:var(--p);color:#fff}
+.pill.ghost{border-style:dashed;color:var(--ink2)}
+.map-host{position:relative;height:min(74vh,640px);min-height:430px;border-radius:14px;overflow:hidden;background:#F1E8D2;border:1px solid #D8CBAA;box-shadow:var(--shadow)}
+.paper-grain{position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(rgba(120,90,30,.06) 1px,transparent 1.7px),radial-gradient(rgba(70,90,60,.05) 1px,transparent 1.7px);background-size:26px 26px,38px 38px;background-position:0 0,13px 19px}
+#mapSvg{position:absolute;inset:0;width:100%;height:100%;display:block}
+#mapSvg text{font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB",sans-serif}
+#mapSvg .mnode{cursor:pointer;transition:opacity .2s,filter .2s}
+#mapSvg .mnode.dim{opacity:.22;filter:grayscale(1)}
+#mapSvg .mchain{transition:opacity .2s,filter .2s}
+#mapSvg .mchain.dim{opacity:.12;filter:grayscale(.9)}
+#mapSvg .ld{transition:opacity .2s}
+#mapSvg .ld.dim{opacity:.1}
+#mapSvg .km{transition:opacity .2s}
+#mapSvg .sticker{transition:transform .18s}
+.map-tip{position:absolute;left:10px;top:30px;max-width:270px;background:rgba(255,253,246,.96);border:1.5px solid var(--acc);border-radius:10px;padding:10px 12px;color:var(--ink);font-size:12.5px;display:none;z-index:6;box-shadow:0 4px 14px rgba(70,60,20,.18)}
+.map-tip b{color:var(--p-d);font-size:13.5px}
+.map-tip .row{margin-top:3px;color:#6B5518}
+.map-tip .close{position:absolute;right:6px;top:2px;background:none;border:none;color:#9a8f72;font-size:14px}
+.map-hint{position:absolute;right:10px;top:8px;font-size:11px;color:#a2946f;pointer-events:none;z-index:4}
+.legend{display:flex;flex-wrap:wrap;gap:14px;margin:12px 2px 6px;font-size:12.5px;color:var(--ink2)}
+.legend i{display:inline-block;width:22px;height:5px;border-radius:3px;margin-right:5px;vertical-align:middle}
+.ovw{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:6px;margin-top:6px}
+.ovw div{background:var(--card);border:1px solid #E4DCC2;border-radius:8px;padding:7px 10px;font-size:12.5px;color:var(--ink)}
+/* SECTION: itinerary */
+.tabs{display:flex;gap:6px;overflow-x:auto;padding-bottom:8px;margin-bottom:12px}
+.tabs button{flex:0 0 auto;width:44px;height:44px;border-radius:12px;border:1.5px solid var(--a);background:#fff;font-weight:700;color:var(--ink2);font-size:14px}
+.tabs button.on{background:var(--p);border-color:var(--p);color:#fff;box-shadow:0 3px 10px rgba(47,111,94,.38)}
+.day-head{background:linear-gradient(135deg,var(--p),#4E9A7F);color:#fff;border-radius:14px;padding:14px 16px;margin-bottom:12px}
+.day-head .rt{font-size:17px;font-weight:700}
+.day-head .meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px;font-size:12.5px}
+.day-head .meta span{background:rgba(255,255,255,.18);border-radius:999px;padding:2px 10px}
+.tl{position:relative;padding-left:26px}
+.tl::before{content:"";position:absolute;left:8px;top:6px;bottom:6px;width:2px;background:var(--a)}
+.tl-item{position:relative;background:var(--card);border-radius:12px;padding:12px 14px;margin-bottom:12px;box-shadow:var(--shadow)}
+.tl-item::before{content:"";position:absolute;left:-24px;top:16px;width:12px;height:12px;border-radius:50%;background:#fff;border:3px solid var(--p)}
+.tl-item .tm{font-size:12px;font-weight:700;color:var(--p);letter-spacing:1px}
+.tl-item .tx{font-size:14.5px;margin-top:2px}
+.tl-item .tags{margin-top:6px;display:flex;flex-wrap:wrap;gap:6px;font-size:11.5px}
+.tl-item .tags em{font-style:normal;background:#E3EEF7;color:#3E6E9E;border-radius:6px;padding:1px 8px}
+.tl-item.long{background:#F3EAD2;border:1.5px solid #CBB377}
+.tl-item.long::before{background:var(--acc);border-color:var(--acc)}
+.tl-item.long .tm{color:#6B5518}
+.tl-item.long .warn{display:inline-block;margin-left:6px;font-size:11px;color:#fff;background:var(--acc);border-radius:6px;padding:0 7px;vertical-align:1px}
+.tl-item.rest{background:var(--rest);border:1.5px solid #A9CCE8}
+.tl-item.rest::before{background:var(--blue);border-color:var(--blue)}
+.tl-item.rest .tm{color:#2C6A9B}
+.tl-item.rest .tagr{display:inline-block;margin-left:6px;font-size:11px;color:#fff;background:var(--blue);border-radius:6px;padding:0 7px;vertical-align:1px}
+.notes{background:#F4F6EF;border:1px dashed var(--p);border-radius:12px;padding:10px 14px;font-size:13px}
+.notes b{color:var(--p-d)}
+.notes li{margin-left:18px;margin-top:3px}
+.stay-card{margin-top:12px;background:var(--card);border-radius:12px;padding:10px 14px;font-size:13px;box-shadow:var(--shadow)}
+.stay-card b{color:var(--p-d)}
+/* SECTION: cards(spots/foods) */
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px;align-items:center}
+.toolbar input,.toolbar select{border:1.5px solid var(--a);border-radius:10px;padding:7px 10px;font-size:13px;background:#fff;color:var(--ink);outline-color:var(--p)}
+.toolbar input{flex:1;min-width:160px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
+.card{background:var(--card);border-radius:14px;overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column;position:relative}
+.card .pic{position:relative;aspect-ratio:16/9;background:linear-gradient(135deg,#5B9BD5,#2F6F5E)}
+.card .pic img{width:100%;height:100%;object-fit:cover}
+.card .fav{position:absolute;right:10px;top:10px;z-index:3;width:34px;height:34px;border-radius:50%;border:none;background:rgba(255,255,255,.9);font-size:17px;line-height:1;color:#a8b5ad;box-shadow:0 2px 6px rgba(0,0,0,.2)}
+.card .fav.on{color:#C79A2A}
+.card .body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:6px;flex:1}
+.card h3{font-size:16px;color:var(--p-d)}
+.card .sub{font-size:12px;color:var(--ink2)}
+.kv{display:flex;gap:6px;font-size:12.5px}
+.kv i{font-style:normal;flex:0 0 auto;color:#fff;background:var(--p);border-radius:5px;padding:0 7px;font-size:11.5px;height:fit-content}
+.badge{display:inline-block;font-size:11px;border-radius:6px;padding:1px 8px;background:#E5EEE4;color:#3E6B52;margin-right:4px}
+.empty{text-align:center;color:var(--ink2);padding:34px 0;font-size:13.5px}
+/* SECTION: fuel */
+.fuel-card{background:var(--card);border-radius:14px;padding:14px 16px;box-shadow:var(--shadow);margin-bottom:12px;border-left:5px solid var(--a)}
+.fuel-card.hot{border-left-color:var(--acc);background:#F6F1E1}
+.fuel-card h3{font-size:15.5px;color:var(--p-d);display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.flag{font-size:11px;border-radius:6px;padding:1px 8px;color:#fff;font-weight:400}
+.flag.few{background:var(--acc)}.flag.cash{background:#6E4B3A}.flag.line{background:var(--blue)}.flag.na{background:#6b6b6b}.flag.key{background:var(--p)}
+.fuel-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:6px 16px;margin-top:8px;font-size:13px}
+.fuel-grid b{color:var(--ink2);font-weight:600;font-size:12px}
+/* SECTION: pitfalls */
+.pit{background:var(--card);border-radius:14px;padding:14px 16px;box-shadow:var(--shadow);margin-bottom:12px}
+.pit h3{font-size:15px;color:var(--ink)}
+.pit .rowx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+.pit .x,.pit .c{border-radius:10px;padding:9px 12px;font-size:13px}
+.pit .x{background:#F3EDDA;border:1px solid #D9C89A}
+.pit .c{background:#E9F4E9;border:1px solid #B7D8B7}
+.pit .x b,.pit .c b{font-size:12px;display:block;margin-bottom:2px}
+.pit .x b{color:#7A5B1F}.pit .c b{color:#2E7D32}
+.pit .alt{margin-top:8px;font-size:12.5px;color:var(--ink2)}
+.pit .alt b{color:var(--p-d)}
+/* SECTION: packing */
+.pack-top{display:flex;flex-wrap:wrap;gap:10px;align-items:center;background:var(--card);border-radius:12px;padding:12px 14px;box-shadow:var(--shadow);margin-bottom:12px}
+.bar{flex:1;min-width:150px;height:10px;border-radius:5px;background:#E2E7DA;overflow:hidden}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--a),var(--p));width:0;transition:width .25s}
+.pack-grp{margin-bottom:14px}
+.pack-grp h3{font-size:14.5px;color:var(--p-d);margin-bottom:6px}
+.pack-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:6px}
+.pk{display:flex;gap:9px;align-items:flex-start;background:var(--card);border-radius:10px;padding:8px 11px;box-shadow:var(--shadow);cursor:pointer;font-size:13px}
+.pk input{margin-top:4px;accent-color:var(--p);width:15px;height:15px;flex:0 0 auto}
+.pk .nm{font-weight:600}
+.pk .ds{font-size:11.5px;color:var(--ink2)}
+.pk.done{opacity:.6}
+.pk.done .nm{text-decoration:line-through}
+.pk .mst{font-size:10.5px;border-radius:5px;padding:0 6px;margin-left:4px;vertical-align:1px}
+.m1{background:var(--p);color:#fff}.m2{background:#EDE4CB;color:#6B5518}.m3{background:#eee;color:#888}
+/* SECTION: stay */
+.stay-card2 .body{gap:7px}
+.stay-card2 .prc{font-weight:700;color:var(--p-d);font-size:15px}
+.stay-card2 .rsn{font-size:13px;color:var(--ink)}
+.stay-card2 .rsn b{color:var(--acc)}
+.stay-card2 .bk{font-size:12.5px;color:var(--ink2)}
+.stay-card2 .bk b{color:#6B5518}
+.stay-card2 .nt{font-size:12px;color:#6B5518;background:#F3EDDA;border-radius:8px;padding:5px 9px}
+.navrow{margin-top:auto;padding-top:8px}
+.navbtn{width:100%;border:none;border-radius:10px;padding:9px 12px;font-size:13.5px;font-weight:600;color:#fff;background:linear-gradient(135deg,var(--p),#4E9A7F);display:flex;align-items:center;justify-content:center;gap:6px;transition:.15s}
+.navbtn:active{transform:scale(.98)}
+.navbtn .ar{font-size:11px;opacity:.85}
+.navsub{display:flex;gap:8px;margin-top:6px;font-size:11.5px}
+.navsub button{flex:1;border:1px solid #C9B98C;background:#FFFDF6;color:#5E4A0F;border-radius:8px;padding:4px 6px}
+.navsub button:hover{border-color:var(--acc);background:#F6F1E1}
+.navsub .tipx{flex:0 0 auto;color:var(--ink2);display:flex;align-items:center;font-size:11px}
+/* SECTION: budget */
+table.bgt{width:100%;border-collapse:collapse;background:var(--card);border-radius:14px;overflow:hidden;box-shadow:var(--shadow);font-size:13px}
+.bgt th{background:var(--p);color:#fff;padding:9px 10px;text-align:left;font-weight:600;white-space:nowrap}
+.bgt td{padding:9px 10px;border-bottom:1px solid #E6E4D6;vertical-align:top}
+.bgt tr:last-child td{border-bottom:none}
+.bgt td.sub{font-weight:700;color:var(--p-d);white-space:nowrap}
+.bgt tr.total td{background:#EFEBD8;font-weight:700;color:var(--p-d);font-size:14px}
+.bgt .note{color:var(--ink2);font-size:12px}
+.grid2{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px;margin-top:4px}
+.info-card{background:var(--card);border-radius:12px;padding:12px 14px;box-shadow:var(--shadow);font-size:13px}
+.info-card h3{font-size:14.5px;color:var(--p-d);margin-bottom:4px}
+.info-card .tip{margin-top:6px;font-size:12px;color:#6B5518;background:#F3EDDA;border-radius:8px;padding:4px 9px}
+.sos{background:#1C3A31;color:#EAF2EC;border-radius:14px;padding:14px 16px;margin-top:12px;font-size:13px}
+.sos h3{color:#A8CBD9;font-size:15px;margin-bottom:6px}
+.sos .ph{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0}
+.sos .ph span{background:rgba(91,155,213,.16);border:1px solid rgba(91,155,213,.45);border-radius:8px;padding:2px 10px}
+.sos li{margin-left:18px}
+.xhs{background:linear-gradient(150deg,#F6F8F2,#EAF1E4);border:1.5px solid var(--p);border-radius:14px;padding:14px 16px;margin-top:12px}
+.xhs h3{color:var(--p-d);font-size:15px}
+.xhs .ttl{font-weight:700;margin-top:6px}
+.xhs pre{white-space:pre-wrap;font-family:inherit;font-size:13px;margin-top:6px;max-height:280px;overflow:auto}
+.xhs .tagl{color:var(--p);font-size:12.5px;margin-top:6px}
+.copy-btn{margin-top:8px;border:none;background:var(--p);color:#fff;border-radius:999px;padding:6px 18px;font-size:13px}
+.cph{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:10px;margin-top:12px}
+.cph>div{background:var(--card);border-radius:12px;padding:12px 14px;box-shadow:var(--shadow)}
+.cph h4{font-size:13.5px;color:var(--p-d);margin-bottom:4px}
+.cph li,.cph p{font-size:12.5px;color:var(--ink)}
+.cph li{margin-left:16px;margin-top:2px}
+/* SECTION: footer */
+footer{border-top:2px solid var(--p);background:#E8E7DA;margin-top:20px;padding:18px 16px 30px;text-align:center;font-size:12.5px;color:#5B6656}
+footer b{color:var(--p-d)}
+@media (max-width:640px){
+  .map-host{height:62vh;min-height:340px}
+  .cards{grid-template-columns:1fr}
+  .pit .rowx{grid-template-columns:1fr}
+  .ovw{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<!-- SECTION: hero -->
+<div class="hero">
+  <img data-image alt="新疆秋季自驾插画" id="heroImg">
+  <div class="hero-in">
+    <h1>打工人国庆新疆自驾 · 不踩坑指南</h1>
+    <p>12天北疆+伊犁深度路线 · 请3天假换13天长假</p>
+    <div class="chips">
+      <span class="chip">📅 9.25出发 · 10.6返程</span>
+      <span class="chip">🛣️ 全程约3800公里</span>
+      <span class="chip">💰 人均8000-11000元</span>
+      <span class="chip">🚗 乌鲁木齐取还 · SUV自驾</span>
+    </div>
+  </div>
+</div>
+<!-- SECTION: nav -->
+<nav><div class="nav-in" id="nav"></div></nav>
+<main>
+  <!-- SECTION: map module -->
+  <section class="mod on" id="m-map">
+    <h2 class="mt">路线地图 · 手绘旅行版</h2>
+    <p class="ms">米黄做旧纸张底图 · 新疆行政区轮廓 · 目的地按实际位置配手绘插画 · 暖棕路线标注里程与时长</p>
+    <div class="map-tools" id="dayFilter"></div>
+    <div class="map-host" id="mapHost">
+      <div class="paper-grain"></div>
+      <svg id="mapSvg" preserveAspectRatio="xMidYMid meet"></svg>
+      <div class="map-hint">点击目的地插画看详情 · 按天筛选高亮</div>
+      <div class="map-tip" id="mapTip"></div>
+    </div>
+    <div class="legend" id="legend"></div>
+    <h2 class="mt" style="font-size:16px;margin-top:14px">路线总览</h2>
+    <div class="ovw" id="routeOvw"></div>
+  </section>
+  <!-- SECTION: itinerary module -->
+  <section class="mod" id="m-trip">
+    <h2 class="mt">13天行程</h2>
+    <p class="ms">时间线：上午 → 下午 → 晚上 · 超过4小时驾驶段暖棕提醒 · 午休/错峰停留浅蓝标注</p>
+    <div class="tabs" id="dayTabs"></div>
+    <div id="dayBody"></div>
+  </section>
+  <!-- SECTION: spots module -->
+  <section class="mod" id="m-spots">
+    <h2 class="mt">景点推荐</h2>
+    <p class="ms">支持搜索、按地区/门票价格/类型筛选 · ♥ 收藏保存在本浏览器</p>
+    <div class="toolbar">
+      <input id="spotQ" type="search" placeholder="🔍 搜索景点名 / 地区 / 看点…">
+      <select id="spotRegion"></select><select id="spotPrice"></select><select id="spotType"></select>
+    </div>
+    <div class="cards" id="spotCards"></div>
+    <div class="empty" id="spotEmpty" style="display:none">没有符合条件的景点，换个筛选试试</div>
+  </section>
+  <!-- SECTION: foods module -->
+  <section class="mod" id="m-food">
+    <h2 class="mt">美食推荐</h2>
+    <p class="ms">按分类浏览 · 新疆菜分量大，人均不高</p>
+    <div class="map-tools" id="foodTabs"></div>
+    <div class="cards" id="foodCards"></div>
+  </section>
+  <!-- SECTION: fuel module -->
+  <section class="mod" id="m-fuel">
+    <h2 class="mt">加油攻略</h2>
+    <p class="ms">重点标注：加油站少的路段 / 只收现金 / 容易排队 —— 出发前城市加满是铁律</p>
+    <div id="fuelList"></div>
+  </section>
+  <!-- SECTION: pitfalls module -->
+  <section class="mod" id="m-pit">
+    <h2 class="mt">避坑指南</h2>
+    <p class="ms">✕ 坑点 → ✓ 怎么避 · 可按类别筛选</p>
+    <div class="map-tools" id="pitTabs"></div>
+    <div id="pitList"></div>
+  </section>
+  <!-- SECTION: packing module -->
+  <section class="mod" id="m-pack">
+    <h2 class="mt">打包清单</h2>
+    <p class="ms">勾选状态自动保存在本浏览器，下次打开还在</p>
+    <div class="pack-top">
+      <span id="packProg" style="font-size:13.5px;font-weight:700;color:var(--p-d)">已勾选 0/0 项</span>
+      <div class="bar"><i id="packBar"></i></div>
+      <button class="pill" id="packClear">🗑 清空重来</button>
+    </div>
+    <div id="packList"></div>
+  </section>
+  <!-- SECTION: stay module -->
+  <section class="mod" id="m-stay">
+    <h2 class="mt">住宿推荐</h2>
+    <p class="ms">知识库「住宿推荐」全 10 站 · 国庆旺季务必提前订，喀纳斯/禾木最紧张 · 点按钮可直接跳转地图导航</p>
+    <div class="cards" id="stayCards"></div>
+  </section>
+  <!-- SECTION: budget module -->
+  <section class="mod" id="m-bud">
+    <h2 class="mt">预算明细（人均 · 4人同行、2人一间）</h2>
+    <div style="overflow-x:auto"><table class="bgt" id="budTable"></table></div>
+    <h2 class="mt" style="margin-top:22px">实用信息</h2>
+    <div class="grid2" id="practicalCards"></div>
+    <div class="sos" id="sosBox"></div>
+    <h2 class="mt" style="margin-top:22px">住宿参考（知识库 · 住宿推荐）</h2>
+    <div style="overflow-x:auto"><table class="bgt" id="stayTable"></table></div>
+    <h2 class="mt" style="margin-top:22px">行前节奏策划（请3天假换13天）</h2>
+    <div class="cph" id="campBox"></div>
+    <div class="xhs" id="xhsBox"></div>
+  </section>
+</main>
+<footer>
+  <b>数据来源</b>：用户上传《新疆自驾游知识库.xlsx》与《新疆自驾游详细攻略.docx》，页面所有行程、门票、油价、预算等数据均逐条取自知识库。<br>
+  出发前建议再确认当天的开放时间和路况（尤其独库公路与景区预约）。首屏插图为 AI 生成示意图，景点/美食配图为网络公开图片。
+</footer>
+
+<script>
+window.__GEO_DATA__ = {"type":"FeatureCollection","features":[{"type":"Feature","properties":{"adcode":650100,"name":"乌鲁木齐市","center":[87.617733,43.792818],"centroid":[87.783748,43.739398],"childrenNum":8,"level":"city","parent":{"adcode":650000},"subFeatureIndex":0,"acroutes":[100000,650000]},"geometry":{"type":"MultiPolygon","coordinates":[[[[87.504658,44.066424],[87.46278,44.078813],[87.404426,44.046827],[87.404426,44.046827],[87.383144,44.044233],[87.28703,43.959569],[87.262545,43.923764],[87.280852,43.865968],[87.278563,43.800446],[87.222497,43.740212],[87.202588,43.698186],[87.169635,43.679628],[87.102814,43.596188],[86.997318,43.530952],[86.97123,43.474231],[86.900976,43.429398],[86.904867,43.393129],[86.940108,43.367188],[86.922716,43.325047],[86.895942,43.302726],[86.85475,43.211458],[86.815161,43.171403],[86.844681,43.159703],[86.797998,43.112442],[86.853835,43.083452],[86.912189,43.074665],[86.926378,43.051519],[87.054528,43.022941],[87.111052,43.046684],[87.111281,43.063093],[87.270096,43.032322],[87.345156,42.999775],[87.403053,42.96369],[87.497106,42.940062],[87.538069,42.908201],[87.569649,42.899095],[87.66805,42.903207],[87.758213,42.898948],[87.789336,42.872209],[87.882245,42.829873],[87.941515,42.827815],[87.931675,42.854426],[87.862565,42.884551],[87.815424,42.925382],[87.755925,42.961196],[87.638072,42.998162],[87.634411,43.036572],[87.597567,43.040089],[87.487953,43.10278],[87.414266,43.105562],[87.385203,43.123565],[87.393899,43.184124],[87.36804,43.281272],[87.587727,43.260979],[87.752492,43.298056],[87.886135,43.29864],[87.974697,43.313815],[87.99964,43.300245],[88.045408,43.318045],[88.164634,43.331028],[88.225048,43.325193],[88.21887,43.271345],[88.247932,43.224609],[88.310177,43.212188],[88.351597,43.227093],[88.430776,43.197427],[88.482494,43.242139],[88.523457,43.262585],[88.53261,43.352027],[88.555037,43.342549],[88.641538,43.353922],[88.753899,43.396625],[88.842689,43.388466],[88.871523,43.413961],[88.93148,43.435368],[88.936285,43.489943],[88.974273,43.55101],[88.936285,43.63248],[88.835138,43.720797],[88.758476,43.706449],[88.704927,43.708913],[88.723006,43.742964],[88.693485,43.759621],[88.626893,43.765703],[88.600118,43.803919],[88.531466,43.801314],[88.512015,43.858016],[88.460068,43.807681],[88.413842,43.791617],[88.33924,43.801459],[88.315669,43.790604],[88.282487,43.830974],[88.247246,43.80334],[88.259146,43.786985],[88.21086,43.758897],[88.169898,43.772074],[88.138318,43.756869],[88.132826,43.817086],[88.090719,43.81318],[88.06486,43.854257],[88.018405,43.874496],[88.018405,43.937482],[87.996894,43.994632],[87.958449,44.009199],[87.866226,44.063975],[87.85959,44.09624],[87.824348,44.123306],[87.774232,44.11726],[87.818627,44.225268],[87.81611,44.288599],[87.794828,44.329205],[87.802151,44.378238],[87.989114,44.961169],[88.004446,45.002015],[87.336231,45.001874],[87.555461,44.665873],[87.58132,44.596525],[87.575141,44.583531],[87.575141,44.583531],[87.59116,44.533383],[87.598711,44.477756],[87.652718,44.450423],[87.663702,44.417063],[87.693452,44.416633],[87.692765,44.370212],[87.716107,44.356881],[87.712216,44.262902],[87.691163,44.221963],[87.652489,44.196236],[87.640132,44.226561],[87.584066,44.239347],[87.564614,44.170929],[87.576743,44.116541],[87.527542,44.093648],[87.508319,44.021456],[87.492529,44.007757],[87.504658,44.066424]]]]}},{"type":"Feature","properties":{"adcode":650200,"name":"克拉玛依市","center":[84.873946,45.595886],"centroid":[85.224171,45.567128],"childrenNum":4,"level":"city","parent":{"adcode":650000},"subFeatureIndex":1,"acroutes":[100000,650000]},"geometry":{"type":"MultiPolygon","coordinates":[[[[85.010295,44.755219],[85.047367,44.770167],[85.021965,44.814421],[85.027229,44.886208],[85.051486,44.931793],[85.156066,44.970958],[85.171627,45.022711],[85.240737,45.019735],[85.258358,45.031639],[85.238449,45.080223],[85.250348,45.158607],[85.205953,45.207365],[85.201834,45.244224],[85.239593,45.29305],[85.245772,45.329008],[85.239593,45.375508],[85.28353,45.421406],[85.388111,45.436182],[85.434336,45.459814],[85.491775,45.51267],[85.547384,45.593123],[85.596813,45.641929],[85.59155,45.654404],[85.621299,45.763058],[85.642353,45.78921],[85.814212,45.895369],[85.839613,45.921877],[85.886297,45.938751],[85.880347,45.952973],[85.931836,45.975273],[85.95472,46.001325],[85.962501,46.044764],[86.024288,46.068001],[85.993165,46.123897],[85.903002,46.181819],[85.813754,46.178209],[85.791557,46.192924],[85.679882,46.190842],[85.648302,46.211936],[85.557453,46.198059],[85.437998,46.150296],[85.419462,46.128066],[85.380101,46.143628],[85.282844,46.090811],[85.263392,46.053114],[85.293142,45.993246],[85.259044,45.978199],[85.288565,45.967608],[85.258358,45.925364],[85.22838,45.850136],[85.193825,45.802491],[85.129978,45.74543],[85.059953,45.713098],[85.023796,45.721218],[84.956746,45.707777],[84.910291,45.648938],[84.847589,45.631414],[84.791981,45.663794],[84.772071,45.648658],[84.80594,45.608275],[84.783513,45.597613],[84.739576,45.520819],[84.710742,45.451797],[84.651701,45.395646],[84.623325,45.343808],[84.579388,45.31068],[84.58877,45.241401],[84.633394,45.185888],[84.668864,45.158607],[84.661541,45.102872],[84.657422,45.063514],[84.706394,45.067196],[84.805253,45.025687],[84.861548,44.899419],[84.917156,44.888481],[84.917156,44.836891],[84.84942,44.826511],[84.898163,44.802899],[84.954,44.799911],[85.010295,44.755219]]],[[[85.113273,44.34369],[84.974595,44.384687],[84.77825,44.390848],[84.779166,44.343546],[84.798159,44.258737],[84.792209,44.224262],[84.737974,44.126185],[84.797244,44.161436],[84.830426,44.160142],[84.917385,44.17927],[84.939354,44.252275],[84.969103,44.297354],[84.996106,44.310699],[85.065445,44.317299],[85.108467,44.309551],[85.113273,44.34369]]]]}},{"type":"Feature","properties":{"adcode":650400,"name":"吐鲁番市","center":[89.184078,42.947613],"centroid":[89.829374,42.398557],"childrenNum":3,"level":"city","parent":{"adcode":650000},"subFeatureIndex":2,"acroutes":[100000,650000]},"geometry":{"type":"MultiPolygon","coordinates":[[[[91.910299,41.271422],[91.905264,41.399694],[91.889932,41.401799],[91.823797,41.498585],[91.785581,41.508947],[91.784436,41.558778],[91.82128,41.57393],[91.833408,41.690377],[91.855377,41.74336],[91.808693,41.841577],[91.737066,42.011046],[91.696104,42.064508],[91.632715,42.075225],[91.637521,42.140529],[91.503649,42.202795],[91.464288,42.246003],[91.472984,42.295411],[91.448269,42.438372],[91.447354,42.49443],[91.431106,42.579531],[91.412113,42.618792],[91.407307,42.671298],[91.429047,42.727295],[91.408909,42.789716],[91.416232,42.835461],[91.384652,42.972787],[91.347351,43.102048],[91.313025,43.135126],[91.255128,43.295138],[91.259018,43.334236],[91.209131,43.356255],[91.225836,43.3822],[91.204554,43.423282],[91.16588,43.442356],[91.15398,43.472048],[91.169084,43.49518],[91.129952,43.483833],[91.104551,43.494744],[91.017591,43.495325],[91.003632,43.515104],[90.948939,43.504489],[90.881202,43.532842],[90.843443,43.522229],[90.790124,43.528044],[90.760145,43.517867],[90.686916,43.523101],[90.635198,43.502307],[90.555104,43.501434],[90.420546,43.526881],[90.385304,43.498525],[90.361505,43.515686],[90.318025,43.504925],[90.269969,43.53226],[90.21253,43.535022],[90.17294,43.55348],[90.057147,43.519903],[90.016184,43.516704],[90.014125,43.490671],[89.966755,43.492562],[89.964695,43.473794],[89.920071,43.452837],[89.896958,43.466227],[89.758739,43.463899],[89.749127,43.426922],[89.67956,43.410319],[89.624638,43.427505],[89.550265,43.433184],[89.519142,43.44978],[89.398086,43.449344],[89.375659,43.490962],[89.326001,43.501434],[89.31433,43.536185],[89.280233,43.552753],[89.226913,43.526445],[89.199223,43.539673],[89.189154,43.580793],[89.138123,43.600254],[89.078853,43.594445],[88.999903,43.607078],[88.936285,43.63248],[88.974273,43.55101],[88.936285,43.489943],[88.93148,43.435368],[88.871523,43.413961],[88.842689,43.388466],[88.753899,43.396625],[88.641538,43.353922],[88.555037,43.342549],[88.53261,43.352027],[88.523457,43.262585],[88.482494,43.242139],[88.430776,43.197427],[88.351597,43.227093],[88.310177,43.212188],[88.247932,43.224609],[88.21887,43.271345],[88.225048,43.325193],[88.164634,43.331028],[88.045408,43.318045],[87.99964,43.300245],[87.974697,43.313815],[87.886135,43.29864],[87.752492,43.298056],[87.587727,43.260979],[87.36804,43.281272],[87.393899,43.184124],[87.385203,43.123565],[87.414266,43.105562],[87.487953,43.10278],[87.597567,43.040089],[87.634411,43.036572],[87.638072,42.998162],[87.755925,42.961196],[87.815424,42.925382],[87.862565,42.884551],[87.931675,42.854426],[87.941515,42.827815],[87.882245,42.829873],[87.789336,42.872209],[87.758213,42.898948],[87.66805,42.903207],[87.569649,42.899095],[87.538069,42.908201],[87.52594,42.865155],[87.543103,42.8459],[87.509235,42.795601],[87.544019,42.777796],[87.589558,42.778826],[87.691392,42.760721],[87.841054,42.768229],[87.9049,42.704018],[87.913139,42.659355],[87.947922,42.635906],[87.981104,42.640478],[88.031449,42.604035],[88.128935,42.572296],[88.166008,42.547927],[88.202393,42.501674],[88.176534,42.439556],[88.122299,42.371302],[88.003531,42.329218],[87.898264,42.248675],[87.923436,42.177985],[87.997581,42.069867],[88.138775,42.004193],[88.168754,41.945013],[88.19324,41.926965],[88.215437,41.871296],[88.293929,41.822752],[88.341986,41.76804],[88.347936,41.67016],[88.33718,41.641246],[88.347478,41.533567],[88.307889,41.513902],[88.318873,41.493179],[88.406519,41.459828],[88.563275,41.477858],[88.735363,41.475003],[88.835824,41.440892],[88.859624,41.42195],[88.990063,41.419394],[89.017753,41.426912],[89.082057,41.409921],[89.204029,41.361178],[89.282979,41.393076],[89.33607,41.389766],[89.338816,41.404807],[89.399001,41.396385],[89.45644,41.375022],[89.460788,41.359824],[89.558045,41.3678],[89.616629,41.355158],[89.698096,41.366596],[89.743635,41.344622],[89.785742,41.34974],[89.834256,41.377129],[89.960347,41.357416],[90.108636,41.252883],[90.315279,41.24248],[90.399721,41.234187],[90.54023,41.250018],[90.65465,41.237052],[90.69996,41.239314],[90.780512,41.225743],[90.905917,41.227552],[90.966331,41.245797],[91.092651,41.251375],[91.194485,41.226497],[91.446667,41.197687],[91.641182,41.226949],[91.765214,41.267202],[91.840273,41.281066],[91.910299,41.271422]]]]}},{"type":"Feature","properties":{"adcode":650500,"name":"哈密市","center":[93.51316,42.833248],"centroid":[93.512835,43.0655],"childrenNum":3,"level":"city","parent":{"adcode":650000},"subFeatureIndex":3,"acroutes":[100000,650000]},"geometry":{"type":"MultiPolygon","coordinates":[[[[91.518752,45.096928],[91.501818,45.030931],[91.543925,44.981454],[91.569097,44.894873],[91.530423,44.855656],[91.40662,44.76248],[91.387169,44.736563],[91.402501,44.624788],[91.361768,44.553819],[91.348953,44.549961],[91.344376,44.471604],[91.302956,44.432958],[91.287623,44.375515],[91.332934,44.28013],[91.334993,44.174668],[91.319432,44.049997],[91.307075,44.008911],[91.419664,43.927519],[91.435912,43.909464],[91.511429,43.870882],[91.525618,43.816652],[91.563147,43.769468],[91.563834,43.745572],[91.492436,43.726158],[91.366344,43.705144],[91.470925,43.675277],[91.501589,43.649167],[91.553994,43.643364],[91.495182,43.629433],[91.474815,43.605336],[91.396094,43.585151],[91.317144,43.586313],[91.295861,43.546504],[91.225607,43.540255],[91.174805,43.524991],[91.169084,43.49518],[91.15398,43.472048],[91.16588,43.442356],[91.204554,43.423282],[91.225836,43.3822],[91.209131,43.356255],[91.259018,43.334236],[91.255128,43.295138],[91.313025,43.135126],[91.347351,43.102048],[91.384652,42.972787],[91.416232,42.835461],[91.408909,42.789716],[91.429047,42.727295],[91.407307,42.671298],[91.412113,42.618792],[91.431106,42.579531],[91.447354,42.49443],[91.448269,42.438372],[91.472984,42.295411],[91.464288,42.246003],[91.503649,42.202795],[91.637521,42.140529],[91.632715,42.075225],[91.696104,42.064508],[91.737066,42.011046],[91.808693,41.841577],[91.855377,41.74336],[91.833408,41.690377],[91.82128,41.57393],[91.784436,41.558778],[91.785581,41.508947],[91.823797,41.498585],[91.889932,41.401799],[91.905264,41.399694],[91.910299,41.271422],[92.023346,41.272476],[92.070029,41.264187],[92.177356,41.222727],[92.373243,41.165543],[92.505513,41.142897],[92.535949,41.120847],[92.66204,41.115258],[92.742821,41.125228],[92.863191,41.112992],[92.99569,41.079749],[93.062054,41.048757],[93.102101,41.041045],[93.200731,40.990968],[93.261374,40.986276],[93.348333,40.993995],[93.556807,40.957511],[93.696629,40.875388],[93.809905,40.87933],[93.908307,40.9834],[94.010827,41.114805],[94.18406,41.268558],[94.534186,41.505944],[94.750211,41.53837],[94.80971,41.619365],[94.861886,41.668512],[94.968754,41.718819],[95.011319,41.726302],[95.136266,41.772826],[95.164871,41.73528],[95.199426,41.719418],[95.194162,41.695018],[95.250228,41.609021],[95.306752,41.57168],[95.335357,41.644243],[95.394398,41.693521],[95.510191,41.756374],[95.571521,41.796],[95.677245,41.83097],[95.855741,41.849643],[95.883888,41.867862],[96.038356,41.924727],[96.115933,41.98482],[96.139046,42.054236],[96.077259,42.149598],[96.178406,42.217943],[96.041102,42.326549],[96.066045,42.414543],[95.978628,42.436744],[96.017531,42.482158],[96.02371,42.542462],[96.072453,42.569343],[96.103575,42.604183],[96.166278,42.623366],[96.386193,42.727737],[96.363538,42.900564],[95.921418,43.229722],[95.879769,43.280104],[95.858029,43.417602],[95.735599,43.597495],[95.70585,43.670926],[95.645207,43.787854],[95.62301,43.855703],[95.526897,44.007469],[95.426436,44.009488],[95.377693,44.02607],[95.326661,44.028809],[95.351834,44.090048],[95.355953,44.165895],[95.376091,44.227423],[95.410646,44.245093],[95.430097,44.281709],[95.413621,44.298646],[94.998732,44.253136],[94.945413,44.292762],[94.826187,44.320168],[94.768061,44.340535],[94.722751,44.340822],[94.67355,44.396866],[94.606042,44.448276],[94.557299,44.462589],[94.470797,44.509508],[94.390932,44.521947],[94.358894,44.515657],[94.329831,44.582674],[94.279944,44.603806],[94.215411,44.668155],[94.15248,44.685122],[94.066207,44.732147],[93.723861,44.865321],[93.71608,44.894447],[93.613331,44.92654],[93.509437,44.968262],[93.434378,44.95521],[93.376939,44.985425],[93.314923,44.995068],[93.313779,44.980461],[93.173957,45.015199],[93.100041,45.007403],[93.062283,45.018318],[93.002098,45.010096],[92.932988,45.017325],[92.884245,45.0468],[92.847859,45.038582],[92.779436,45.050624],[92.684009,45.025829],[92.547849,45.018318],[92.500936,45.001165],[92.414206,45.018459],[92.348986,45.014065],[92.315347,45.028947],[92.240287,45.015908],[92.100236,45.081497],[92.044857,45.08447],[91.905722,45.078666],[91.803201,45.082772],[91.69496,45.065355],[91.561545,45.075551],[91.518752,45.096928]]]]}},{"type":"Feature","properties":{"adcode":652300,"name":"昌吉回族自治州","center":[87.304012,44.014577],"centroid":[89.791022,44.351372],"childrenNum":7,"level":"city","parent":{"adcode":650000},"subFeatureIndex":4,"acroutes":[100000,650000]},"geometry":{"type":"MultiPolygon","coordinates":[[[[90.671355,45.487654],[90.494919,45.42028],[90.481646,45.397335],[90.379583,45.276968],[90.353267,45.23067],[90.292166,45.177267],[90.251204,45.087727],[90.22237,45.064364],[90.23816,45.001732],[88.004446,45.002015],[87.989114,44.961169],[87.802151,44.378238],[87.794828,44.329205],[87.81611,44.288599],[87.818627,44.225268],[87.774232,44.11726],[87.824348,44.123306],[87.85959,44.09624],[87.866226,44.063975],[87.958449,44.009199],[87.996894,43.994632],[88.018405,43.937482],[88.018405,43.874496],[88.06486,43.854257],[88.090719,43.81318],[88.132826,43.817086],[88.138318,43.756869],[88.169898,43.772074],[88.21086,43.758897],[88.259146,43.786985],[88.247246,43.80334],[88.282487,43.830974],[88.315669,43.790604],[88.33924,43.801459],[88.413842,43.791617],[88.460068,43.807681],[88.512015,43.858016],[88.531466,43.801314],[88.600118,43.803919],[88.626893,43.765703],[88.693485,43.759621],[88.723006,43.742964],[88.704927,43.708913],[88.758476,43.706449],[88.835138,43.720797],[88.936285,43.63248],[88.999903,43.607078],[89.078853,43.594445],[89.138123,43.600254],[89.189154,43.580793],[89.199223,43.539673],[89.226913,43.526445],[89.280233,43.552753],[89.31433,43.536185],[89.326001,43.501434],[89.375659,43.490962],[89.398086,43.449344],[89.519142,43.44978],[89.550265,43.433184],[89.624638,43.427505],[89.67956,43.410319],[89.749127,43.426922],[89.758739,43.463899],[89.896958,43.466227],[89.920071,43.452837],[89.964695,43.473794],[89.966755,43.492562],[90.014125,43.490671],[90.016184,43.516704],[90.057147,43.519903],[90.17294,43.55348],[90.21253,43.535022],[90.269969,43.53226],[90.318025,43.504925],[90.361505,43.515686],[90.385304,43.498525],[90.420546,43.526881],[90.555104,43.501434],[90.635198,43.502307],[90.686916,43.523101],[90.760145,43.517867],[90.790124,43.528044],[90.843443,43.522229],[90.881202,43.532842],[90.948939,43.504489],[91.003632,43.515104],[91.017591,43.495325],[91.104551,43.494744],[91.129952,43.483833],[91.169084,43.49518],[91.174805,43.524991],[91.225607,43.540255],[91.295861,43.546504],[91.317144,43.586313],[91.396094,43.585151],[91.474815,43.605336],[91.495182,43.629433],[91.553994,43.643364],[91.501589,43.649167],[91.470925,43.675277],[91.366344,43.705144],[91.492436,43.726158],[91.563834,43.745572],[91.563147,43.769468],[91.525618,43.816652],[91.511429,43.870882],[91.435912,43.909464],[91.419664,43.927519],[91.307075,44.008911],[91.319432,44.049997],[91.334993,44.174668],[91.332934,44.28013],[91.287623,44.375515],[91.302956,44.432958],[91.344376,44.471604],[91.348953,44.549961],[91.361768,44.553819],[91.402501,44.624788],[91.387169,44.736563],[91.40662,44.76248],[91.530423,44.855656],[91.569097,44.894873],[91.543925,44.981454],[91.501818,45.030931],[91.518752,45.096928],[91.449185,45.156627],[91.429276,45.156627],[91.377329,45.11108],[91.335222,45.129614],[91.242084,45.137394],[91.196087,45.159031],[91.170914,45.199454],[91.129723,45.215982],[91.050544,45.208919],[91.00798,45.218383],[90.961525,45.201432],[90.881889,45.191823],[90.866785,45.209343],[90.89745,45.249871],[90.877083,45.280918],[90.831773,45.300385],[90.804998,45.294884],[90.813008,45.328585],[90.774105,45.405923],[90.772274,45.432805],[90.671355,45.487654]]],[[[87.59116,44.533383],[87.575141,44.583531],[87.575141,44.583531],[87.58132,44.596525],[87.555461,44.665873],[87.336231,45.001874],[87.336918,45.330559],[86.487003,45.332532],[85.666838,45.331123],[85.670729,45.278097],[85.668898,44.9193],[85.781488,44.922849],[85.868447,44.86589],[85.891331,44.813141],[85.942134,44.759633],[85.906892,44.736563],[85.955635,44.638629],[85.988588,44.637773],[86.01788,44.603378],[86.068225,44.601807],[86.06525,44.564105],[86.084015,44.490345],[86.130927,44.463447],[86.122689,44.448992],[86.127037,44.374225],[86.141683,44.32734],[86.123833,44.266204],[86.128868,44.211472],[86.096144,44.125897],[86.038018,44.062102],[85.967535,44.003575],[85.955407,43.967074],[85.965018,43.931706],[85.91925,43.934306],[85.883779,43.920586],[85.786293,43.839507],[85.767757,43.791183],[85.779199,43.763676],[85.739152,43.731809],[85.719701,43.678758],[85.719701,43.638575],[85.697274,43.619272],[85.665008,43.622901],[85.579879,43.539528],[85.5975,43.530806],[85.651277,43.522956],[85.690638,43.484124],[85.720845,43.484415],[85.787209,43.450363],[85.842588,43.437697],[85.863413,43.445996],[85.929776,43.430417],[85.989046,43.403036],[86.090423,43.431728],[86.121545,43.371561],[86.153354,43.359754],[86.166169,43.306811],[86.243746,43.288278],[86.293175,43.24433],[86.380364,43.226508],[86.486317,43.142149],[86.61607,43.114198],[86.64559,43.09707],[86.692731,43.118589],[86.741245,43.099559],[86.797998,43.112442],[86.844681,43.159703],[86.815161,43.171403],[86.85475,43.211458],[86.895942,43.302726],[86.922716,43.325047],[86.940108,43.367188],[86.904867,43.393129],[86.900976,43.429398],[86.97123,43.474231],[86.997318,43.530952],[87.102814,43.596188],[87.169635,43.679628],[87.202588,43.698186],[87.222497,43.740212],[87.278563,43.800446],[87.280852,43.865968],[87.262545,43.923764],[87.28703,43.959569],[87.383144,44.044233],[87.404426,44.046827],[87.404426,44.046827],[87.46278,44.078813],[87.504658,44.066424],[87.493674,44.107615],[87.521592,44.150935],[87.506489,44.167765],[87.523423,44.227279],[87.471934,44.283145],[87.489783,44.303525],[87.423877,44.351433],[87.430056,44.408469],[87.449279,44.443552],[87.406943,44.529381],[87.370557,44.566963],[87.514498,44.548818],[87.501912,44.594812],[87.554774,44.580532],[87.59116,44.533383]]]]}},{"type":"Feature","properties":{"adcode":652700,"name":"博尔塔拉蒙古自治州","center":[82.074778,44.903258],"centroid":[82.91122,44.549726],"childrenNum":4,"level":"city","parent":{"adcode":650000},"subFeatureIndex":5,"acroutes":[100000,650000]},"geometry":{"type":"MultiPolygon","coordinates":[[[[82.172213,44.713627],[82.155736,44.770879],[82.184341,44.790093],[82.177476,44.806882],[82.173128,44.80802],[82.157109,44.806882],[82.139717,44.801334],[82.061454,44.762195],[82.056648,44.78127],[81.993946,44.762053],[82.001269,44.745536],[81.968544,44.72303],[81.94566,44.684694],[81.978613,44.692535],[82.012482,44.674999],[82.011566,44.63335],[81.978384,44.634634],[81.960764,44.584816],[81.984105,44.569962],[82.082507,44.570534],[82.08388,44.514656],[81.978384,44.482906],[82.002184,44.456005],[81.903096,44.436394],[81.838334,44.438256],[81.751603,44.347131],[81.777691,44.352006],[81.834901,44.327484],[82.032391,44.285442],[82.082736,44.291757],[82.167636,44.263476],[82.283658,44.249115],[82.36032,44.265343],[82.402197,44.215927],[82.444991,44.182434],[82.5379,44.156402],[82.57337,44.13669],[82.672916,44.114237],[82.705411,44.071178],[82.781158,44.085871],[82.899697,44.053312],[82.945923,44.083566],[83.126707,44.092928],[83.243416,44.073195],[83.238381,44.043512],[83.263554,44.041206],[83.310466,44.008334],[83.399485,44.014823],[83.429921,44.006171],[83.468824,44.036882],[83.448457,44.076508],[83.445482,44.121723],[83.412071,44.168916],[83.448915,44.254285],[83.439761,44.282571],[83.486216,44.317442],[83.489877,44.367346],[83.531526,44.414915],[83.517567,44.467597],[83.602924,44.462875],[83.63931,44.474751],[83.752815,44.46173],[83.79332,44.466739],[83.791947,44.520375],[83.745492,44.552962],[83.75968,44.633207],[83.794464,44.719469],[83.795837,44.756785],[83.730389,44.801049],[83.701784,44.853951],[83.666313,44.888339],[83.600178,44.894163],[83.573862,44.931225],[83.513448,44.939316],[83.474087,44.976064],[83.391476,44.980887],[83.263554,44.998329],[83.09444,45.028947],[83.002675,45.050766],[82.855531,45.100891],[82.757816,45.152102],[82.683214,45.153799],[82.680696,45.138526],[82.615477,45.109099],[82.588245,45.038582],[82.656439,44.944425],[82.679552,44.871432],[82.738822,44.858641],[82.735847,44.827364],[82.674518,44.792797],[82.666737,44.770025],[82.596483,44.722888],[82.543163,44.709067],[82.539959,44.682271],[82.447737,44.688258],[82.393959,44.669724],[82.358947,44.66844],[82.250934,44.691537],[82.23583,44.6817],[82.19235,44.662308],[82.156651,44.669581],[82.128962,44.637773],[82.080905,44.64405],[82.084338,44.666444],[82.126216,44.680702],[82.172213,44.713627]]],[[[82.145667,44.89672],[82.130564,44.925121],[82.063971,44.933638],[82.045892,44.972802],[81.993946,44.961169],[81.940397,45.010238],[82.058936,45.041274],[82.133767,45.037165],[82.20036,44.984291],[82.275191,45.03008],[82.287319,45.050624],[82.272902,45.091407],[82.295786,45.106693],[82.235144,45.124239],[82.222786,45.148426],[82.161457,45.226292],[82.10951,45.21132],[82.09578,45.24973],[82.052987,45.2558],[81.99303,45.238153],[81.920717,45.233353],[81.879754,45.284163],[81.832384,45.319845],[81.787989,45.383676],[81.73055,45.363252],[81.69897,45.369028],[81.582719,45.33662],[81.575396,45.307859],[81.541985,45.307154],[81.528484,45.285997],[81.449762,45.265679],[81.413148,45.280918],[81.382254,45.257634],[81.32779,45.260881],[81.28454,45.239],[81.236941,45.247189],[81.174925,45.227845],[81.170119,45.210897],[81.111307,45.218383],[81.080871,45.18292],[81.024577,45.162848],[80.965993,45.168644],[80.906266,45.131171],[80.8621,45.127068],[80.816332,45.152809],[80.770563,45.153092],[80.726626,45.176984],[80.73166,45.156203],[80.686121,45.129049],[80.599162,45.105702],[80.519296,45.108674],[80.493666,45.127068],[80.445838,45.097777],[80.444237,45.077533],[80.404418,45.049491],[80.358192,45.040708],[80.328214,45.070028],[80.291829,45.065921],[80.254756,45.035182],[80.195716,45.030789],[80.161389,45.056007],[80.11196,45.052749],[79.944677,44.93818],[79.887925,44.909218],[79.969163,44.877542],[79.953831,44.849544],[79.997768,44.824093],[79.99937,44.793793],[80.087703,44.816982],[80.11585,44.815275],[80.170085,44.844569],[80.187935,44.825799],[80.227753,44.825088],[80.262766,44.843573],[80.311051,44.811576],[80.348581,44.805175],[80.397324,44.771733],[80.482911,44.739412],[80.590008,44.723743],[80.636005,44.73115],[80.638293,44.710635],[80.691842,44.674144],[80.66072,44.637202],[80.707632,44.601807],[80.755002,44.61023],[80.843564,44.568391],[80.873771,44.563677],[80.890018,44.52981],[80.99826,44.535527],[81.048376,44.50336],[81.112222,44.506792],[81.211311,44.462875],[81.358455,44.44255],[81.425734,44.440546],[81.459603,44.450996],[81.591415,44.41649],[81.618647,44.427374],[81.650913,44.38655],[81.700114,44.394287],[81.713845,44.365769],[81.751603,44.347131],[81.838334,44.438256],[81.903096,44.436394],[82.002184,44.456005],[81.978384,44.482906],[82.08388,44.514656],[82.082507,44.570534],[81.984105,44.569962],[81.960764,44.584816],[81.978384,44.634634],[82.011566,44.63335],[82.012482,44.674999],[81.978613,44.692535],[81.94566,44.684694],[81.968544,44.72303],[82.001269,44.745536],[81.993946,44.762053],[82.056648,44.78127],[82.061454,44.762195],[82.139717,44.801334],[82.157109,44.806882],[82.173128,44.80802],[82.177476,44.806882],[82.184341,44.790093],[82.155736,44.770879],[82.172213,44.713627],[82.192579,44.752229],[82.239263,44.724028],[82.277937,44.743827],[82.271072,44.766324],[82.206996,44.821248],[82.150015,44.833905],[82.122096,44.806313],[82.083422,44.837602],[82.100814,44.857504],[82.138115,44.843005],[82.162372,44.864326],[82.088915,44.879247],[82.07999,44.895584],[82.138344,44.88493],[82.145667,44.89672]]],[[[82.277937,44.743827],[82.239263,44.724028],[82.23583,44.6817],[82.250934,44.691537],[82.358947,44.66844],[82.347276,44.691252],[82.393959,44.669724],[82.447737,44.688258],[82.539959,44.682271],[82.543163,44.709067],[82.542934,44.740124],[82.499912,44.740836],[82.347047,44.799769],[82.312721,44.80361],[82.268097,44.832625],[82.206996,44.821248],[82.271072,44.766324],[82.277937,44.743827]]],[[[82.130564,44.925121],[82.145667,44.89672],[82.223244,44.889192],[82.278395,44.860631],[82.3562,44.901833],[82.446364,44.883509],[82.49648,44.884219],[82.49648,44.903395],[82.539502,44.902685],[82.656439,44.944425],[82.588245,45.038582],[82.525771,45.08532],[82.454144,45.068895],[82.438812,45.006977],[82.275191,45.03008],[82.20036,44.984291],[82.211115,44.94329],[82.200589,44.91788],[82.130564,44.925121]]],[[[82.582753,45.219089],[82.486868,45.181083],[82.344758,45.218948],[82.294413,45.247754],[82.161457,45.226292],[82.222786,45.148426],[82.235144,45.124239],[82.295786,45.106693],[82.454144,45.068895],[82.525771,45.08532],[82.588245,45.038582],[82.615477,45.109099],[82.680696,45.138526],[82.683214,45.153799],[82.582753,45.219089]]]]}},{"type":"Feature","properties":{"adcode":652800,"name":"巴音郭楞蒙古自治州","center":[86.150969,41.768552],"centroid":[87.681908,39.239339],"childrenNum":9,"level":"city","parent":{"adcode":650000},"subFeatureIndex":6,"acroutes":[100000,650000]},"geometry":{"type":"MultiPolygon","coordinates":[[[[85.894993,41.821856],[85.792701,41.82589],[85.73961,41.756374],[85.773021,41.72705],[85.785836,41.664468],[85.726795,41.661472],[85.703682,41.684237],[85.705513,41.745903],[85.526101,41.740218],[85.491089,41.754579],[85.357675,41.747399],[85.367973,41.826488],[85.498412,41.866369],[85.512142,41.914581],[85.437311,41.932036],[85.408706,41.94203],[85.262477,41.971106],[85.26385,42.034581],[85.340969,42.109447],[85.335706,42.177242],[85.293142,42.21527],[85.263621,42.211261],[85.265223,42.283545],[85.155608,42.278946],[85.110984,42.301047],[85.020821,42.296746],[84.899536,42.356783],[84.844614,42.358561],[84.835231,42.329662],[84.773673,42.30772],[84.75857,42.35945],[84.601585,42.389224],[84.495632,42.432897],[84.429497,42.443699],[84.324688,42.443403],[84.232007,42.424905],[84.154202,42.457162],[84.121477,42.484524],[84.056029,42.502118],[84.002938,42.501231],[83.947101,42.531972],[83.932226,42.500196],[83.938405,42.415727],[83.932455,42.373821],[83.96312,42.356783],[83.974104,42.294521],[83.948016,42.268857],[83.880279,42.261735],[83.880737,42.186454],[83.924674,42.14603],[83.938405,42.074332],[83.980054,41.985863],[83.987606,41.93323],[83.96701,41.873984],[83.964264,41.809004],[83.929709,41.774919],[83.906596,41.685885],[83.900646,41.597626],[83.918267,41.56883],[83.953051,41.558778],[83.94733,41.528314],[83.975706,41.505944],[84.015295,41.445401],[84.029255,41.348536],[84.022847,41.233434],[84.034518,41.168864],[84.08738,41.120847],[84.058775,41.082318],[84.073192,40.924038],[84.067471,40.77707],[84.060377,40.677846],[84.012092,40.113142],[84.009574,40.037654],[83.951906,39.956396],[83.414817,39.483227],[83.395137,39.321629],[83.387814,38.98344],[83.38667,38.388217],[83.502692,38.281581],[83.648921,38.187713],[83.747781,38.115339],[83.819179,38.048104],[83.885543,37.947294],[83.938405,37.832252],[83.932455,37.78552],[83.963577,37.6534],[83.989894,37.612273],[83.987377,37.514525],[83.974104,37.481913],[83.975706,37.410437],[83.894467,37.349732],[83.862201,37.291211],[83.79126,37.250203],[83.855336,37.117773],[83.860828,37.070112],[83.82101,36.963326],[83.858311,36.867459],[83.833138,36.83232],[83.914148,36.766974],[83.991038,36.76858],[84.013693,36.739502],[84.084634,36.69498],[84.167932,36.69482],[84.201114,36.660728],[84.251917,36.643837],[84.302719,36.611171],[84.346428,36.545636],[84.341851,36.490525],[84.322857,36.478757],[84.308211,36.42263],[84.35581,36.397779],[84.346885,36.364524],[84.363362,36.311223],[84.410274,36.309931],[84.416682,36.276639],[84.537739,36.269364],[84.570463,36.225704],[84.618519,36.220042],[84.637284,36.192214],[84.673441,36.182828],[84.681222,36.142844],[84.775046,36.102353],[84.84347,36.09895],[84.873677,35.984486],[84.861319,35.945212],[84.914182,35.854418],[84.917614,35.77442],[84.986266,35.725113],[85.053088,35.751968],[85.15927,35.745458],[85.271173,35.788735],[85.341198,35.753432],[85.374151,35.700367],[85.519694,35.679196],[85.566149,35.640423],[85.613747,35.652317],[85.653337,35.731299],[85.803228,35.778325],[85.835494,35.772306],[85.903917,35.784343],[85.948999,35.778813],[86.031611,35.844179],[86.059987,35.845805],[86.126122,35.931738],[86.132758,35.979456],[86.173263,36.008009],[86.200037,36.0479],[86.179899,36.075941],[86.190197,36.13248],[86.247178,36.1409],[86.280132,36.170851],[86.358166,36.168747],[86.39295,36.206939],[86.455195,36.221175],[86.515609,36.205321],[86.532085,36.227321],[86.599364,36.222307],[86.700054,36.244788],[86.746051,36.291994],[86.836214,36.291347],[86.862989,36.299912],[86.887246,36.262898],[86.931641,36.265485],[86.996174,36.308638],[87.056588,36.297165],[87.086337,36.310739],[87.149497,36.297488],[87.193435,36.349345],[87.292294,36.359035],[87.348131,36.393098],[87.361861,36.41908],[87.424106,36.425856],[87.460263,36.409882],[87.470332,36.354352],[87.570564,36.342401],[87.619994,36.360326],[87.731897,36.384866],[87.768511,36.374696],[87.919546,36.393582],[87.958449,36.40843],[87.982935,36.437794],[88.092321,36.435375],[88.134656,36.427147],[88.182484,36.452634],[88.22276,36.447634],[88.241525,36.468599],[88.365557,36.457794],[88.378829,36.483271],[88.410867,36.473275],[88.470594,36.482303],[88.498742,36.446182],[88.573115,36.461181],[88.617968,36.427954],[88.623689,36.389386],[88.690053,36.368077],[88.725065,36.319625],[88.783191,36.291832],[88.801727,36.337232],[88.925987,36.364363],[88.948871,36.329318],[89.013405,36.315424],[89.102652,36.280195],[89.128054,36.249639],[89.198994,36.260311],[89.232176,36.295711],[89.29854,36.228615],[89.375431,36.22813],[89.490309,36.151101],[89.594431,36.126326],[89.615027,36.109643],[89.707936,36.09733],[89.761714,36.073186],[89.819153,36.080803],[89.912748,36.079344],[89.941353,36.067514],[89.937234,36.130051],[90.00909,36.184285],[90.028084,36.258371],[90.145708,36.238966],[90.12763,36.215028],[90.253492,36.157415],[90.330383,36.157091],[90.423978,36.133937],[90.479587,36.132318],[90.526957,36.148511],[90.615518,36.126488],[90.662888,36.133937],[90.776393,36.086312],[90.815983,36.03574],[90.846876,36.016929],[90.922622,36.02893],[90.9645,36.095224],[90.994936,36.107861],[91.092422,36.088743],[91.124689,36.115474],[91.091507,36.161301],[91.098601,36.216807],[91.053977,36.235408],[91.074115,36.29765],[91.026516,36.323664],[91.052604,36.426502],[91.028347,36.443279],[91.035898,36.530009],[90.906832,36.559489],[90.832917,36.558039],[90.813008,36.585576],[90.740923,36.585898],[90.735431,36.633379],[90.706139,36.661049],[90.722158,36.710092],[90.755111,36.721182],[90.727192,36.756051],[90.7336,36.827345],[90.789208,36.845639],[90.813694,36.881895],[90.87365,36.920537],[90.983723,36.913644],[91.037043,36.929514],[91.051688,36.967331],[91.113018,36.970535],[91.133613,37.007692],[91.190824,37.024662],[91.214623,37.010414],[91.305702,37.012815],[91.29014,37.047391],[91.303184,37.08515],[91.287623,37.103542],[91.2803,37.163807],[91.191052,37.20582],[91.194485,37.273662],[91.134758,37.324224],[91.137046,37.353079],[91.110043,37.398332],[91.097457,37.450402],[91.056952,37.483823],[91.000428,37.494482],[90.940701,37.480481],[90.911638,37.519614],[90.86587,37.530586],[90.882575,37.575732],[90.776164,37.650543],[90.644123,37.697202],[90.586684,37.703072],[90.579361,37.72052],[90.519634,37.730829],[90.51643,38.207253],[90.530847,38.319819],[90.402239,38.311323],[90.361734,38.300152],[90.352809,38.23356],[90.280724,38.238127],[90.137699,38.340581],[90.179119,38.397018],[90.128316,38.400161],[90.11184,38.419015],[90.110696,38.473036],[90.130834,38.494226],[90.251433,38.491401],[90.315279,38.501915],[90.355784,38.481513],[90.426953,38.493912],[90.463568,38.520115],[90.463568,38.556658],[90.535653,38.567947],[90.643208,38.640809],[90.619637,38.664454],[90.653048,38.674317],[90.728108,38.657565],[90.831086,38.668055],[90.965416,38.696855],[90.992876,38.694977],[91.188764,38.731118],[91.250093,38.752857],[91.301582,38.747697],[91.446439,38.813502],[91.50136,38.815377],[91.613263,38.838964],[91.692442,38.86551],[91.777113,38.862544],[91.878719,38.882681],[91.878948,38.897664],[91.990393,38.938693],[92.171177,38.960524],[92.193375,38.981725],[92.256763,39.000739],[92.380109,38.999959],[92.418325,39.013048],[92.389262,39.059616],[92.351275,39.0839],[92.366149,39.096039],[92.344409,39.144107],[92.340061,39.238127],[92.38171,39.260176],[92.525422,39.368613],[92.639843,39.514326],[92.68767,39.657418],[92.745567,39.868271],[92.796599,40.153919],[92.9069,40.310669],[92.92063,40.39181],[92.928411,40.572686],[93.506462,40.648491],[93.760704,40.664919],[93.821118,40.79377],[93.809905,40.87933],[93.696629,40.875388],[93.556807,40.957511],[93.348333,40.993995],[93.261374,40.986276],[93.200731,40.990968],[93.102101,41.041045],[93.062054,41.048757],[92.99569,41.079749],[92.863191,41.112992],[92.742821,41.125228],[92.66204,41.115258],[92.535949,41.120847],[92.505513,41.142897],[92.373243,41.165543],[92.177356,41.222727],[92.070029,41.264187],[92.023346,41.272476],[91.910299,41.271422],[91.840273,41.281066],[91.765214,41.267202],[91.641182,41.226949],[91.446667,41.197687],[91.194485,41.226497],[91.092651,41.251375],[90.966331,41.245797],[90.905917,41.227552],[90.780512,41.225743],[90.69996,41.239314],[90.65465,41.237052],[90.54023,41.250018],[90.399721,41.234187],[90.315279,41.24248],[90.108636,41.252883],[89.960347,41.357416],[89.834256,41.377129],[89.785742,41.34974],[89.743635,41.344622],[89.698096,41.366596],[89.616629,41.355158],[89.558045,41.3678],[89.460788,41.359824],[89.45644,41.375022],[89.399001,41.396385],[89.338816,41.404807],[89.33607,41.389766],[89.282979,41.393076],[89.204029,41.361178],[89.082057,41.409921],[89.017753,41.426912],[88.990063,41.419394],[88.859624,41.42195],[88.835824,41.440892],[88.735363,41.475003],[88.563275,41.477858],[88.406519,41.459828],[88.318873,41.493179],[88.307889,41.513902],[88.347478,41.533567],[88.33718,41.641246],[88.347936,41.67016],[88.341986,41.76804],[88.293929,41.822752],[88.215437,41.871296],[88.19324,41.926965],[88.168754,41.945013],[88.138775,42.004193],[87.997581,42.069867],[87.923436,42.177985],[87.898264,42.248675],[88.003531,42.329218],[88.122299,42.371302],[88.176534,42.439556],[88.202393,42.501674],[88.166008,42.547927],[88.128935,42.572296],[88.031449,42.604035],[87.981104,42.640478],[87.947922,42.635906],[87.913139,42.659355],[87.9049,42.704018],[87.841054,42.768229],[87.691392,42.760721],[87.589558,42.778826],[87.544019,42.777796],[87.509235,42.795601],[87.456144,42.800015],[87.444473,42.783094],[87.400535,42.791776],[87.377194,42.770437],[87.275588,42.77706],[87.225244,42.747618],[87.188171,42.769995],[87.161626,42.745704],[87.083133,42.739813],[87.015625,42.745409],[87.009218,42.678227],[86.978324,42.678079],[86.975578,42.645493],[87.00281,42.625432],[86.959102,42.604626],[86.95361,42.579236],[87.002353,42.500048],[87.039425,42.475947],[87.024321,42.450061],[86.922258,42.43778],[86.936904,42.460565],[86.908757,42.481567],[86.840333,42.450505],[86.842164,42.429049],[86.751086,42.417948],[86.704631,42.363599],[86.616298,42.302085],[86.634835,42.293186],[86.635063,42.2319],[86.675568,42.22804],[86.691129,42.208439],[86.691129,42.208439],[86.735067,42.169663],[86.691816,42.140826],[86.704631,42.103051],[86.620418,42.044707],[86.620418,42.044707],[86.578082,42.031602],[86.595474,41.96887],[86.552223,41.925473],[86.503251,41.922787],[86.521787,41.906076],[86.522931,41.850091],[86.44238,41.834705],[86.404392,41.861441],[86.362056,41.830522],[86.332765,41.818568],[86.099576,41.798392],[86.091109,41.771181],[85.888585,41.763853],[85.876685,41.778957],[85.894993,41.821856]]],[[[82.638132,42.597689],[82.722345,42.595918],[82.753468,42.624989],[82.826468,42.645198],[82.842029,42.613628],[82.81617,42.579088],[82.841571,42.568014],[82.924412,42.593556],[82.958738,42.630448],[82.992606,42.620858],[83.017092,42.587799],[83.078422,42.553688],[83.227855,42.583665],[83.29399,42.555018],[83.320993,42.569195],[83.353717,42.539064],[83.350742,42.508326],[83.435642,42.491178],[83.487589,42.469883],[83.64526,42.514978],[83.692401,42.513943],[83.713912,42.540689],[83.913461,42.523992],[83.947101,42.531972],[84.002938,42.501231],[84.056029,42.502118],[84.121477,42.484524],[84.154202,42.457162],[84.232007,42.424905],[84.324688,42.443403],[84.429497,42.443699],[84.495632,42.432897],[84.601585,42.389224],[84.75857,42.35945],[84.773673,42.30772],[84.835231,42.329662],[84.844614,42.358561],[84.899536,42.356783],[85.020821,42.296746],[85.110984,42.301047],[85.155608,42.278946],[85.265223,42.283545],[85.263621,42.211261],[85.293142,42.21527],[85.335706,42.177242],[85.340969,42.109447],[85.26385,42.034581],[85.262477,41.971106],[85.408706,41.94203],[85.443948,41.93845],[85.487427,42.197002],[85.638233,42.133987],[85.720616,42.083262],[85.760663,42.069718],[85.751738,42.037262],[85.858378,42.014622],[86.000488,42.018942],[86.017422,41.964994],[86.100949,41.918908],[86.113993,41.898465],[86.224294,41.908016],[86.362056,41.830522],[86.404392,41.861441],[86.44238,41.834705],[86.522931,41.850091],[86.521787,41.906076],[86.503251,41.922787],[86.552223,41.925473],[86.595474,41.96887],[86.578082,42.031602],[86.620418,42.044707],[86.620418,42.044707],[86.704631,42.103051],[86.691816,42.140826],[86.735067,42.169663],[86.691129,42.208439],[86.691129,42.208439],[86.675568,42.22804],[86.635063,42.2319],[86.634835,42.293186],[86.616298,42.302085],[86.704631,42.363599],[86.751086,42.417948],[86.842164,42.429049],[86.840333,42.450505],[86.908757,42.481567],[86.936904,42.460565],[86.922258,42.43778],[87.024321,42.450061],[87.039425,42.475947],[87.002353,42.500048],[86.95361,42.579236],[86.959102,42.604626],[87.00281,42.625432],[86.975578,42.645493],[86.978324,42.678079],[87.009218,42.678227],[87.015625,42.745409],[87.083133,42.739813],[87.161626,42.745704],[87.188171,42.769995],[87.225244,42.747618],[87.275588,42.77706],[87.377194,42.770437],[87.400535,42.791776],[87.444473,42.783094],[87.456144,42.800015],[87.509235,42.795601],[87.543103,42.8459],[87.52594,42.865155],[87.538069,42.908201],[87.497106,42.940062],[87.403053,42.96369],[87.345156,42.999775],[87.270096,43.032322],[87.111281,43.063093],[87.111052,43.046684],[87.054528,43.022941],[86.926378,43.051519],[86.912189,43.074665],[86.853835,43.083452],[86.797998,43.112442],[86.741245,43.099559],[86.692731,43.118589],[86.64559,43.09707],[86.61607,43.114198],[86.486317,43.142149],[86.380364,43.226508],[86.293175,43.24433],[86.243746,43.288278],[86.166169,43.306811],[86.153354,43.359754],[86.121545,43.371561],[86.090423,43.431728],[85.989046,43.403036],[85.929776,43.430417],[85.863413,43.445996],[85.842588,43.437697],[85.787209,43.450363],[85.720845,43.484415],[85.690638,43.484124],[85.651277,43.522956],[85.5975,43.530806],[85.519694,43.536185],[85.483537,43.498235],[85.434108,43.478887],[85.328154,43.486743],[85.31511,43.529207],[85.286734,43.502307],[85.241881,43.52092],[85.170483,43.510742],[85.156981,43.546795],[85.056292,43.563942],[85.020364,43.51365],[84.979859,43.47976],[84.950567,43.48427],[84.92425,43.425175],[84.834316,43.43595],[84.786717,43.465936],[84.716005,43.453128],[84.661541,43.491253],[84.633165,43.432747],[84.692893,43.40187],[84.676187,43.37229],[84.623554,43.338028],[84.552842,43.331757],[84.532246,43.292802],[84.538425,43.262877],[84.581447,43.266965],[84.564742,43.231037],[84.602501,43.228553],[84.653761,43.175351],[84.574124,43.168332],[84.540714,43.152974],[84.504328,43.164383],[84.423318,43.16175],[84.413707,43.102341],[84.359014,43.144197],[84.363133,43.15941],[84.279149,43.174912],[84.22949,43.171256],[84.104314,43.145514],[84.038866,43.146245],[84.043214,43.132199],[83.96312,43.156192],[83.912546,43.128102],[83.801558,43.133516],[83.758078,43.149317],[83.713226,43.137467],[83.679815,43.09751],[83.627639,43.08067],[83.56631,43.092385],[83.565852,43.07569],[83.504752,43.058845],[83.407037,43.052105],[83.361726,43.028218],[83.325112,43.047416],[83.2663,43.017957],[83.159889,43.006374],[83.135632,42.992149],[83.037688,42.996402],[83.013889,43.007107],[82.941575,42.987309],[82.892603,42.992296],[82.858963,42.971026],[82.82418,42.980269],[82.82418,42.954886],[82.789396,42.933897],[82.712505,42.951657],[82.653236,42.934337],[82.649345,42.88367],[82.576803,42.88558],[82.532637,42.901739],[82.512727,42.858541],[82.470392,42.843253],[82.480003,42.800603],[82.507006,42.799427],[82.599229,42.719635],[82.634242,42.651982],[82.621198,42.621005],[82.638132,42.597689]]],[[[85.792701,41.82589],[85.894993,41.821856],[86.099576,41.798392],[86.332765,41.818568],[86.362056,41.830522],[86.224294,41.908016],[86.113993,41.898465],[86.100949,41.918908],[86.017422,41.964994],[86.000488,42.018942],[85.858378,42.014622],[85.751738,42.037262],[85.760663,42.069718],[85.720616,42.083262],[85.638233,42.133987],[85.487427,42.197002],[85.443948,41.93845],[85.437311,41.932036],[85.512142,41.914581],[85.754484,41.852779],[85.792701,41.82589]]]]}},{"type":"Feature","properties":{"adcode":652900,"name":"阿克苏地区","center":[80.265068,41.170712],"centroid":[81.177098,41.477458],"childrenNum":9,"level":"city","parent":{"adcode":650000},"subFeatureIndex":7,"acroutes":[100000,650000]},"geometry":{"type":"MultiPolygon","coordinates":[[[[78.36499,40.009709],[78.442338,40.02614],[78.543486,40.061445],[78.550122,40.088295],[78.59795,40.107621],[78.605959,40.131694],[78.759969,40.187014],[78.807339,40.22591],[78.903681,40.257134],[79.003913,40.219786],[79.145108,40.256522],[79.238933,40.253002],[79.343055,40.241065],[79.497294,40.211824],[79.587228,40.175678],[79.731169,40.146716],[79.833461,40.131388],[79.86916,40.145643],[79.915386,40.386617],[79.853599,40.437151],[79.810348,40.491154],[79.864125,40.489629],[79.941016,40.44295],[79.975342,40.485207],[80.022026,40.500913],[80.037129,40.536885],[80.022941,40.592787],[80.050631,40.642405],[80.070997,40.631906],[80.087245,40.694571],[80.08038,40.750341],[80.052004,40.775096],[80.050402,40.828826],[80.136675,40.891912],[80.22455,40.883878],[80.249264,40.82473],[80.23622,40.784358],[80.2678,40.819723],[80.331876,40.850064],[80.397095,40.818964],[80.457967,40.773881],[80.520441,40.70202],[80.552707,40.687577],[80.553165,40.655032],[80.57971,40.666592],[80.592296,40.619884],[80.683375,40.666744],[80.725939,40.701412],[80.791846,40.703236],[80.867363,40.658987],[80.990479,40.702476],[81.140828,40.698979],[81.32985,40.762947],[81.32596,40.805154],[81.385687,40.825033],[81.457085,40.804699],[81.863506,40.944033],[81.884102,40.941004],[81.939482,40.991422],[81.999895,41.076726],[82.061454,41.126436],[82.181824,41.166599],[82.294642,41.23268],[82.359633,41.251677],[82.456661,41.255897],[82.520508,41.323694],[82.57932,41.342063],[82.583897,41.389164],[82.607696,41.457424],[82.636759,41.461331],[82.635844,41.503241],[82.729211,41.463885],[82.814111,41.461932],[82.848894,41.478759],[82.98391,41.408717],[83.015033,41.377881],[83.030823,41.289353],[83.069039,41.243234],[83.104967,41.224084],[83.146387,41.223631],[83.301312,41.124019],[83.390789,41.137914],[83.438159,41.06811],[83.485529,41.077028],[83.478893,41.135951],[83.589652,41.15724],[83.616655,41.10846],[83.682103,41.069924],[83.670432,41.036205],[83.696063,41.017448],[83.745263,41.031063],[83.778903,41.010337],[83.769978,40.976891],[83.848242,40.9563],[83.837257,40.913887],[83.85259,40.873114],[83.889662,40.833681],[83.929022,40.816688],[84.067471,40.77707],[84.073192,40.924038],[84.058775,41.082318],[84.08738,41.120847],[84.034518,41.168864],[84.022847,41.233434],[84.029255,41.348536],[84.015295,41.445401],[83.975706,41.505944],[83.94733,41.528314],[83.953051,41.558778],[83.918267,41.56883],[83.900646,41.597626],[83.906596,41.685885],[83.929709,41.774919],[83.964264,41.809004],[83.96701,41.873984],[83.987606,41.93323],[83.980054,41.985863],[83.938405,42.074332],[83.924674,42.14603],[83.880737,42.186454],[83.880279,42.261735],[83.948016,42.268857],[83.974104,42.294521],[83.96312,42.356783],[83.932455,42.373821],[83.938405,42.415727],[83.932226,42.500196],[83.947101,42.531972],[83.913461,42.523992],[83.713912,42.540689],[83.692401,42.513943],[83.64526,42.514978],[83.487589,42.469883],[83.435642,42.491178],[83.350742,42.508326],[83.353717,42.539064],[83.320993,42.569195],[83.29399,42.555018],[83.227855,42.583665],[83.078422,42.553688],[83.017092,42.587799],[82.992606,42.620858],[82.958738,42.630448],[82.924412,42.593556],[82.841571,42.568014],[82.81617,42.579088],[82.842029,42.613628],[82.826468,42.645198],[82.753468,42.624989],[82.722345,42.595918],[82.638132,42.597689],[82.62074,42.558562],[82.585499,42.543939],[82.407232,42.55162],[82.363752,42.538768],[82.366498,42.50404],[82.295329,42.48275],[82.230109,42.494578],[82.189147,42.467221],[82.142692,42.489256],[82.133538,42.440444],[82.07793,42.43852],[82.065344,42.420316],[81.984563,42.425793],[81.959848,42.402255],[81.867397,42.411138],[81.865795,42.384041],[81.820256,42.3833],[81.805152,42.405957],[81.751832,42.365525],[81.672196,42.369969],[81.66144,42.392186],[81.630775,42.373821],[81.582032,42.374117],[81.50949,42.352042],[81.478825,42.360636],[81.386602,42.354413],[81.352734,42.332331],[81.318637,42.357821],[81.285455,42.332479],[81.271267,42.343595],[81.195521,42.343595],[81.152498,42.323585],[81.160508,42.259954],[81.098263,42.291703],[81.048147,42.284732],[81.025263,42.342854],[80.985216,42.380634],[80.963018,42.361673],[80.898028,42.369228],[80.803974,42.339742],[80.761639,42.361525],[80.657287,42.366117],[80.62914,42.353375],[80.592296,42.366117],[80.531883,42.360932],[80.471469,42.321806],[80.415403,42.304754],[80.372381,42.326698],[80.324324,42.315134],[80.284048,42.32062],[80.27192,42.282061],[80.286565,42.233088],[80.233245,42.210221],[80.168712,42.20027],[80.163678,42.152422],[80.13965,42.151233],[80.168026,42.096802],[80.193427,42.081476],[80.142167,42.03473],[80.089762,42.047536],[79.923624,42.042325],[79.852683,42.015367],[79.854285,41.984224],[79.822705,41.963354],[79.776708,41.892495],[79.724761,41.896823],[79.641006,41.884733],[79.604849,41.849045],[79.551071,41.833958],[79.457018,41.847851],[79.407131,41.833062],[79.356557,41.795701],[79.325892,41.809452],[79.27692,41.78105],[79.219024,41.726452],[79.138014,41.72301],[79.114901,41.699959],[79.043274,41.681242],[79.021534,41.657278],[78.957688,41.651585],[78.891553,41.597776],[78.825189,41.560279],[78.738916,41.555628],[78.696809,41.541672],[78.705734,41.519307],[78.650583,41.467341],[78.580558,41.481613],[78.533875,41.445551],[78.454696,41.412327],[78.391765,41.408266],[78.5071,41.310442],[78.565912,41.288147],[78.711913,41.185616],[78.733881,41.161467],[78.762486,41.086097],[78.826333,40.994751],[78.875534,40.985216],[78.848531,40.915553],[78.861803,40.891609],[78.79727,40.861286],[78.748298,40.81866],[78.725643,40.822909],[78.570489,40.766137],[78.574151,40.700195],[78.605044,40.696699],[78.585593,40.637841],[78.523577,40.552579],[78.47163,40.52637],[78.373915,40.494966],[78.303661,40.455462],[78.205259,40.420362],[78.158576,40.387228],[78.15583,40.331155],[78.124707,40.287119],[78.091068,40.274882],[78.082143,40.231574],[78.055826,40.202483],[78.055369,40.140892],[78.03134,40.093818],[78.09267,40.060831],[78.161322,40.071573],[78.241187,40.060831],[78.313272,40.066049],[78.36499,40.009709]]],[[[80.592296,40.619884],[80.57971,40.666592],[80.553165,40.655032],[80.552707,40.687577],[80.520441,40.70202],[80.457967,40.773881],[80.397095,40.818964],[80.331876,40.850064],[80.2678,40.819723],[80.23622,40.784358],[80.249264,40.82473],[80.22455,40.883878],[80.136675,40.891912],[80.050402,40.828826],[80.052004,40.775096],[80.08038,40.750341],[80.087245,40.694571],[80.070997,40.631906],[80.050631,40.642405],[80.022941,40.592787],[80.037129,40.536885],[80.022026,40.500913],[79.975342,40.485207],[79.941016,40.44295],[79.864125,40.489629],[79.810348,40.491154],[79.853599,40.437151],[79.915386,40.386617],[79.86916,40.145643],[79.833461,40.131388],[79.841699,40.131388],[79.860006,40.013702],[79.837809,39.980523],[79.862981,39.957165],[79.846047,39.908887],[79.815382,39.882735],[79.788379,39.801909],[79.764351,39.622831],[80.162305,39.464034],[80.726855,39.477346],[81.062335,39.483381],[81.438092,39.484929],[81.955958,39.483691],[82.101272,39.485393],[82.585041,39.484],[83.151879,39.484465],[83.414817,39.483227],[83.951906,39.956396],[84.009574,40.037654],[84.012092,40.113142],[84.060377,40.677846],[84.067471,40.77707],[83.929022,40.816688],[83.889662,40.833681],[83.85259,40.873114],[83.837257,40.913887],[83.848242,40.9563],[83.769978,40.976891],[83.778903,41.010337],[83.745263,41.031063],[83.696063,41.017448],[83.670432,41.036205],[83.682103,41.069924],[83.616655,41.10846],[83.589652,41.15724],[83.478893,41.135951],[83.485529,41.077028],[83.438159,41.06811],[83.390789,41.137914],[83.301312,41.124019],[83.146387,41.223631],[83.104967,41.224084],[83.069039,41.243234],[83.030823,41.289353],[83.015033,41.377881],[82.98391,41.408717],[82.848894,41.478759],[82.814111,41.461932],[82.729211,41.463885],[82.635844,41.503241],[82.636759,41.461331],[82.607696,41.457424],[82.583897,41.389164],[82.57932,41.342063],[82.520508,41.323694],[82.456661,41.255897],[82.359633,41.251677],[82.294642,41.23268],[82.181824,41.166599],[82.061454,41.126436],[81.999895,41.076726],[81.939482,40.991422],[81.884102,40.941004],[81.84314,40.886152],[81.812704,40.813197],[81.743365,40.733326],[81.822544,40.685144],[81.944745,40.494356],[81.978613,40.468429],[81.880441,40.467667],[81.760299,40.437914],[81.377449,40.43944],[81.281107,40.43593],[81.210395,40.397307],[81.003065,40.396849],[80.981097,40.423872],[80.931438,40.432573],[80.907868,40.420362],[80.740128,40.369357],[80.679485,40.381425],[80.605798,40.423262],[80.633717,40.465378],[80.683833,40.464616],[80.659347,40.484597],[80.673993,40.511585],[80.723422,40.488409],[80.729372,40.452411],[80.809924,40.454699],[80.827774,40.476513],[80.789786,40.479564],[80.780404,40.505944],[80.741272,40.533228],[80.696419,40.520121],[80.70214,40.546028],[80.670789,40.569031],[80.621588,40.556845],[80.592296,40.619884]]]]}},{"type":"Feature","properties":{"adcode":653000,"name":"克孜勒苏柯尔克孜自治州","center":[76.172825,39.713431],"centroid":[75.956625,39.672168],"childrenNum":4,"level":"city","parent":{"adcode":650000},"subFeatureIndex":8,"acroutes":[100000,650000]},"geometry":{"type":"MultiPolygon","coordinates":[[[[78.36499,40.009709],[78.313272,40.066049],[78.241187,40.060831],[78.161322,40.071573],[78.09267,40.060831],[78.03134,40.093818],[78.055369,40.140892],[78.055826,40.202483],[78.082143,40.231574],[78.091068,40.274882],[78.124707,40.287119],[78.15583,40.331155],[78.158576,40.387228],[78.205259,40.420362],[78.303661,40.455462],[78.373915,40.494966],[78.47163,40.52637],[78.523577,40.552579],[78.585593,40.637841],[78.605044,40.696699],[78.574151,40.700195],[78.570489,40.766137],[78.725643,40.822909],[78.748298,40.81866],[78.79727,40.861286],[78.861803,40.891609],[78.848531,40.915553],[78.875534,40.985216],[78.826333,40.994751],[78.762486,41.086097],[78.733881,41.161467],[78.711913,41.185616],[78.565912,41.288147],[78.5071,41.310442],[78.391765,41.408266],[78.323799,41.3842],[78.232263,41.39849],[78.166128,41.3842],[78.164297,41.345224],[78.137065,41.280011],[78.129055,41.228156],[78.097018,41.22514],[77.973444,41.173392],[77.904792,41.185163],[77.834537,41.151956],[77.807763,41.123415],[77.829503,41.059493],[77.780531,41.023046],[77.737509,41.032273],[77.684876,41.007765],[77.65444,41.016087],[77.591509,40.99233],[77.540248,41.006403],[77.476402,40.999594],[77.473885,41.022743],[77.41553,41.038928],[77.363126,41.040742],[77.296304,41.005042],[77.25168,41.025163],[77.169298,41.009127],[77.111172,41.035903],[77.091492,41.062668],[77.023297,41.059341],[77.002244,41.073401],[76.940915,41.028794],[76.885764,41.027432],[76.853497,40.976437],[76.761961,40.954028],[76.741823,40.912068],[76.731525,40.819116],[76.693309,40.779499],[76.646626,40.760062],[76.675917,40.694267],[76.654864,40.65275],[76.657381,40.620341],[76.618707,40.609077],[76.55692,40.542676],[76.539528,40.464005],[76.509092,40.42952],[76.470647,40.422651],[76.442042,40.391505],[76.390324,40.377606],[76.382086,40.390894],[76.333343,40.343688],[76.327622,40.391352],[76.283227,40.415171],[76.279794,40.439288],[76.213888,40.394864],[76.173383,40.382035],[76.144091,40.393337],[76.048894,40.388756],[76.048436,40.356982],[75.98642,40.381883],[75.932185,40.339561],[75.921429,40.291248],[75.831037,40.327333],[75.785956,40.301036],[75.709065,40.280848],[75.669934,40.363857],[75.68641,40.418072],[75.734467,40.467514],[75.646134,40.516615],[75.630802,40.549075],[75.63698,40.62445],[75.599451,40.659748],[75.568557,40.65701],[75.468096,40.599943],[75.432397,40.563395],[75.355506,40.537952],[75.292118,40.483682],[75.268776,40.483682],[75.242459,40.448901],[75.135362,40.463395],[75.102866,40.439898],[75.021857,40.467209],[74.963274,40.464616],[74.891875,40.507621],[74.844505,40.52134],[74.819333,40.505791],[74.814756,40.460954],[74.795076,40.443255],[74.908352,40.33895],[74.863041,40.326416],[74.811781,40.34705],[74.698047,40.344452],[74.701022,40.317091],[74.663263,40.271363],[74.618411,40.279777],[74.577448,40.260347],[74.547241,40.219174],[74.476758,40.175065],[74.433278,40.131694],[74.356617,40.089216],[74.316799,40.106548],[74.280642,40.098112],[74.26325,40.125102],[74.126632,40.104554],[74.089102,40.079704],[74.023425,40.085074],[74.003058,40.045023],[73.943331,40.016005],[73.980403,40.004794],[73.911064,39.934721],[73.907174,39.873811],[73.845387,39.831172],[73.841725,39.756297],[73.905572,39.742114],[73.924337,39.721914],[73.953628,39.600278],[73.916327,39.586527],[73.868042,39.482917],[73.745383,39.462022],[73.646982,39.474405],[73.610596,39.465892],[73.592518,39.412312],[73.506474,39.380547],[73.554073,39.349854],[73.554988,39.29603],[73.539427,39.27244],[73.58016,39.237506],[73.63943,39.22042],[73.657737,39.166186],[73.688631,39.154992],[73.719753,39.108176],[73.72044,39.071759],[73.742866,39.029404],[73.820214,39.041553],[73.846302,38.972061],[73.826393,38.916855],[73.767581,38.941033],[73.742408,38.933858],[73.709227,38.89345],[73.699386,38.857703],[73.729365,38.83709],[73.770785,38.77115],[73.757054,38.719543],[73.808772,38.634231],[73.799161,38.611046],[73.852252,38.584249],[73.899164,38.57892],[73.926168,38.535958],[74.011754,38.524978],[74.034409,38.541604],[74.090704,38.542231],[74.068735,38.58566],[74.118394,38.614493],[74.148143,38.676821],[74.22961,38.656156],[74.377899,38.654903],[74.455934,38.632978],[74.506508,38.637677],[74.546783,38.607599],[74.613376,38.593183],[74.640379,38.599608],[74.717727,38.542231],[74.784778,38.538154],[74.821621,38.491087],[74.862812,38.484024],[74.868305,38.403932],[74.789583,38.324695],[74.806746,38.285516],[74.896223,38.267414],[74.945653,38.273869],[74.982725,38.243009],[75.042681,38.266155],[75.108587,38.276387],[75.136277,38.234977],[75.192114,38.198902],[75.278158,38.203786],[75.368322,38.12433],[75.399215,38.106031],[75.385942,38.088673],[75.389604,38.035155],[75.421184,37.974485],[75.410428,37.922624],[75.462146,37.936858],[75.561463,37.919302],[75.666959,37.875473],[75.728746,37.903008],[75.747053,37.888451],[75.781379,37.909811],[75.78321,37.939704],[75.880467,37.92642],[75.886417,37.876581],[75.851175,37.859961],[75.858498,37.829719],[75.793507,37.734476],[75.805865,37.65213],[75.868567,37.674669],[75.940881,37.732415],[76.0299,37.732256],[76.100383,37.770464],[76.162856,37.780449],[76.208167,37.813405],[76.264462,37.731463],[76.292151,37.734159],[76.327164,37.815622],[76.382543,37.826868],[76.384374,37.867401],[76.410233,37.876898],[76.436092,37.856003],[76.482089,37.849987],[76.492387,37.86566],[76.469274,37.925787],[76.509779,37.974485],[76.510923,38.01399],[76.540215,38.060735],[76.539299,38.129851],[76.6004,38.219541],[76.602688,38.399532],[76.597654,38.42467],[76.547309,38.457337],[76.455544,38.497835],[76.383688,38.485123],[76.344098,38.500503],[76.401995,38.540192],[76.403139,38.606189],[76.339292,38.606346],[76.288948,38.629689],[76.243179,38.612926],[76.149584,38.609323],[76.16217,38.646917],[76.035392,38.730024],[76.033104,38.753639],[75.977495,38.759268],[75.975665,38.79819],[75.938821,38.805378],[75.908157,38.875345],[75.829893,38.920444],[75.759181,38.947115],[75.861244,38.997778],[75.927608,39.039528],[75.940194,39.007127],[76.063768,39.008062],[76.141116,39.039684],[76.131505,39.077518],[76.050953,39.155925],[76.047521,39.180642],[76.145922,39.202243],[76.157135,39.229895],[76.049351,39.23968],[76.006558,39.263436],[75.952552,39.273682],[75.882298,39.269025],[75.835614,39.217624],[75.839733,39.188879],[75.770166,39.189967],[75.747053,39.15126],[75.707006,39.12731],[75.771996,39.095728],[75.757579,38.997934],[75.662839,38.955691],[75.565582,38.971282],[75.552309,38.986245],[75.586407,39.050273],[75.587322,39.100396],[75.60746,39.142241],[75.671078,39.221197],[75.683435,39.270111],[75.736755,39.296806],[75.691445,39.303943],[75.642244,39.284701],[75.635379,39.258468],[75.580686,39.211876],[75.573134,39.241543],[75.512491,39.227566],[75.472215,39.170072],[75.350014,39.144574],[75.305619,39.334192],[75.299898,39.407819],[75.320723,39.461557],[75.357108,39.470381],[75.389375,39.505972],[75.357566,39.557161],[75.365118,39.591781],[75.341318,39.623294],[75.36077,39.654022],[75.433999,39.652787],[75.466265,39.67918],[75.533316,39.655257],[75.551623,39.668223],[75.646821,39.653404],[75.701742,39.615881],[75.701285,39.594871],[75.855523,39.585754],[75.930125,39.599815],[75.985047,39.589926],[75.976122,39.611556],[76.126471,39.624221],[76.15027,39.6131],[76.215947,39.625302],[76.29627,39.591008],[76.447763,39.575864],[76.506346,39.591935],[76.55303,39.588999],[76.59834,39.6131],[76.595594,39.629935],[76.637014,39.651089],[76.743883,39.735176],[76.786447,39.753985],[76.82924,39.794977],[76.838165,39.82686],[77.022611,39.844413],[77.054648,39.862576],[77.211404,39.849339],[77.302941,39.864731],[77.511872,39.878427],[77.529264,39.925804],[77.603866,39.936413],[77.765428,39.970074],[77.798152,39.986822],[77.940948,39.97453],[78.017839,39.984517],[78.074134,39.970996],[78.208921,39.99865],[78.301144,40.011705],[78.36499,40.009709]]]]}},{"type":"Feature","properties":{"adcode":653100,"name":"喀什地区","center":[75.989138,39.467664],"centroid":[77.133824,38.111752],"childrenNum":12,"level":"city","parent":{"adcode":650000},"subFeatureIndex":9,"acroutes":[100000,650000]},"geometry":{"type":"MultiPolygon","coordinates":[[[[74.806746,38.285516],[74.793245,38.270878],[74.817044,38.215445],[74.804687,38.167064],[74.821621,38.103033],[74.879289,38.021256],[74.925744,38.017307],[74.911327,37.967056],[74.919107,37.90807],[74.937186,37.875948],[74.917505,37.845079],[74.98959,37.797879],[75.006524,37.77094],[74.922998,37.71719],[74.920938,37.684667],[74.892104,37.668162],[74.930778,37.571759],[75.035358,37.500845],[75.078609,37.511026],[75.129641,37.459156],[75.153211,37.4141],[75.12392,37.381763],[75.138794,37.367741],[75.12575,37.322311],[75.078609,37.318165],[75.017966,37.293763],[74.927117,37.277651],[74.911098,37.233602],[74.816129,37.216519],[74.800339,37.247969],[74.753655,37.281161],[74.727339,37.282915],[74.665781,37.235837],[74.64221,37.261375],[74.598959,37.258343],[74.578592,37.231367],[74.544953,37.249246],[74.511084,37.239988],[74.477216,37.199431],[74.487971,37.162049],[74.465087,37.146867],[74.496439,37.115855],[74.498956,37.072352],[74.530078,37.08211],[74.568066,37.032666],[74.617038,37.04371],[74.632599,37.066592],[74.709032,37.08451],[74.739238,37.028024],[74.792558,37.027544],[74.806746,37.054272],[74.847022,37.056992],[74.842674,37.0205],[74.893935,36.939611],[74.938559,36.943297],[74.927346,36.977904],[75.005609,36.994561],[75.032383,37.016818],[75.063277,37.006251],[75.171976,37.013936],[75.168315,36.991838],[75.244748,36.963326],[75.288685,36.97454],[75.413632,36.954674],[75.396469,36.904185],[75.430108,36.873394],[75.425761,36.778859],[75.458485,36.721022],[75.504939,36.74368],[75.536977,36.730182],[75.537435,36.773077],[75.588695,36.762797],[75.634006,36.771632],[75.723711,36.750588],[75.871542,36.666518],[75.946831,36.590567],[75.924404,36.566414],[75.991455,36.507127],[76.034934,36.409237],[75.989624,36.34014],[75.999006,36.312193],[76.055301,36.252712],[76.061022,36.225219],[76.011593,36.229101],[76.016398,36.165509],[75.967884,36.15871],[75.936304,36.134747],[75.949577,36.070269],[75.968571,36.042063],[76.014568,36.018065],[76.097408,36.022605],[76.117088,35.975075],[76.164687,35.908842],[76.147066,35.833451],[76.22144,35.823372],[76.228762,35.837027],[76.298788,35.841579],[76.365838,35.824185],[76.369728,35.863356],[76.431744,35.851818],[76.482089,35.889189],[76.515271,35.880904],[76.548911,35.919235],[76.597425,35.895686],[76.587585,35.840278],[76.566302,35.819307],[76.593534,35.77198],[76.69308,35.747574],[76.698572,35.722346],[76.751663,35.680499],[76.761275,35.655902],[76.836792,35.662093],[76.917802,35.608478],[76.966774,35.591685],[76.998125,35.611086],[77.064489,35.595761],[77.093323,35.56967],[77.195843,35.519257],[77.307746,35.54047],[77.38006,35.477141],[77.451916,35.460484],[77.518737,35.482039],[77.578236,35.475671],[77.639565,35.454931],[77.657415,35.477467],[77.690597,35.448234],[77.728127,35.457871],[77.757647,35.497222],[77.797236,35.491345],[77.816459,35.518604],[77.781675,35.554011],[77.814399,35.602609],[77.844149,35.612716],[77.851929,35.687014],[77.821722,35.714858],[77.826299,35.748225],[77.851701,35.748225],[77.835224,35.804836],[77.878704,35.811828],[77.866804,35.880904],[77.844835,35.912577],[77.887857,35.908355],[77.923785,35.930764],[77.872983,35.994707],[77.800669,36.027308],[77.742544,36.039145],[77.732246,36.100247],[77.791287,36.112234],[77.790829,36.131508],[77.854675,36.182504],[77.910055,36.198525],[77.810967,36.294579],[77.724465,36.28262],[77.610045,36.35968],[77.624462,36.387772],[77.579151,36.448924],[77.484869,36.493104],[77.42537,36.492137],[77.40775,36.545959],[77.503634,36.56126],[77.534756,36.610849],[77.582126,36.610366],[77.576405,36.633701],[77.623089,36.643193],[77.64849,36.669252],[77.61691,36.699964],[77.542308,36.746732],[77.49265,36.792991],[77.505693,36.842911],[77.528806,36.865052],[77.518966,36.930315],[77.608214,36.935284],[77.642311,36.975981],[77.651236,37.056512],[77.681214,37.128485],[77.664967,37.14463],[77.642769,37.266481],[77.600205,37.297591],[77.64254,37.350369],[77.639794,37.376505],[77.667713,37.444035],[77.664051,37.581611],[77.699979,37.588762],[77.741399,37.637365],[77.752155,37.678954],[77.806161,37.727023],[77.878246,37.811662],[78.006397,37.96342],[78.245078,38.188343],[78.506871,38.422471],[79.003227,38.667116],[79.238704,38.794283],[79.285387,38.807253],[79.333902,38.802253],[79.390425,38.830218],[79.566633,38.784437],[79.599814,38.829905],[79.616062,38.919196],[79.733686,39.4775],[79.190647,39.72068],[79.117647,39.715436],[79.092246,39.681032],[79.003684,39.65927],[79.000252,39.624993],[78.915581,39.611247],[78.84075,39.6131],[78.796584,39.653404],[78.708709,39.650471],[78.705276,39.689982],[78.673467,39.700936],[78.657449,39.736409],[78.757223,39.796672],[78.777819,39.825012],[78.776675,39.758147],[78.809856,39.74381],[78.782853,39.688593],[78.806424,39.657264],[78.840521,39.711271],[78.883772,39.704176],[78.870728,39.762154],[78.904368,39.781418],[78.993387,39.781418],[79.004829,39.800677],[78.942584,39.809765],[78.906885,39.831326],[78.932057,39.859806],[78.989496,39.868271],[78.942813,39.908118],[78.989725,39.929494],[79.001625,39.970996],[79.039155,39.981291],[79.015355,40.022147],[79.045562,40.036887],[79.214218,40.059603],[79.145108,40.256522],[79.003913,40.219786],[78.903681,40.257134],[78.807339,40.22591],[78.759969,40.187014],[78.605959,40.131694],[78.59795,40.107621],[78.550122,40.088295],[78.543486,40.061445],[78.442338,40.02614],[78.36499,40.009709],[78.301144,40.011705],[78.208921,39.99865],[78.074134,39.970996],[78.017839,39.984517],[77.940948,39.97453],[77.798152,39.986822],[77.765428,39.970074],[77.603866,39.936413],[77.529264,39.925804],[77.511872,39.878427],[77.302941,39.864731],[77.211404,39.849339],[77.054648,39.862576],[77.022611,39.844413],[76.838165,39.82686],[76.82924,39.794977],[76.786447,39.753985],[76.743883,39.735176],[76.637014,39.651089],[76.595594,39.629935],[76.59834,39.6131],[76.55303,39.588999],[76.506346,39.591935],[76.447763,39.575864],[76.29627,39.591008],[76.215947,39.625302],[76.15027,39.6131],[76.126471,39.624221],[75.976122,39.611556],[75.985047,39.589926],[75.930125,39.599815],[75.855523,39.585754],[75.701285,39.594871],[75.701742,39.615881],[75.646821,39.653404],[75.551623,39.668223],[75.533316,39.655257],[75.466265,39.67918],[75.433999,39.652787],[75.36077,39.654022],[75.341318,39.623294],[75.365118,39.591781],[75.357566,39.557161],[75.389375,39.505972],[75.357108,39.470381],[75.320723,39.461557],[75.299898,39.407819],[75.305619,39.334192],[75.350014,39.144574],[75.472215,39.170072],[75.512491,39.227566],[75.573134,39.241543],[75.580686,39.211876],[75.635379,39.258468],[75.642244,39.284701],[75.691445,39.303943],[75.736755,39.296806],[75.683435,39.270111],[75.671078,39.221197],[75.60746,39.142241],[75.587322,39.100396],[75.586407,39.050273],[75.552309,38.986245],[75.565582,38.971282],[75.662839,38.955691],[75.757579,38.997934],[75.771996,39.095728],[75.707006,39.12731],[75.747053,39.15126],[75.770166,39.189967],[75.839733,39.188879],[75.835614,39.217624],[75.882298,39.269025],[75.952552,39.273682],[76.006558,39.263436],[76.049351,39.23968],[76.157135,39.229895],[76.145922,39.202243],[76.047521,39.180642],[76.050953,39.155925],[76.131505,39.077518],[76.141116,39.039684],[76.063768,39.008062],[75.940194,39.007127],[75.927608,39.039528],[75.861244,38.997778],[75.759181,38.947115],[75.829893,38.920444],[75.908157,38.875345],[75.938821,38.805378],[75.975665,38.79819],[75.977495,38.759268],[76.033104,38.753639],[76.035392,38.730024],[76.16217,38.646917],[76.149584,38.609323],[76.243179,38.612926],[76.288948,38.629689],[76.339292,38.606346],[76.403139,38.606189],[76.401995,38.540192],[76.344098,38.500503],[76.383688,38.485123],[76.455544,38.497835],[76.547309,38.457337],[76.597654,38.42467],[76.602688,38.399532],[76.6004,38.219541],[76.539299,38.129851],[76.540215,38.060735],[76.510923,38.01399],[76.509779,37.974485],[76.469274,37.925787],[76.492387,37.86566],[76.482089,37.849987],[76.436092,37.856003],[76.410233,37.876898],[76.384374,37.867401],[76.382543,37.826868],[76.327164,37.815622],[76.292151,37.734159],[76.264462,37.731463],[76.208167,37.813405],[76.162856,37.780449],[76.100383,37.770464],[76.0299,37.732256],[75.940881,37.732415],[75.868567,37.674669],[75.805865,37.65213],[75.793507,37.734476],[75.858498,37.829719],[75.851175,37.859961],[75.886417,37.876581],[75.880467,37.92642],[75.78321,37.939704],[75.781379,37.909811],[75.747053,37.888451],[75.728746,37.903008],[75.666959,37.875473],[75.561463,37.919302],[75.462146,37.936858],[75.410428,37.922624],[75.421184,37.974485],[75.389604,38.035155],[75.385942,38.088673],[75.399215,38.106031],[75.368322,38.12433],[75.278158,38.203786],[75.192114,38.198902],[75.136277,38.234977],[75.108587,38.276387],[75.042681,38.266155],[74.982725,38.243009],[74.945653,38.273869],[74.896223,38.267414],[74.806746,38.285516]]],[[[79.190647,39.72068],[79.733686,39.4775],[79.764351,39.622831],[79.788379,39.801909],[79.815382,39.882735],[79.846047,39.908887],[79.862981,39.957165],[79.837809,39.980523],[79.860006,40.013702],[79.841699,40.131388],[79.833461,40.131388],[79.731169,40.146716],[79.587228,40.175678],[79.497294,40.211824],[79.343055,40.241065],[79.238933,40.253002],[79.145108,40.256522],[79.214218,40.059603],[79.482648,40.097652],[79.573955,40.012012],[79.606222,39.913347],[79.55725,39.865039],[79.53551,39.862884],[79.406215,39.89212],[79.278522,39.877658],[79.298889,39.844566],[79.28882,39.814848],[79.325663,39.80345],[79.246484,39.784808],[79.240306,39.733017],[79.190647,39.72068]]]]}},{"type":"Feature","properties":{"adcode":653200,"name":"和田地区","center":[79.92533,37.110687],"centroid":[81.72906,37.578228],"childrenNum":8,"level":"city","parent":{"adcode":650000},"subFeatureIndex":10,"acroutes":[100000,650000]},"geometry":{"type":"MultiPolygon","coordinates":[[[[80.416089,36.279064],[80.41792,36.278255],[80.81473,36.292479],[80.817018,36.293287],[80.81656,36.296034],[80.81862,36.298135],[81.007185,36.260473],[81.008787,36.259826],[81.031671,36.259341],[81.03373,36.275992],[81.031213,36.27874],[81.030984,36.280195],[81.033959,36.280033],[81.049978,36.315101],[81.047461,36.250771],[81.274928,36.142196],[81.275386,36.142196],[81.330079,36.405848],[81.330994,36.421177],[81.357082,36.443601],[81.394383,36.31914],[81.436261,36.256754],[81.442897,36.22813],[81.429396,36.157091],[81.473333,36.116932],[81.460518,36.057788],[81.493929,36.016605],[81.466468,35.95203],[81.42253,35.879767],[81.372414,35.83654],[81.371041,35.796867],[81.410402,35.76108],[81.399646,35.707368],[81.463493,35.650036],[81.56876,35.629178],[81.586152,35.570648],[81.58455,35.46277],[81.523907,35.312708],[81.494158,35.292253],[81.513151,35.234952],[81.674942,35.233478],[81.736729,35.262298],[81.804237,35.270647],[81.853895,35.258696],[81.92804,35.271138],[81.955272,35.307308],[81.991886,35.305836],[82.044291,35.33234],[82.054588,35.355237],[82.029416,35.429284],[82.044291,35.452971],[82.234457,35.520399],[82.272216,35.550259],[82.328053,35.559394],[82.350251,35.611086],[82.336062,35.65134],[82.392815,35.656228],[82.425081,35.712741],[82.468561,35.717462],[82.501972,35.701344],[82.546138,35.708508],[82.628521,35.692225],[82.73127,35.637815],[82.788709,35.684571],[82.873609,35.688805],[82.894663,35.673984],[82.961026,35.671541],[82.956221,35.636186],[82.981622,35.599837],[82.971782,35.548301],[82.999014,35.484488],[83.067666,35.462607],[83.089177,35.425526],[83.126707,35.398562],[83.178196,35.389572],[83.242272,35.419807],[83.280259,35.401177],[83.448915,35.382052],[83.502463,35.36047],[83.540222,35.364068],[83.541824,35.341663],[83.599263,35.351149],[83.622376,35.335448],[83.684621,35.362596],[83.785539,35.363087],[83.797439,35.354747],[83.885085,35.367338],[83.904765,35.401831],[84.005913,35.422421],[84.077082,35.39987],[84.096076,35.36276],[84.140929,35.378946],[84.161525,35.358999],[84.200656,35.381071],[84.332926,35.413924],[84.416224,35.46277],[84.453068,35.473385],[84.471375,35.526764],[84.448948,35.550422],[84.570005,35.588261],[84.604331,35.589239],[84.702733,35.617117],[84.729049,35.613368],[84.797015,35.646778],[84.986266,35.725113],[84.917614,35.77442],[84.914182,35.854418],[84.861319,35.945212],[84.873677,35.984486],[84.84347,36.09895],[84.775046,36.102353],[84.681222,36.142844],[84.673441,36.182828],[84.637284,36.192214],[84.618519,36.220042],[84.570463,36.225704],[84.537739,36.269364],[84.416682,36.276639],[84.410274,36.309931],[84.363362,36.311223],[84.346885,36.364524],[84.35581,36.397779],[84.308211,36.42263],[84.322857,36.478757],[84.341851,36.490525],[84.346428,36.545636],[84.302719,36.611171],[84.251917,36.643837],[84.201114,36.660728],[84.167932,36.69482],[84.084634,36.69498],[84.013693,36.739502],[83.991038,36.76858],[83.914148,36.766974],[83.833138,36.83232],[83.858311,36.867459],[83.82101,36.963326],[83.860828,37.070112],[83.855336,37.117773],[83.79126,37.250203],[83.862201,37.291211],[83.894467,37.349732],[83.975706,37.410437],[83.974104,37.481913],[83.987377,37.514525],[83.989894,37.612273],[83.963577,37.6534],[83.932455,37.78552],[83.938405,37.832252],[83.885543,37.947294],[83.819179,38.048104],[83.747781,38.115339],[83.648921,38.187713],[83.502692,38.281581],[83.38667,38.388217],[83.387814,38.98344],[83.395137,39.321629],[83.414817,39.483227],[83.151879,39.484465],[82.585041,39.484],[82.101272,39.485393],[81.955958,39.483691],[81.438092,39.484929],[81.062335,39.483381],[80.726855,39.477346],[80.162305,39.464034],[79.764351,39.622831],[79.733686,39.4775],[79.616062,38.919196],[79.599814,38.829905],[79.566633,38.784437],[79.390425,38.830218],[79.333902,38.802253],[79.285387,38.807253],[79.238704,38.794283],[79.003227,38.667116],[78.506871,38.422471],[78.245078,38.188343],[78.006397,37.96342],[77.878246,37.811662],[78.350344,37.68546],[78.350344,37.731146],[78.54463,37.791066],[78.543028,37.574301],[79.197513,37.206299],[79.211243,37.231367],[79.256325,37.236316],[79.249917,37.414896],[79.377152,37.416489],[79.370974,37.385428],[79.33825,37.371406],[79.36571,37.354354],[79.367083,37.325021],[79.632768,37.474275],[79.661601,37.554116],[79.699131,37.561269],[79.694326,37.517546],[79.783116,37.580499],[79.818128,37.574937],[79.818586,37.537742],[79.883577,37.471411],[79.901655,37.508322],[79.960239,37.563812],[80.026831,37.581135],[80.097085,37.637206],[80.089762,37.655464],[80.131411,37.69863],[80.162991,37.7045],[80.198462,37.745893],[80.193885,37.764758],[80.26986,37.801998],[80.306474,37.89478],[80.352471,37.930057],[80.385196,37.934169],[80.433252,37.99977],[80.444923,38.032944],[80.504879,38.039261],[80.559801,38.08457],[80.581083,38.069575],[80.525475,37.979859],[80.477418,37.966266],[80.495726,37.937016],[80.455907,37.862652],[80.486572,37.804692],[80.435541,37.606714],[80.011041,37.40104],[79.990217,37.39419],[79.97763,37.335544],[79.930718,37.262173],[79.937812,37.251959],[80.019508,37.252916],[80.061615,37.290094],[80.103264,37.288659],[80.113104,37.226737],[80.016991,37.15358],[80.04285,37.13408],[80.01127,37.124009],[79.977859,37.052672],[79.949025,37.04355],[79.93438,36.980627],[79.901655,36.949386],[79.891357,36.904345],[79.973054,36.828629],[80.047427,36.823332],[80.087932,36.808404],[80.125461,36.765689],[80.104866,36.717325],[80.233703,36.584127],[80.241484,36.526465],[80.288625,36.532587],[80.318374,36.47005],[80.302355,36.461987],[80.317001,36.394067],[80.291142,36.386642],[80.244916,36.304114],[80.416089,36.279064]]],[[[79.883577,37.471411],[79.889298,37.454381],[79.811034,37.364554],[79.806686,37.29791],[79.776022,37.28467],[79.765037,37.28132],[79.589745,37.322789],[79.587686,37.325021],[79.584024,37.330761],[79.581965,37.333153],[79.580363,37.340008],[79.572354,37.38256],[79.618122,37.392438],[79.643294,37.424292],[79.632768,37.474275],[79.367083,37.325021],[79.374406,37.174033],[79.254494,37.214283],[79.251061,37.197036],[79.197513,37.206299],[78.543028,37.574301],[78.521746,37.555706],[78.488793,37.568739],[78.491081,37.616879],[78.441881,37.642128],[78.414191,37.621167],[78.330664,37.603537],[78.359956,37.653876],[78.350344,37.68546],[77.878246,37.811662],[77.806161,37.727023],[77.752155,37.678954],[77.741399,37.637365],[77.699979,37.588762],[77.664051,37.581611],[77.667713,37.444035],[77.639794,37.376505],[77.64254,37.350369],[77.600205,37.297591],[77.642769,37.266481],[77.664967,37.14463],[77.681214,37.128485],[77.651236,37.056512],[77.642311,36.975981],[77.608214,36.935284],[77.518966,36.930315],[77.528806,36.865052],[77.505693,36.842911],[77.49265,36.792991],[77.542308,36.746732],[77.61691,36.699964],[77.64849,36.669252],[77.623089,36.643193],[77.576405,36.633701],[77.582126,36.610366],[77.534756,36.610849],[77.503634,36.56126],[77.40775,36.545959],[77.42537,36.492137],[77.484869,36.493104],[77.579151,36.448924],[77.624462,36.387772],[77.610045,36.35968],[77.724465,36.28262],[77.810967,36.294579],[77.910055,36.198525],[77.854675,36.182504],[77.790829,36.131508],[77.791287,36.112234],[77.732246,36.100247],[77.742544,36.039145],[77.800669,36.027308],[77.872983,35.994707],[77.923785,35.930764],[77.887857,35.908355],[77.844835,35.912577],[77.866804,35.880904],[77.878704,35.811828],[77.835224,35.804836],[77.851701,35.748225],[77.826299,35.748225],[77.821722,35.714858],[77.851929,35.687014],[77.844149,35.612716],[77.814399,35.602609],[77.781675,35.554011],[77.816459,35.518604],[77.915089,35.464893],[77.917607,35.491019],[77.951475,35.47861],[78.010058,35.491508],[78.035917,35.467833],[78.048504,35.491345],[78.140497,35.494773],[78.107087,35.437289],[78.013262,35.365866],[78.021271,35.315162],[78.016923,35.228237],[78.060174,35.180232],[78.062692,35.114651],[78.07871,35.099888],[78.124707,35.108254],[78.150795,35.069534],[78.122877,35.03687],[78.160635,34.991052],[78.198852,34.977745],[78.181918,34.936991],[78.209607,34.889308],[78.237526,34.8824],[78.229974,34.774263],[78.21304,34.717916],[78.259952,34.710169],[78.280777,34.623094],[78.345996,34.604117],[78.427693,34.594049],[78.433871,34.548645],[78.492912,34.578367],[78.558132,34.56037],[78.563166,34.512965],[78.583991,34.506356],[78.61763,34.536258],[78.70848,34.522052],[78.758596,34.481567],[78.742806,34.454457],[78.855853,34.411789],[78.892468,34.355858],[78.958603,34.38631],[78.974393,34.361651],[79.039612,34.334502],[79.048995,34.348409],[79.010779,34.399878],[79.052199,34.427172],[79.078287,34.411624],[79.161356,34.441394],[79.22955,34.413939],[79.274174,34.436102],[79.326808,34.443048],[79.362964,34.427999],[79.435049,34.447678],[79.504617,34.454787],[79.54535,34.476278],[79.581278,34.45611],[79.675561,34.45115],[79.699818,34.477931],[79.801194,34.478923],[79.860922,34.528164],[79.843759,34.557398],[79.885865,34.642892],[79.866872,34.671426],[79.907147,34.683793],[79.899138,34.733572],[79.946279,34.822835],[79.926828,34.849332],[79.995938,34.856078],[80.003489,34.8949],[80.036671,34.903122],[80.042621,34.98021],[80.03095,35.03884],[80.07832,35.07659],[80.118139,35.066088],[80.236449,35.148268],[80.223176,35.177282],[80.257731,35.203337],[80.362769,35.208907],[80.268029,35.295853],[80.304415,35.379764],[80.374669,35.388101],[80.419979,35.442353],[80.444237,35.417192],[80.51655,35.392187],[80.568039,35.39137],[80.599848,35.409675],[80.656372,35.393985],[80.691156,35.364395],[80.689325,35.339046],[80.760037,35.33463],[80.844479,35.345425],[80.894366,35.323997],[80.924573,35.330704],[80.963705,35.311072],[81.026178,35.31189],[81.031671,35.380581],[81.054555,35.402321],[81.099179,35.407551],[81.142429,35.365212],[81.191859,35.365212],[81.219549,35.319089],[81.266232,35.322688],[81.285226,35.345425],[81.314289,35.337247],[81.363947,35.354583],[81.385458,35.335448],[81.441295,35.333485],[81.494158,35.292253],[81.523907,35.312708],[81.58455,35.46277],[81.586152,35.570648],[81.56876,35.629178],[81.463493,35.650036],[81.399646,35.707368],[81.410402,35.76108],[81.371041,35.796867],[81.372414,35.83654],[81.42253,35.879767],[81.466468,35.95203],[81.493929,36.016605],[81.460518,36.057788],[81.473333,36.116932],[81.429396,36.157091],[81.442897,36.22813],[81.436261,36.256754],[81.394383,36.31914],[81.357082,36.443601],[81.330994,36.421177],[81.330079,36.405848],[81.275386,36.142196],[81.274928,36.142196],[81.047461,36.250771],[81.031671,36.259341],[81.008787,36.259826],[81.007185,36.260473],[80.81862,36.298135],[80.81656,36.296034],[80.817018,36.293287],[80.81473,36.292479],[80.41792,36.278255],[80.416089,36.279064],[80.244916,36.304114],[80.291142,36.386642],[80.317001,36.394067],[80.302355,36.461987],[80.318374,36.47005],[80.288625,36.532587],[80.241484,36.526465],[80.233703,36.584127],[80.104866,36.717325],[80.125461,36.765689],[80.087932,36.808404],[80.047427,36.823332],[79.973054,36.828629],[79.891357,36.904345],[79.901655,36.949386],[79.93438,36.980627],[79.949025,37.04355],[79.977859,37.052672],[80.01127,37.124009],[80.04285,37.13408],[80.016991,37.15358],[80.113104,37.226737],[80.103264,37.288659],[80.061615,37.290094],[80.019508,37.252916],[79.937812,37.251959],[79.930718,37.262173],[79.97763,37.335544],[79.990217,37.39419],[80.011041,37.40104],[80.435541,37.606714],[80.486572,37.804692],[80.455907,37.862652],[80.495726,37.937016],[80.477418,37.966266],[80.525475,37.979859],[80.581083,38.069575],[80.559801,38.08457],[80.504879,38.039261],[80.444923,38.032944],[80.433252,37.99977],[80.385196,37.934169],[80.352471,37.930057],[80.306474,37.89478],[80.26986,37.801998],[80.193885,37.764758],[80.198462,37.745893],[80.162991,37.7045],[80.131411,37.69863],[80.089762,37.655464],[80.097085,37.637206],[80.026831,37.581135],[79.960239,37.563812],[79.901655,37.508322],[79.883577,37.471411]]],[[[79.709887,37.379533],[79.728652,37.383197],[79.751307,37.376505],[79.811034,37.364554],[79.889298,37.454381],[79.883577,37.471411],[79.818586,37.537742],[79.783802,37.537265],[79.783116,37.580499],[79.694326,37.517546],[79.686774,37.447537],[79.643294,37.424292],[79.618122,37.392438],[79.610341,37.373797],[79.680824,37.375071],[79.702335,37.376505],[79.704166,37.377461],[79.709887,37.379533]]],[[[79.776022,37.28467],[79.806686,37.29791],[79.811034,37.364554],[79.751307,37.376505],[79.728652,37.383197],[79.709887,37.379533],[79.704166,37.377461],[79.702335,37.376505],[79.680824,37.375071],[79.610341,37.373797],[79.580363,37.340008],[79.581965,37.333153],[79.584024,37.330761],[79.587686,37.325021],[79.589745,37.322789],[79.765037,37.28132],[79.776022,37.28467]]],[[[81.031213,36.27874],[81.03373,36.275992],[81.033959,36.280033],[81.030984,36.280195],[81.031213,36.27874]]]]}},{"type":"Feature","properties":{"adcode":654000,"name":"伊犁哈萨克自治州","center":[81.317946,43.92186],"centroid":[82.213264,43.349079],"childrenNum":11,"level":"city","parent":{"adcode":650000},"subFeatureIndex":11,"acroutes":[100000,650000]},"geometry":{"type":"MultiPolygon","coordinates":[[[[84.950567,43.48427],[84.899078,43.521502],[84.895188,43.577162],[84.84942,43.570044],[84.821043,43.581229],[84.786717,43.641913],[84.708454,43.63161],[84.597695,43.669476],[84.634767,43.719638],[84.5533,43.750931],[84.504557,43.750207],[84.492199,43.734707],[84.44071,43.738474],[84.395171,43.724709],[84.36382,43.743399],[84.339563,43.726158],[84.287845,43.730795],[84.281437,43.765848],[84.253747,43.785248],[84.22949,43.774246],[84.084405,43.825477],[84.114841,43.854546],[84.088753,43.855992],[84.064267,43.885769],[84.029941,43.879844],[83.983944,43.910042],[83.939549,43.901663],[83.886229,43.952785],[83.804533,43.939648],[83.738398,43.9473],[83.68668,43.981648],[83.621003,43.965631],[83.571802,44.010353],[83.499946,44.001988],[83.502692,44.022321],[83.468824,44.036882],[83.429921,44.006171],[83.399485,44.014823],[83.310466,44.008334],[83.263554,44.041206],[83.238381,44.043512],[83.243416,44.073195],[83.126707,44.092928],[82.945923,44.083566],[82.899697,44.053312],[82.781158,44.085871],[82.705411,44.071178],[82.672916,44.114237],[82.57337,44.13669],[82.5379,44.156402],[82.444991,44.182434],[82.402197,44.215927],[82.36032,44.265343],[82.283658,44.249115],[82.167636,44.263476],[82.082736,44.291757],[82.032391,44.285442],[81.834901,44.327484],[81.777691,44.352006],[81.751603,44.347131],[81.713845,44.365769],[81.700114,44.394287],[81.650913,44.38655],[81.618647,44.427374],[81.591415,44.41649],[81.459603,44.450996],[81.425734,44.440546],[81.358455,44.44255],[81.363947,44.405175],[81.334884,44.380388],[81.333054,44.348135],[81.401477,44.284867],[81.363947,44.253424],[81.370355,44.239778],[81.325044,44.226417],[81.290947,44.233601],[81.241975,44.206154],[81.208564,44.144892],[81.205589,44.098256],[81.143345,44.052015],[81.125495,44.055185],[81.11268,43.99694],[81.079269,43.96592],[81.076295,43.96058],[81.082931,43.930984],[81.071031,43.907731],[80.978122,43.908742],[80.9351,43.929685],[80.905579,43.946722],[80.804661,43.930407],[80.793905,43.906431],[80.873771,43.91452],[80.917021,43.889382],[80.985674,43.893139],[81.014508,43.873773],[81.072175,43.895595],[81.125953,43.870593],[81.039909,43.849052],[80.862328,43.867702],[80.764156,43.854257],[80.739899,43.888659],[80.71999,43.890971],[80.672391,43.844713],[80.727084,43.811443],[80.775369,43.80334],[80.756833,43.784959],[80.782463,43.696882],[80.707632,43.673827],[80.632344,43.663384],[80.755002,43.494162],[80.760952,43.446432],[80.73578,43.389632],[80.68635,43.333653],[80.692758,43.32038],[80.776971,43.307979],[80.76919,43.265359],[80.788642,43.242285],[80.804432,43.178421],[80.794592,43.13732],[80.752714,43.148147],[80.732576,43.130882],[80.665754,43.147562],[80.593441,43.133516],[80.556368,43.104391],[80.482453,43.069539],[80.416776,43.056794],[80.378559,43.031443],[80.392519,43.002122],[80.487259,42.948869],[80.591381,42.923179],[80.603052,42.894394],[80.505795,42.882495],[80.427074,42.857071],[80.425929,42.842518],[80.356133,42.828256],[80.320663,42.838549],[80.260249,42.824873],[80.258876,42.790746],[80.226151,42.713006],[80.228211,42.692966],[80.178324,42.667907],[80.163907,42.62794],[80.221575,42.533302],[80.265283,42.502266],[80.210361,42.469588],[80.206013,42.431565],[80.239882,42.389224],[80.228669,42.359895],[80.284048,42.32062],[80.324324,42.315134],[80.372381,42.326698],[80.415403,42.304754],[80.471469,42.321806],[80.531883,42.360932],[80.592296,42.366117],[80.62914,42.353375],[80.657287,42.366117],[80.761639,42.361525],[80.803974,42.339742],[80.898028,42.369228],[80.963018,42.361673],[80.985216,42.380634],[81.025263,42.342854],[81.048147,42.284732],[81.098263,42.291703],[81.160508,42.259954],[81.152498,42.323585],[81.195521,42.343595],[81.271267,42.343595],[81.285455,42.332479],[81.318637,42.357821],[81.352734,42.332331],[81.386602,42.354413],[81.478825,42.360636],[81.50949,42.352042],[81.582032,42.374117],[81.630775,42.373821],[81.66144,42.392186],[81.672196,42.369969],[81.751832,42.365525],[81.805152,42.405957],[81.820256,42.3833],[81.865795,42.384041],[81.867397,42.411138],[81.959848,42.402255],[81.984563,42.425793],[82.065344,42.420316],[82.07793,42.43852],[82.133538,42.440444],[82.142692,42.489256],[82.189147,42.467221],[82.230109,42.494578],[82.295329,42.48275],[82.366498,42.50404],[82.363752,42.538768],[82.407232,42.55162],[82.585499,42.543939],[82.62074,42.558562],[82.638132,42.597689],[82.621198,42.621005],[82.634242,42.651982],[82.599229,42.719635],[82.507006,42.799427],[82.480003,42.800603],[82.470392,42.843253],[82.512727,42.858541],[82.532637,42.901739],[82.576803,42.88558],[82.649345,42.88367],[82.653236,42.934337],[82.712505,42.951657],[82.789396,42.933897],[82.82418,42.954886],[82.82418,42.980269],[82.858963,42.971026],[82.892603,42.992296],[82.941575,42.987309],[83.013889,43.007107],[83.037688,42.996402],[83.135632,42.992149],[83.159889,43.006374],[83.2663,43.017957],[83.325112,43.047416],[83.361726,43.028218],[83.407037,43.052105],[83.504752,43.058845],[83.565852,43.07569],[83.56631,43.092385],[83.627639,43.08067],[83.679815,43.09751],[83.713226,43.137467],[83.758078,43.149317],[83.801558,43.133516],[83.912546,43.128102],[83.96312,43.156192],[84.043214,43.132199],[84.038866,43.146245],[84.104314,43.145514],[84.22949,43.171256],[84.279149,43.174912],[84.363133,43.15941],[84.359014,43.144197],[84.413707,43.102341],[84.423318,43.16175],[84.504328,43.164383],[84.540714,43.152974],[84.574124,43.168332],[84.653761,43.175351],[84.602501,43.228553],[84.564742,43.231037],[84.581447,43.266965],[84.538425,43.262877],[84.532246,43.292802],[84.552842,43.331757],[84.623554,43.338028],[84.676187,43.37229],[84.692893,43.40187],[84.633165,43.432747],[84.661541,43.491253],[84.716005,43.453128],[84.786717,43.465936],[84.834316,43.43595],[84.92425,43.425175],[84.950567,43.48427]]],[[[81.079269,43.96592],[81.11268,43.99694],[81.125495,44.055185],[81.143345,44.052015],[81.205589,44.098256],[81.208564,44.144892],[81.241975,44.206154],[81.290947,44.233601],[81.325044,44.226417],[81.370355,44.239778],[81.363947,44.253424],[81.401477,44.284867],[81.333054,44.348135],[81.334884,44.380388],[81.363947,44.405175],[81.358455,44.44255],[81.211311,44.462875],[81.112222,44.506792],[81.048376,44.50336],[80.99826,44.535527],[80.890018,44.52981],[80.873771,44.563677],[80.843564,44.568391],[80.755002,44.61023],[80.707632,44.601807],[80.66072,44.637202],[80.691842,44.674144],[80.638293,44.710635],[80.636005,44.73115],[80.590008,44.723743],[80.482911,44.739412],[80.397324,44.771733],[80.348581,44.805175],[80.311051,44.811576],[80.262766,44.843573],[80.227753,44.825088],[80.187935,44.825799],[80.178781,44.796923],[80.220888,44.733287],[80.314942,44.704649],[80.413114,44.610944],[80.350641,44.48448],[80.382907,44.401164],[80.413114,44.264625],[80.400986,44.19868],[80.406936,44.149784],[80.39412,44.127192],[80.440804,44.083854],[80.521356,44.07017],[80.531196,44.029674],[80.586347,44.017707],[80.553851,44.101424],[80.566895,44.17323],[80.637607,44.180852],[80.701911,44.133093],[80.673764,44.100272],[80.699394,44.067577],[80.679256,44.062534],[80.741729,44.016842],[80.725482,43.969816],[80.736237,43.921164],[80.71999,43.890971],[80.739899,43.888659],[80.793905,43.906431],[80.804661,43.930407],[80.905579,43.946722],[80.9351,43.929685],[80.987047,43.990016],[81.079269,43.96592]]],[[[85.113273,44.34369],[85.177348,44.324902],[85.212819,44.479187],[85.254696,44.476754],[85.229753,44.550675],[85.238678,44.598809],[85.202978,44.636061],[85.06842,44.626358],[85.010295,44.574819],[84.853768,44.552104],[84.86109,44.495637],[84.798159,44.438971],[84.77825,44.390848],[84.974595,44.384687],[85.113273,44.34369]]],[[[80.624792,43.754407],[80.669873,43.753683],[80.660949,43.778734],[80.576735,43.783945],[80.624792,43.754407]]]]}},{"type":"Feature","properties":{"adcode":654200,"name":"塔城地区","center":[82.985732,46.746301],"centroid":[84.155013,45.399091],"childrenNum":7,"level":"city","parent":{"adcode":650000},"subFeatureIndex":12,"acroutes":[100000,650000]},"geometry":{"type":"MultiPolygon","coordinates":[[[[84.661541,45.102872],[84.668864,45.158607],[84.633394,45.185888],[84.58877,45.241401],[84.579388,45.31068],[84.623325,45.343808],[84.651701,45.395646],[84.710742,45.451797],[84.739576,45.520819],[84.783513,45.597613],[84.80594,45.608275],[84.772071,45.648658],[84.791981,45.663794],[84.847589,45.631414],[84.910291,45.648938],[84.956746,45.707777],[85.023796,45.721218],[85.059953,45.713098],[85.129978,45.74543],[85.193825,45.802491],[85.22838,45.850136],[85.258358,45.925364],[85.288565,45.967608],[85.259044,45.978199],[85.293142,45.993246],[85.263392,46.053114],[85.282844,46.090811],[85.380101,46.143628],[85.296345,46.164602],[85.264765,46.182235],[85.077574,46.21263],[84.969332,46.275309],[84.919674,46.320195],[84.900222,46.356741],[84.901366,46.402942],[84.881,46.431832],[84.893815,46.493571],[84.814865,46.547241],[84.779394,46.554412],[84.710742,46.599068],[84.686256,46.636253],[84.722642,46.685381],[84.725617,46.716046],[84.764291,46.760432],[84.761316,46.794075],[84.819899,46.81425],[84.821959,46.832086],[84.881,46.855949],[84.943702,46.861982],[84.86704,46.927476],[84.84942,46.956909],[84.795413,46.972509],[84.748043,47.009847],[84.668635,46.994805],[84.56314,46.99166],[84.506616,46.973056],[84.425378,47.00889],[84.3716,46.993301],[84.336588,47.005335],[84.289218,46.994805],[84.195164,47.003557],[84.150311,46.977297],[84.086465,46.965257],[84.002709,46.990566],[83.951449,46.987283],[83.932913,46.970046],[83.885772,46.981948],[83.766546,47.027071],[83.699266,47.015589],[83.700639,47.032128],[83.57615,47.059181],[83.463332,47.132074],[83.418937,47.11884],[83.370422,47.178569],[83.332435,47.167801],[83.306347,47.179659],[83.257833,47.173253],[83.222134,47.186882],[83.20703,47.21372],[83.154854,47.236052],[83.1084,47.222164],[83.02739,47.215491],[83.031738,47.16821],[82.98803,47.058771],[82.937913,47.014085],[82.923496,46.931995],[82.876355,46.823855],[82.878415,46.797232],[82.829672,46.772655],[82.788938,46.677815],[82.774292,46.60017],[82.727151,46.495503],[82.608841,46.295124],[82.51822,46.153769],[82.461467,45.980011],[82.401282,45.972207],[82.342699,45.935126],[82.336062,45.882249],[82.349564,45.823035],[82.340182,45.772569],[82.290065,45.716458],[82.288464,45.655385],[82.266724,45.620196],[82.282056,45.538939],[82.447966,45.461361],[82.546825,45.42591],[82.60106,45.346203],[82.582753,45.219089],[82.683214,45.153799],[82.757816,45.152102],[82.855531,45.100891],[83.002675,45.050766],[83.09444,45.028947],[83.263554,44.998329],[83.391476,44.980887],[83.474087,44.976064],[83.513448,44.939316],[83.573862,44.931225],[83.600178,44.894163],[83.666313,44.888339],[83.701784,44.853951],[83.730389,44.801049],[83.795837,44.756785],[83.794464,44.719469],[83.75968,44.633207],[83.745492,44.552962],[83.791947,44.520375],[83.79332,44.466739],[83.752815,44.46173],[83.63931,44.474751],[83.602924,44.462875],[83.517567,44.467597],[83.531526,44.414915],[83.489877,44.367346],[83.486216,44.317442],[83.439761,44.282571],[83.448915,44.254285],[83.412071,44.168916],[83.445482,44.121723],[83.448457,44.076508],[83.468824,44.036882],[83.502692,44.022321],[83.499946,44.001988],[83.571802,44.010353],[83.621003,43.965631],[83.68668,43.981648],[83.738398,43.9473],[83.804533,43.939648],[83.886229,43.952785],[83.939549,43.901663],[83.983944,43.910042],[84.029941,43.879844],[84.064267,43.885769],[84.088753,43.855992],[84.114841,43.854546],[84.084405,43.825477],[84.22949,43.774246],[84.253747,43.785248],[84.281437,43.765848],[84.287845,43.730795],[84.339563,43.726158],[84.36382,43.743399],[84.395171,43.724709],[84.44071,43.738474],[84.492199,43.734707],[84.504557,43.750207],[84.5533,43.750931],[84.634767,43.719638],[84.597695,43.669476],[84.708454,43.63161],[84.786717,43.641913],[84.821043,43.581229],[84.84942,43.570044],[84.895188,43.577162],[84.899078,43.521502],[84.950567,43.48427],[84.979859,43.47976],[85.020364,43.51365],[85.056292,43.563942],[85.156981,43.546795],[85.170483,43.510742],[85.241881,43.52092],[85.286734,43.502307],[85.31511,43.529207],[85.328154,43.486743],[85.434108,43.478887],[85.483537,43.498235],[85.519694,43.536185],[85.5975,43.530806],[85.579879,43.539528],[85.665008,43.622901],[85.697274,43.619272],[85.719701,43.638575],[85.719701,43.678758],[85.739152,43.731809],[85.779199,43.763676],[85.767757,43.791183],[85.786293,43.839507],[85.883779,43.920586],[85.91925,43.934306],[85.965018,43.931706],[85.955407,43.967074],[85.967535,44.003575],[86.038018,44.062102],[86.096144,44.125897],[86.065937,44.160286],[85.985842,44.157265],[85.954262,44.309551],[85.904833,44.332647],[85.912156,44.426515],[85.981037,44.407037],[86.011015,44.411334],[86.043281,44.452141],[86.111018,44.459011],[86.122689,44.448992],[86.130927,44.463447],[86.084015,44.490345],[86.06525,44.564105],[86.068225,44.601807],[86.01788,44.603378],[85.988588,44.637773],[85.955635,44.638629],[85.906892,44.736563],[85.942134,44.759633],[85.891331,44.813141],[85.868447,44.86589],[85.781488,44.922849],[85.668898,44.9193],[85.670729,45.278097],[85.666838,45.331123],[85.291769,45.332391],[85.245772,45.329008],[85.239593,45.29305],[85.201834,45.244224],[85.205953,45.207365],[85.250348,45.158607],[85.238449,45.080223],[85.258358,45.031639],[85.240737,45.019735],[85.171627,45.022711],[85.156066,44.970958],[85.051486,44.931793],[85.027229,44.886208],[85.021965,44.814421],[85.047367,44.770167],[85.010295,44.755219],[85.04668,44.740266],[85.052859,44.698093],[85.025398,44.68669],[85.018304,44.61965],[85.06842,44.626358],[85.202978,44.636061],[85.238678,44.598809],[85.229753,44.550675],[85.254696,44.476754],[85.212819,44.479187],[85.177348,44.324902],[85.113273,44.34369],[85.108467,44.309551],[85.065445,44.317299],[84.996106,44.310699],[84.969103,44.297354],[84.939354,44.252275],[84.917385,44.17927],[84.830426,44.160142],[84.797244,44.161436],[84.737974,44.126185],[84.792209,44.224262],[84.798159,44.258737],[84.779166,44.343546],[84.77825,44.390848],[84.798159,44.438971],[84.86109,44.495637],[84.853768,44.552104],[84.880084,44.626929],[84.8453,44.663164],[84.80205,44.683411],[84.782598,44.669153],[84.708454,44.733857],[84.677331,44.739839],[84.626071,44.791658],[84.652388,44.791231],[84.648726,44.866316],[84.634996,44.867453],[84.635682,44.930231],[84.610052,44.995351],[84.558334,44.991239],[84.528127,44.97039],[84.516456,44.988829],[84.544604,45.009954],[84.538654,45.055582],[84.558334,45.084187],[84.540256,45.094804],[84.541171,45.152668],[84.65582,45.152244],[84.661541,45.102872]]],[[[85.245772,45.329008],[85.291769,45.332391],[85.666838,45.331123],[86.487003,45.332532],[87.336918,45.330559],[87.339435,45.957852],[87.336002,46.005085],[87.300761,46.060489],[87.037136,46.503509],[87.201673,46.715771],[87.203732,46.849505],[87.068488,46.932543],[87.029585,46.970867],[87.037365,47.11884],[86.581057,47.051941],[86.49364,47.064235],[86.492724,47.08977],[86.377618,47.087312],[86.197749,47.041557],[86.082642,47.025568],[86.005752,47.06642],[85.953347,47.078028],[85.797735,47.053853],[85.679882,47.051531],[85.540061,47.057405],[85.441202,47.063415],[85.326095,47.044836],[85.276436,47.068878],[85.213963,47.041147],[85.175518,46.998087],[85.111442,46.973193],[85.081922,46.939799],[84.987182,46.918164],[84.980088,46.883092],[84.943702,46.861982],[84.881,46.855949],[84.821959,46.832086],[84.819899,46.81425],[84.761316,46.794075],[84.764291,46.760432],[84.725617,46.716046],[84.722642,46.685381],[84.686256,46.636253],[84.710742,46.599068],[84.779394,46.554412],[84.814865,46.547241],[84.893815,46.493571],[84.881,46.431832],[84.901366,46.402942],[84.900222,46.356741],[84.919674,46.320195],[84.969332,46.275309],[85.077574,46.21263],[85.264765,46.182235],[85.296345,46.164602],[85.380101,46.143628],[85.419462,46.128066],[85.437998,46.150296],[85.557453,46.198059],[85.648302,46.211936],[85.679882,46.190842],[85.791557,46.192924],[85.813754,46.178209],[85.903002,46.181819],[85.993165,46.123897],[86.024288,46.068001],[85.962501,46.044764],[85.95472,46.001325],[85.931836,45.975273],[85.880347,45.952973],[85.886297,45.938751],[85.839613,45.921877],[85.814212,45.895369],[85.642353,45.78921],[85.621299,45.763058],[85.59155,45.654404],[85.596813,45.641929],[85.547384,45.593123],[85.491775,45.51267],[85.434336,45.459814],[85.388111,45.436182],[85.28353,45.421406],[85.239593,45.375508],[85.245772,45.329008]]]]}},{"type":"Feature","properties":{"adcode":654300,"name":"阿勒泰地区","center":[88.13963,47.848393],"centroid":[87.048189,48.013014],"childrenNum":7,"level":"city","parent":{"adcode":650000},"subFeatureIndex":13,"acroutes":[100000,650000]},"geometry":{"type":"MultiPolygon","coordinates":[[[[88.43009,47.258239],[88.390271,47.265043],[88.307202,47.3155],[88.316585,47.455331],[88.345876,47.48664],[88.352284,47.523889],[88.405833,47.557863],[88.422996,47.612231],[88.46167,47.682069],[88.511786,47.713243],[88.531237,47.748982],[88.525059,47.776478],[88.624833,47.779712],[88.562588,47.800458],[88.57815,47.829811],[88.544968,47.850806],[88.563961,47.881476],[88.497598,47.912799],[88.433522,47.911321],[88.386381,47.943432],[88.491877,48.001155],[88.468993,48.054391],[88.474027,48.093512],[88.584328,48.162035],[88.64131,48.181959],[88.598288,48.227262],[88.575175,48.277595],[88.606068,48.337876],[88.573344,48.369722],[88.535585,48.369056],[88.503776,48.412994],[88.438099,48.393559],[88.36098,48.433353],[88.363039,48.460485],[88.257544,48.497702],[88.196672,48.493982],[88.151819,48.526261],[88.13008,48.521613],[88.101017,48.548034],[88.041289,48.5483],[87.973095,48.576034],[87.961653,48.599377],[88.02733,48.627348],[88.026644,48.653185],[88.089575,48.694893],[88.090719,48.719768],[88.061885,48.714344],[88.029161,48.750185],[87.961424,48.773447],[87.938998,48.757852],[87.872176,48.799473],[87.826408,48.800926],[87.828925,48.825617],[87.780869,48.872194],[87.742423,48.881293],[87.759815,48.925974],[87.814508,48.945336],[87.876524,48.949155],[87.871947,48.963638],[87.911766,48.979959],[87.884076,48.993906],[87.88316,49.023762],[87.835333,49.054257],[87.858217,49.07357],[87.867142,49.10876],[87.845631,49.146023],[87.820687,49.148253],[87.820916,49.173822],[87.700546,49.175788],[87.685442,49.159924],[87.563012,49.142482],[87.517473,49.145499],[87.495504,49.131987],[87.511523,49.101671],[87.436692,49.075277],[87.388865,49.097995],[87.30488,49.112304],[87.238745,49.114535],[87.211742,49.140645],[87.112654,49.155597],[87.088397,49.133693],[87.002124,49.142613],[86.953838,49.1312],[86.881982,49.129494],[86.847199,49.101015],[86.836214,49.051103],[86.772368,49.027707],[86.73255,48.995354],[86.730032,48.955475],[86.75818,48.894873],[86.782894,48.886172],[86.822484,48.84581],[86.818365,48.830369],[86.764358,48.803699],[86.754289,48.780979],[86.781064,48.732069],[86.702343,48.66537],[86.693647,48.643779],[86.642615,48.629601],[86.594559,48.576697],[86.585634,48.542194],[86.41263,48.481091],[86.371439,48.493052],[86.3021,48.490793],[86.270978,48.452906],[86.226125,48.432422],[86.053808,48.441069],[85.916504,48.437876],[85.838698,48.42883],[85.758604,48.403943],[85.71192,48.361462],[85.694986,48.301476],[85.661804,48.243422],[85.633885,48.232871],[85.622215,48.202945],[85.592236,48.196396],[85.55608,48.139962],[85.55196,48.081591],[85.531822,48.046349],[85.546926,48.008265],[85.617638,47.550691],[85.610086,47.511295],[85.652193,47.455195],[85.684917,47.428886],[85.701393,47.38424],[85.675992,47.321617],[85.701165,47.288441],[85.6824,47.222709],[85.582854,47.142849],[85.546926,47.096732],[85.540061,47.057405],[85.679882,47.051531],[85.797735,47.053853],[85.953347,47.078028],[86.005752,47.06642],[86.082642,47.025568],[86.197749,47.041557],[86.377618,47.087312],[86.492724,47.08977],[86.49364,47.064235],[86.581057,47.051941],[87.037365,47.11884],[87.016312,47.284633],[87.017914,47.3034],[87.151786,47.344175],[87.252933,47.362649],[87.312203,47.38519],[87.385661,47.399307],[87.431658,47.435397],[87.540357,47.4297],[87.554774,47.42129],[87.579489,47.406229],[87.556147,47.356673],[87.771715,47.357081],[87.753637,47.380167],[87.803066,47.382339],[87.831671,47.357216],[87.853411,47.367267],[87.873091,47.346213],[87.828696,47.351919],[87.862565,47.317539],[87.906731,47.341322],[87.98591,47.316859],[88.038772,47.312237],[88.098042,47.28096],[88.262121,47.238503],[88.312237,47.258103],[88.339698,47.239728],[88.43009,47.258239]]],[[[88.64131,48.181959],[88.584328,48.162035],[88.474027,48.093512],[88.468993,48.054391],[88.491877,48.001155],[88.386381,47.943432],[88.433522,47.911321],[88.497598,47.912799],[88.563961,47.881476],[88.544968,47.850806],[88.57815,47.829811],[88.562588,47.800458],[88.624833,47.779712],[88.525059,47.776478],[88.531237,47.748982],[88.511786,47.713243],[88.46167,47.682069],[88.422996,47.612231],[88.405833,47.557863],[88.352284,47.523889],[88.345876,47.48664],[88.316585,47.455331],[88.307202,47.3155],[88.390271,47.265043],[88.43009,47.258239],[88.428717,47.234691],[88.343359,47.232512],[88.342673,47.174344],[88.273563,47.132892],[88.176763,47.114883],[88.077904,47.128663],[88.05502,47.147486],[88.005361,47.145713],[87.91085,47.172572],[87.886364,47.161121],[87.79437,47.184156],[87.74311,47.204866],[87.66805,47.267492],[87.595508,47.289121],[87.527542,47.338604],[87.556147,47.356673],[87.579489,47.406229],[87.554774,47.42129],[87.490241,47.400664],[87.481316,47.411114],[87.540357,47.4297],[87.431658,47.435397],[87.385661,47.399307],[87.312203,47.38519],[87.252933,47.362649],[87.151786,47.344175],[87.017914,47.3034],[87.016312,47.284633],[87.037365,47.11884],[87.029585,46.970867],[87.068488,46.932543],[87.203732,46.849505],[87.201673,46.715771],[87.037136,46.503509],[87.300761,46.060489],[87.336002,46.005085],[87.339435,45.957852],[87.336918,45.330559],[87.336231,45.001874],[88.004446,45.002015],[90.23816,45.001732],[90.22237,45.064364],[90.251204,45.087727],[90.292166,45.177267],[90.353267,45.23067],[90.379583,45.276968],[90.481646,45.397335],[90.494919,45.42028],[90.671355,45.487654],[90.670211,45.547926],[90.714835,45.728916],[90.799964,45.83505],[90.85008,45.887972],[91.028347,46.023049],[91.014845,46.066471],[91.021481,46.121118],[90.984638,46.160574],[90.948024,46.219151],[90.955575,46.233855],[90.900425,46.312301],[90.983494,46.374866],[90.996309,46.419393],[91.025601,46.443854],[91.037958,46.500886],[91.079149,46.558824],[91.067936,46.579225],[91.01782,46.582257],[91.036356,46.670386],[91.053977,46.717421],[91.019422,46.766201],[90.94276,46.825775],[90.957864,46.879528],[90.929945,46.893095],[90.922165,46.938704],[90.901569,46.960741],[90.830857,46.995899],[90.76724,46.99248],[90.69218,47.080622],[90.653735,47.111608],[90.579819,47.198191],[90.561512,47.207046],[90.521465,47.284633],[90.488283,47.317267],[90.526499,47.378945],[90.507734,47.399986],[90.468602,47.404872],[90.458991,47.438923],[90.474323,47.46238],[90.468145,47.497614],[90.398348,47.547714],[90.376151,47.603039],[90.346173,47.637367],[90.384847,47.644257],[90.331527,47.681529],[90.21642,47.705418],[90.192621,47.722416],[90.134953,47.723226],[90.076141,47.777421],[90.070648,47.820522],[90.086667,47.865605],[89.960576,47.885779],[89.958059,47.842867],[89.933344,47.835734],[89.762171,47.835734],[89.735397,47.897476],[89.650955,47.91374],[89.645463,47.947864],[89.603356,47.963172],[89.599466,48.015643],[89.568801,48.037769],[89.498089,48.028383],[89.408612,48.034953],[89.38138,48.046215],[89.359869,48.026372],[89.308609,48.021946],[89.282064,47.994044],[89.23149,47.980221],[89.15643,47.996861],[89.078395,47.986931],[89.044756,48.009875],[89.027364,48.050906],[88.953906,48.090833],[88.930564,48.119486],[88.824382,48.106768],[88.797379,48.133941],[88.721404,48.160564],[88.700808,48.181024],[88.64131,48.181959]]]]}},{"type":"Feature","properties":{"adcode":659001,"name":"石河子市","center":[86.041075,44.305886],"centroid":[86.038213,44.306831],"childrenNum":0,"level":"city","parent":{"adcode":650000},"subFeatureIndex":14,"acroutes":[100000,650000]},"geometry":{"type":"MultiPolygon","coordinates":[[[[86.122689,44.448992],[86.111018,44.459011],[86.043281,44.452141],[86.011015,44.411334],[85.981037,44.407037],[85.912156,44.426515],[85.904833,44.332647],[85.954262,44.309551],[85.985842,44.157265],[86.065937,44.160286],[86.096144,44.125897],[86.128868,44.211472],[86.123833,44.266204],[86.141683,44.32734],[86.127037,44.374225],[86.122689,44.448992]]]]}},{"type":"Feature","properties":{"adcode":659002,"name":"阿拉尔市","center":[81.285884,40.541914],"centroid":[81.316958,40.6005],"childrenNum":0,"level":"city","parent":{"adcode":650000},"subFeatureIndex":15,"acroutes":[100000,650000]},"geometry":{"type":"MultiPolygon","coordinates":[[[[81.884102,40.941004],[81.863506,40.944033],[81.457085,40.804699],[81.385687,40.825033],[81.32596,40.805154],[81.32985,40.762947],[81.140828,40.698979],[80.990479,40.702476],[80.867363,40.658987],[80.791846,40.703236],[80.725939,40.701412],[80.683375,40.666744],[80.592296,40.619884],[80.621588,40.556845],[80.670789,40.569031],[80.70214,40.546028],[80.696419,40.520121],[80.741272,40.533228],[80.780404,40.505944],[80.789786,40.479564],[80.827774,40.476513],[80.809924,40.454699],[80.729372,40.452411],[80.723422,40.488409],[80.673993,40.511585],[80.659347,40.484597],[80.683833,40.464616],[80.633717,40.465378],[80.605798,40.423262],[80.679485,40.381425],[80.740128,40.369357],[80.907868,40.420362],[80.931438,40.432573],[80.981097,40.423872],[81.003065,40.396849],[81.210395,40.397307],[81.281107,40.43593],[81.377449,40.43944],[81.760299,40.437914],[81.880441,40.467667],[81.978613,40.468429],[81.944745,40.494356],[81.822544,40.685144],[81.743365,40.733326],[81.812704,40.813197],[81.84314,40.886152],[81.884102,40.941004]]]]}},{"type":"Feature","properties":{"adcode":659003,"name":"图木舒克市","center":[79.077978,39.867316],"centroid":[79.163596,39.870411],"childrenNum":0,"level":"city","parent":{"adcode":650000},"subFeatureIndex":16,"acroutes":[100000,650000]},"geometry":{"type":"MultiPolygon","coordinates":[[[[79.190647,39.72068],[79.240306,39.733017],[79.246484,39.784808],[79.325663,39.80345],[79.28882,39.814848],[79.298889,39.844566],[79.278522,39.877658],[79.406215,39.89212],[79.53551,39.862884],[79.55725,39.865039],[79.606222,39.913347],[79.573955,40.012012],[79.482648,40.097652],[79.214218,40.059603],[79.045562,40.036887],[79.015355,40.022147],[79.039155,39.981291],[79.001625,39.970996],[78.989725,39.929494],[78.942813,39.908118],[78.989496,39.868271],[78.932057,39.859806],[78.906885,39.831326],[78.942584,39.809765],[79.004829,39.800677],[78.993387,39.781418],[78.904368,39.781418],[78.870728,39.762154],[78.883772,39.704176],[78.840521,39.711271],[78.806424,39.657264],[78.782853,39.688593],[78.809856,39.74381],[78.776675,39.758147],[78.777819,39.825012],[78.757223,39.796672],[78.657449,39.736409],[78.673467,39.700936],[78.705276,39.689982],[78.708709,39.650471],[78.796584,39.653404],[78.84075,39.6131],[78.915581,39.611247],[79.000252,39.624993],[79.003684,39.65927],[79.092246,39.681032],[79.117647,39.715436],[79.190647,39.72068]]]]}},{"type":"Feature","properties":{"adcode":659004,"name":"五家渠市","center":[87.526884,44.167401],"centroid":[87.557631,44.362095],"childrenNum":0,"level":"city","parent":{"adcode":650000},"subFeatureIndex":17,"acroutes":[100000,650000]},"geometry":{"type":"MultiPolygon","coordinates":[[[[87.504658,44.066424],[87.492529,44.007757],[87.508319,44.021456],[87.527542,44.093648],[87.576743,44.116541],[87.564614,44.170929],[87.584066,44.239347],[87.640132,44.226561],[87.652489,44.196236],[87.691163,44.221963],[87.712216,44.262902],[87.716107,44.356881],[87.692765,44.370212],[87.693452,44.416633],[87.663702,44.417063],[87.652718,44.450423],[87.598711,44.477756],[87.59116,44.533383],[87.554774,44.580532],[87.501912,44.594812],[87.514498,44.548818],[87.370557,44.566963],[87.406943,44.529381],[87.449279,44.443552],[87.430056,44.408469],[87.423877,44.351433],[87.489783,44.303525],[87.471934,44.283145],[87.523423,44.227279],[87.506489,44.167765],[87.521592,44.150935],[87.493674,44.107615],[87.504658,44.066424]]]]}},{"type":"Feature","properties":{"adcode":659005,"name":"北屯市","center":[87.824932,47.353177],"centroid":[87.95973,47.244003],"childrenNum":0,"level":"city","parent":{"adcode":650000},"subFeatureIndex":18,"acroutes":[100000,650000]},"geometry":{"type":"MultiPolygon","coordinates":[[[[87.556147,47.356673],[87.527542,47.338604],[87.595508,47.289121],[87.66805,47.267492],[87.74311,47.204866],[87.79437,47.184156],[87.886364,47.161121],[87.91085,47.172572],[88.005361,47.145713],[88.05502,47.147486],[88.077904,47.128663],[88.176763,47.114883],[88.273563,47.132892],[88.342673,47.174344],[88.343359,47.232512],[88.428717,47.234691],[88.43009,47.258239],[88.339698,47.239728],[88.312237,47.258103],[88.262121,47.238503],[88.098042,47.28096],[88.038772,47.312237],[87.98591,47.316859],[87.906731,47.341322],[87.862565,47.317539],[87.828696,47.351919],[87.873091,47.346213],[87.853411,47.367267],[87.831671,47.357216],[87.803066,47.382339],[87.753637,47.380167],[87.771715,47.357081],[87.556147,47.356673]]],[[[87.540357,47.4297],[87.481316,47.411114],[87.490241,47.400664],[87.554774,47.42129],[87.540357,47.4297]]]]}},{"type":"Feature","properties":{"adcode":659006,"name":"铁门关市","center":[85.501218,41.827251],"centroid":[85.590071,41.800499],"childrenNum":0,"level":"city","parent":{"adcode":650000},"subFeatureIndex":19,"acroutes":[100000,650000]},"geometry":{"type":"MultiPolygon","coordinates":[[[[85.512142,41.914581],[85.498412,41.866369],[85.367973,41.826488],[85.357675,41.747399],[85.491089,41.754579],[85.526101,41.740218],[85.705513,41.745903],[85.703682,41.684237],[85.726795,41.661472],[85.785836,41.664468],[85.773021,41.72705],[85.73961,41.756374],[85.792701,41.82589],[85.754484,41.852779],[85.512142,41.914581]]],[[[86.099576,41.798392],[85.894993,41.821856],[85.876685,41.778957],[85.888585,41.763853],[86.091109,41.771181],[86.099576,41.798392]]],[[[85.437311,41.932036],[85.443948,41.93845],[85.408706,41.94203],[85.437311,41.932036]]]]}},{"type":"Feature","properties":{"adcode":659007,"name":"双河市","center":[82.353656,44.840524],"centroid":[82.468534,44.833549],"childrenNum":0,"level":"city","parent":{"adcode":650000},"subFeatureIndex":20,"acroutes":[100000,650000]},"geometry":{"type":"MultiPolygon","coordinates":[[[[82.206996,44.821248],[82.268097,44.832625],[82.312721,44.80361],[82.347047,44.799769],[82.499912,44.740836],[82.542934,44.740124],[82.543163,44.709067],[82.596483,44.722888],[82.666737,44.770025],[82.674518,44.792797],[82.735847,44.827364],[82.738822,44.858641],[82.679552,44.871432],[82.656439,44.944425],[82.539502,44.902685],[82.49648,44.903395],[82.49648,44.884219],[82.446364,44.883509],[82.3562,44.901833],[82.278395,44.860631],[82.223244,44.889192],[82.145667,44.89672],[82.138344,44.88493],[82.07999,44.895584],[82.088915,44.879247],[82.162372,44.864326],[82.138115,44.843005],[82.100814,44.857504],[82.083422,44.837602],[82.122096,44.806313],[82.150015,44.833905],[82.206996,44.821248]]],[[[82.20036,44.984291],[82.133767,45.037165],[82.058936,45.041274],[81.940397,45.010238],[81.993946,44.961169],[82.045892,44.972802],[82.063971,44.933638],[82.130564,44.925121],[82.200589,44.91788],[82.211115,44.94329],[82.20036,44.984291]]],[[[82.23583,44.6817],[82.239263,44.724028],[82.192579,44.752229],[82.172213,44.713627],[82.126216,44.680702],[82.084338,44.666444],[82.080905,44.64405],[82.128962,44.637773],[82.156651,44.669581],[82.19235,44.662308],[82.23583,44.6817]]],[[[82.393959,44.669724],[82.347276,44.691252],[82.358947,44.66844],[82.393959,44.669724]]],[[[82.454144,45.068895],[82.295786,45.106693],[82.272902,45.091407],[82.287319,45.050624],[82.275191,45.03008],[82.438812,45.006977],[82.454144,45.068895]]]]}},{"type":"Feature","properties":{"adcode":659008,"name":"可克达拉市","center":[80.63579,43.6832],"centroid":[80.603017,43.96732],"childrenNum":0,"level":"city","parent":{"adcode":650000},"subFeatureIndex":21,"acroutes":[100000,650000]},"geometry":{"type":"MultiPolygon","coordinates":[[[[80.440804,44.083854],[80.458654,44.047259],[80.454763,43.985688],[80.484741,43.957837],[80.475359,43.939215],[80.512202,43.904119],[80.522042,43.816652],[80.587491,43.725724],[80.624792,43.754407],[80.576735,43.783945],[80.660949,43.778734],[80.672391,43.844713],[80.71999,43.890971],[80.736237,43.921164],[80.725482,43.969816],[80.741729,44.016842],[80.679256,44.062534],[80.699394,44.067577],[80.673764,44.100272],[80.701911,44.133093],[80.637607,44.180852],[80.566895,44.17323],[80.553851,44.101424],[80.586347,44.017707],[80.531196,44.029674],[80.521356,44.07017],[80.440804,44.083854]]],[[[80.739899,43.888659],[80.764156,43.854257],[80.862328,43.867702],[81.039909,43.849052],[81.125953,43.870593],[81.072175,43.895595],[81.014508,43.873773],[80.985674,43.893139],[80.917021,43.889382],[80.873771,43.91452],[80.793905,43.906431],[80.739899,43.888659]]],[[[80.9351,43.929685],[80.978122,43.908742],[81.071031,43.907731],[81.082931,43.930984],[81.05547,43.944124],[81.057987,43.95062],[81.076295,43.96058],[81.079269,43.96592],[80.987047,43.990016],[80.9351,43.929685]]],[[[80.624792,43.754407],[80.587491,43.725724],[80.632344,43.663384],[80.707632,43.673827],[80.782463,43.696882],[80.756833,43.784959],[80.775369,43.80334],[80.727084,43.811443],[80.672391,43.844713],[80.660949,43.778734],[80.669873,43.753683],[80.624792,43.754407]]],[[[81.05547,43.944124],[81.082931,43.930984],[81.076295,43.96058],[81.057987,43.95062],[81.05547,43.944124]]]]}},{"type":"Feature","properties":{"adcode":659009,"name":"昆玉市","center":[79.287372,37.207994],"centroid":[79.593726,37.372468],"childrenNum":0,"level":"city","parent":{"adcode":650000},"subFeatureIndex":22,"acroutes":[100000,650000]},"geometry":{"type":"MultiPolygon","coordinates":[[[[79.618122,37.392438],[79.572354,37.38256],[79.580363,37.340008],[79.610341,37.373797],[79.618122,37.392438]]],[[[79.694326,37.517546],[79.699131,37.561269],[79.661601,37.554116],[79.632768,37.474275],[79.643294,37.424292],[79.686774,37.447537],[79.694326,37.517546]]],[[[78.543028,37.574301],[78.54463,37.791066],[78.350344,37.731146],[78.350344,37.68546],[78.359956,37.653876],[78.330664,37.603537],[78.414191,37.621167],[78.441881,37.642128],[78.491081,37.616879],[78.488793,37.568739],[78.521746,37.555706],[78.543028,37.574301]]],[[[79.367083,37.325021],[79.36571,37.354354],[79.33825,37.371406],[79.370974,37.385428],[79.377152,37.416489],[79.249917,37.414896],[79.256325,37.236316],[79.211243,37.231367],[79.197513,37.206299],[79.251061,37.197036],[79.254494,37.214283],[79.374406,37.174033],[79.367083,37.325021]]],[[[81.047461,36.250771],[81.049978,36.315101],[81.033959,36.280033],[81.03373,36.275992],[81.031671,36.259341],[81.047461,36.250771]]],[[[79.783116,37.580499],[79.783802,37.537265],[79.818586,37.537742],[79.818128,37.574937],[79.783116,37.580499]]]]}},{"type":"Feature","properties":{"adcode":659010,"name":"胡杨河市","center":[84.8275959,44.69288853],"centroid":[84.786397,44.84257],"childrenNum":0,"level":"city","parent":{"adcode":650000},"subFeatureIndex":23,"acroutes":[100000,650000]},"geometry":{"type":"MultiPolygon","coordinates":[[[[84.853768,44.552104],[85.010295,44.574819],[85.06842,44.626358],[85.018304,44.61965],[85.025398,44.68669],[85.052859,44.698093],[85.04668,44.740266],[85.010295,44.755219],[84.954,44.799911],[84.898163,44.802899],[84.84942,44.826511],[84.917156,44.836891],[84.917156,44.888481],[84.861548,44.899419],[84.805253,45.025687],[84.706394,45.067196],[84.657422,45.063514],[84.661541,45.102872],[84.65582,45.152244],[84.541171,45.152668],[84.540256,45.094804],[84.558334,45.084187],[84.538654,45.055582],[84.544604,45.009954],[84.516456,44.988829],[84.528127,44.97039],[84.558334,44.991239],[84.610052,44.995351],[84.635682,44.930231],[84.634996,44.867453],[84.648726,44.866316],[84.652388,44.791231],[84.626071,44.791658],[84.677331,44.739839],[84.708454,44.733857],[84.782598,44.669153],[84.80205,44.683411],[84.8453,44.663164],[84.880084,44.626929],[84.853768,44.552104]]]]}}]};
+
+</script>
+<script>
+/* SECTION: kb-data —— 全部数据来自用户上传的《新疆自驾游知识库.xlsx》与《新疆自驾游详细攻略.docx》，逐条转录，未做编造 */
+window.KB = {
+  meta: {
+    title: "打工人国庆新疆自驾 · 不踩坑指南",
+    subtitle: "12天北疆+伊犁深度路线 · 请3天假换13天长假",
+    heroImage: "https://workspace-cdn.uzone.com/38dc323642b04b7ca97159edebafba97%2Fo%2F1789540108574-c.png?auth_key=1792132109-0-0-c5d2c241d71e98eca05398ad1400fa5c",
+    routeOverview: "乌鲁木齐→可可托海→布尔津→喀纳斯（2天）→禾木（2天）→五彩滩→魔鬼城→赛里木湖→那拉提→巴音布鲁克→吐鲁番→乌鲁木齐",
+    totalKm: "约3800公里",
+    budgetRange: "8000-11000元（人均）",
+    sourceNote: "数据来源：用户上传《新疆自驾游知识库.xlsx》与《新疆自驾游详细攻略.docx》。出发前建议再确认当天的开放时间和路况。"
+  },
+
+  /* ---- 12天行程（知识库「每天行程」表 + 攻略 D1-D12 章节） ---- */
+  days: [
+    { d: 1, date: "9.25", route: "乌鲁木齐→可可托海", drive: "约5.5小时（480公里）", driveHours: 5.5, stay: "可可托海镇/富蕴县",
+      am: { t: "乌鲁木齐取车、采购物资（水、零食、方便面）、出发" },
+      pm: { t: "沿途准噶尔盆地风光，途经古尔班通古特沙漠" },
+      night: { t: "到达可可托海，休整" },
+      notes: ["第一天开车较长，建议早出发（9点前）", "可可托海镇住宿选择少，提前订"] },
+    { d: 2, date: "9.26", route: "可可托海→布尔津", drive: "约4小时（330公里）", driveHours: 4, stay: "布尔津县",
+      am: { t: "可可托海景区（额尔齐斯大峡谷、神钟山），游玩约3小时" },
+      pm: { t: "出发前往布尔津，沿途阿尔泰山风光" },
+      night: { t: "布尔津河堤夜市吃冷水鱼（烤鱼）" },
+      notes: ["可可托海景区门票90元+区间车36元", "布尔津住宿选择多，美食多；河堤夜市可以砍价，注意看秤"] },
+    { d: 3, date: "9.27", route: "布尔津→喀纳斯", drive: "约3.5小时（150公里，盘山路）", driveHours: 3.5, stay: "喀纳斯村/贾登峪",
+      am: { t: "出发前往喀纳斯，途经冲乎尔乡；自驾车停贾登峪停车场" },
+      pm: { t: "换乘区间车进景区，游三湾（神仙湾、月亮湾、卧龙湾）" },
+      night: { t: "住喀纳斯村，看星空" },
+      notes: ["自驾车不能进景区，停贾登峪", "喀纳斯村住宿需提前2个月订，条件一般但方便看晨雾", "景区内吃饭贵，自带干粮"] },
+    { d: 4, date: "9.28", route: "喀纳斯深度", drive: "景区内区间车", driveHours: 0, stay: "喀纳斯村",
+      am: { t: "早起神仙湾看晨雾（日出后1小时最佳），登观鱼台（爬1068级台阶，俯瞰喀纳斯湖）" },
+      pm: { t: "喀纳斯湖边漫步，或去白哈巴（需边防证，区间车1小时）" },
+      night: { t: "喀纳斯村休整，准备第二天去禾木" },
+      notes: ["观鱼台台阶多，慢慢爬", "白哈巴需边防证，时间不够可以不去", "喀纳斯村晚上很冷，穿羽绒服"] },
+    { d: 5, date: "9.29", route: "喀纳斯→禾木", drive: "约2小时（区间车+摆渡）", driveHours: 2, stay: "禾木村",
+      am: { t: "喀纳斯出发，换乘区间车到禾木门票站，再换乘进村" },
+      pm: { t: "禾木村漫步，白桦林拍照，图瓦人木屋" },
+      night: { t: "哈登观景台看日落" },
+      notes: ["禾木住宿紧张，务必提前2-3个月订", "村内物资贵，可自带零食", "禾木晚上星空很美"] },
+    { d: 6, date: "9.30", route: "禾木→布尔津", drive: "约3.5小时", driveHours: 3.5, stay: "布尔津县",
+      am: { t: "早起哈登观景台看晨雾（6:30前到，是全天精华）" },
+      pm: { t: "禾木村休整拍照，中午出发回布尔津", rest: true },
+      night: { t: "回到布尔津，吃冷水鱼、休整" },
+      notes: ["禾木晨雾一定要早起，晚了就散了", "国庆前一天（9.30）人开始增多，下午出景区可能排队"] },
+    { d: 7, date: "10.1", route: "布尔津→魔鬼城→克拉玛依", drive: "约4小时（320公里）", driveHours: 4, stay: "克拉玛依市",
+      am: { t: "布尔津出发，沿途戈壁风光" },
+      pm: { t: "乌尔禾魔鬼城（日落前2小时到最佳），坐小火车游览" },
+      night: { t: "到达克拉玛依，休整" },
+      notes: ["魔鬼城日落最美，建议下午4点后进入；门票42元+区间车20元", "克拉玛依是石油城市，住宿条件好、性价比高"] },
+    { d: 8, date: "10.2", route: "克拉玛依→赛里木湖", drive: "约4.5小时（400公里）", driveHours: 4.5, stay: "赛里木湖附近/清水河镇",
+      am: { t: "克拉玛依出发，途经奎屯" },
+      pm: { t: "到达赛里木湖，环湖自驾（约90公里，2-3小时）" },
+      night: { t: "果子沟大桥看日落，住清水河" },
+      notes: ["赛里木湖门票145元，自驾车进湖需另购车费；10月可能下雪，带厚外套", "清水河住宿比赛里木湖边便宜且选择多"] },
+    { d: 9, date: "10.3", route: "清水河→那拉提", drive: "约5小时（380公里）", driveHours: 5, stay: "那拉提镇",
+      am: { t: "清水河出发，途经伊宁（可吃午饭）", rest: true },
+      pm: { t: "沿途伊犁河谷风光，到达那拉提，游空中草原" },
+      night: { t: "住那拉提镇" },
+      notes: ["那拉提门票95元+区间车，分空中草原和河谷草原两条线", "10月草已黄但人少；那拉提镇住宿选择多"] },
+    { d: 10, date: "10.4", route: "那拉提→巴音布鲁克→库车", drive: "约6小时（300公里，独库南段）", driveHours: 6, stay: "库车市",
+      am: { t: "那拉提出发，走独库公路南段（如开放）" },
+      pm: { t: "巴音布鲁克九曲十八弯看日落（如时间允许）" },
+      night: { t: "到达库车，吃库车大馕、烤肉" },
+      notes: ["独库公路南段10月可能因雪封闭，出发前务必查「新疆交警」公众号路况；如封闭，绕行和静→托克逊高速（多3小时）", "巴音布鲁克加油站经常缺油，那拉提务必加满"] },
+    { d: 11, date: "10.5", route: "库车→吐鲁番", drive: "约7小时（650公里）", driveHours: 7, stay: "吐鲁番市",
+      am: { t: "库车出发，走吐和高速；两人轮换驾驶", rest: true },
+      pm: { t: "沿途可在库车大峡谷短暂停留，看天山南麓风光" },
+      night: { t: "到达吐鲁番，休整" },
+      notes: ["这天开车最长，建议两人轮换", "库车大峡谷值得一看（免费，路边即可观景）", "吐鲁番10月仍有30度，带短袖"] },
+    { d: 12, date: "10.6", route: "吐鲁番→乌鲁木齐", drive: "约2.5小时（200公里）", driveHours: 2.5, stay: "乌鲁木齐（还车）",
+      am: { t: "吐鲁番葡萄沟、火焰山、坎儿井（三选二，时间紧）" },
+      pm: { t: "出发返回乌鲁木齐，还车（还车前加满油）" },
+      night: { t: "乌鲁木齐国际大巴扎买特产（葡萄干、坚果），休整；10月7日返程" },
+      notes: ["吐鲁番10月仍热（30度），注意防晒补水", "大巴扎晚上热闹，买东西可以砍价"] },
+    { d: 13, date: "10.7", route: "乌鲁木齐→杭州（返程）", drive: "市区→机场约30分钟 + 航班", driveHours: 0.5, stay: "返程（无住宿）",
+      am: { t: "乌鲁木齐市区最后逛一下，或睡个懒觉；整理行李、打包特产（干果、葡萄干等可托运）" },
+      pm: { t: "前往乌鲁木齐地窝堡国际机场，办理值机/托运/安检（安检严格，提前2小时到），乘机返回杭州" },
+      night: { t: "抵达杭州，13天北疆+伊犁自驾行程圆满结束" },
+      notes: ["出发前确认行李额度，新疆干果等特产可以打包托运", "机场还车点如果和航站楼不在一处，预留足够时间", "乌鲁木齐安检严格，提前2小时到机场", "母婴室/卫生间：知识库未收录机场具体位置信息，到出发层后留意指示牌或咨询服务台"] }
+  ],
+
+  /* ---- 地图路线节点（按天分组；坐标为各地点实际经纬度；门票/时长摘自知识库） ---- */
+  routeGroups: [
+    { range: "D1-3", color: "#4E9A5B" },
+    { range: "D4-6", color: "#3E7CB1" },
+    { range: "D7-9", color: "#E8873C" },
+    { range: "D10-12", color: "#8E5AA8" }
+  ],
+  routePoints: [
+    { id: "1-1", day: 1, name: "乌鲁木齐（取车出发）", coord: [87.62, 43.79], ticket: "—", duration: "D1上午", spot: "" },
+    { id: "1-2", day: 1, name: "可可托海镇（宿）", coord: [89.90, 47.22], ticket: "—", duration: "D1晚", spot: "" },
+    { id: "2-1", day: 2, name: "可可托海景区", coord: [89.77, 47.31], ticket: "90元/人+区间车36元", duration: "半天", spot: "可可托海" },
+    { id: "2-2", day: 2, name: "布尔津县城（宿·河堤夜市）", coord: [86.87, 47.75], ticket: "—", duration: "D2晚", spot: "" },
+    { id: "3-1", day: 3, name: "贾登峪（停车换乘）", coord: [87.28, 48.50], ticket: "—", duration: "换乘点", spot: "" },
+    { id: "3-2", day: 3, name: "喀纳斯·三湾", coord: [87.02, 48.67], ticket: "旺季230元/人（含区间车）", duration: "1-2天", spot: "喀纳斯景区" },
+    { id: "4-1", day: 4, name: "观鱼台·喀纳斯湖", coord: [87.08, 48.71], ticket: "含在喀纳斯门票", duration: "半天", spot: "喀纳斯景区" },
+    { id: "4-2", day: 4, name: "白哈巴村", coord: [86.90, 48.81], ticket: "30元/人+区间车", duration: "半天-1天", spot: "白哈巴村" },
+    { id: "5-1", day: 5, name: "禾木村·白桦林", coord: [87.47, 48.57], ticket: "50元/人+区间车52元", duration: "1-2天", spot: "禾木村" },
+    { id: "6-1", day: 6, name: "哈登观景台（晨雾）", coord: [87.46, 48.53], ticket: "含在禾木门票", duration: "清晨", spot: "禾木村" },
+    { id: "6-2", day: 6, name: "布尔津（宿）", coord: [86.87, 47.75], ticket: "—", duration: "D6晚", spot: "" },
+    { id: "7-1", day: 7, name: "五彩滩", coord: [86.61, 47.92], ticket: "45元/人", duration: "2小时", spot: "五彩滩" },
+    { id: "7-2", day: 7, name: "乌尔禾魔鬼城", coord: [85.61, 46.12], ticket: "42元/人+区间车20元", duration: "2-3小时", spot: "魔鬼城（乌尔禾）" },
+    { id: "7-3", day: 7, name: "克拉玛依（宿）", coord: [84.87, 45.60], ticket: "—", duration: "D7晚", spot: "" },
+    { id: "8-1", day: 8, name: "赛里木湖", coord: [81.20, 44.60], ticket: "145元/人（自驾进湖另收费）", duration: "半天-1天", spot: "赛里木湖" },
+    { id: "8-2", day: 8, name: "果子沟大桥", coord: [81.05, 44.38], ticket: "外观免费", duration: "路过观景", spot: "赛里木湖" },
+    { id: "8-3", day: 8, name: "清水河镇（宿）", coord: [80.91, 44.36], ticket: "—", duration: "D8晚", spot: "" },
+    { id: "9-1", day: 9, name: "伊宁（午饭）", coord: [81.30, 43.91], ticket: "—", duration: "午餐停留", spot: "" },
+    { id: "9-2", day: 9, name: "那拉提镇（宿）", coord: [84.13, 43.29], ticket: "—", duration: "D9晚", spot: "" },
+    { id: "10-1", day: 10, name: "那拉提草原·空中草原", coord: [84.21, 43.33], ticket: "95元/人+区间车", duration: "半天-1天", spot: "那拉提草原" },
+    { id: "10-2", day: 10, name: "巴音布鲁克·九曲十八弯", coord: [84.15, 43.02], ticket: "65元/人+区间车90元", duration: "半天", spot: "巴音布鲁克" },
+    { id: "10-3", day: 10, name: "库车市（宿）", coord: [82.96, 41.72], ticket: "—", duration: "D10晚", spot: "" },
+    { id: "11-1", day: 11, name: "库车天山大峡谷", coord: [84.35, 42.35], ticket: "免费（路边观景）", duration: "短停", spot: "" },
+    { id: "11-2", day: 11, name: "吐鲁番市（宿）", coord: [89.19, 42.95], ticket: "—", duration: "D11晚", spot: "" },
+    { id: "12-1", day: 12, name: "葡萄沟·火焰山·坎儿井", coord: [89.55, 42.94], ticket: "葡萄沟75/火焰山40/坎儿井40", duration: "半天", spot: "吐鲁番（葡萄沟/火焰山/坎儿井）" },
+    { id: "12-2", day: 12, name: "乌鲁木齐·国际大巴扎（还车）", coord: [87.62, 43.79], ticket: "免费（登塔另收费）", duration: "2-3小时", spot: "国际大巴扎" }
+  ],
+  mapLegendDays: [
+    "D1（9.25）乌鲁木齐→可可托海 · 5.5h/480km",
+    "D2（9.26）可可托海→布尔津 · 4h/330km",
+    "D3（9.27）布尔津→喀纳斯 · 3.5h/150km",
+    "D4（9.28）喀纳斯深度 · 景区区间车",
+    "D5（9.29）喀纳斯→禾木 · 约2h（区间车+摆渡）",
+    "D6（9.30）禾木→布尔津 · 3.5h",
+    "D7（10.1）布尔津→五彩滩→魔鬼城→克拉玛依 · 4h/320km",
+    "D8（10.2）克拉玛依→赛里木湖→清水河 · 4.5h/400km",
+    "D9（10.3）清水河→伊宁→那拉提 · 5h/380km",
+    "D10（10.4）那拉提→巴音布鲁克→库车（独库南段）· 6h/300km",
+    "D11（10.5）库车→（天山大峡谷）→吐鲁番 · 7h/650km",
+    "D12（10.6）吐鲁番→乌鲁木齐还车 · 2.5h/200km",
+    "D13（10.7）乌鲁木齐→地窝堡机场→杭州 · 返程日"
+  ],
+
+  /* ---- 景点（知识库「景点信息」表全 14 条 + 攻略「景点详解」） ---- */
+  spots: [
+    { name: "喀纳斯景区", region: "阿勒泰·布尔津县", regionKey: "阿勒泰", ticket: "旺季230元/人（含区间车）", ticketVal: 230, hours: "8:00-20:00", duration: "1-2天", best: "9月中-10月初（秋色最佳）", type: "湖泊山水", highlights: "三湾（神仙湾、月亮湾、卧龙湾）、观鱼台、喀纳斯湖", photo: "神仙湾晨雾（日出后1小时）、月亮湾俯瞰、观鱼台全景", notes: "景区内只能坐区间车，自驾车不能进；国庆人流量大，建议住景区内（贾登峪或喀纳斯村）", image: "https://agent.qianwen.com/service/757eeaba-e69b-47/c1a336dc021d5b238472959913297a30" },
+    { name: "禾木村", region: "阿勒泰·布尔津县", regionKey: "阿勒泰", ticket: "50元/人+区间车52元", ticketVal: 102, hours: "全天", duration: "1-2天", best: "9月底-10月初", type: "村落人文", highlights: "图瓦人村落、晨雾、白桦林、星空", photo: "哈登观景台（日出晨雾）、村旁白桦林、木屋炊烟", notes: "住宿需提前1-2个月订，国庆价格翻倍；村内只能步行或骑马", image: "https://agent.qianwen.com/service/b7bf9aba-4258-4c/38406cba2d6dc0d0c07b67b28d5087f9" },
+    { name: "白哈巴村", region: "阿勒泰·哈巴河县", regionKey: "阿勒泰", ticket: "30元/人+区间车", ticketVal: 30, hours: "全天", duration: "半天-1天", best: "9月底-10月初", type: "村落人文", highlights: "西北第一村、中哈边境、原始图瓦村落", photo: "村口观景台（日落）、边境线", notes: "需办理边防证；从喀纳斯景区内可乘区间车直达", image: "https://agent.qianwen.com/service/7019642f-d305-49/9ca0c9a7c01370c490c272b38e2d6f30" },
+    { name: "可可托海", region: "阿勒泰·富蕴县", regionKey: "阿勒泰", ticket: "90元/人+区间车36元", ticketVal: 126, hours: "9:00-19:00", duration: "半天", best: "9月", type: "峡谷地貌", highlights: "额尔齐斯大峡谷、神钟山、三号矿坑", photo: "神钟山观景台、峡谷溪流", notes: "从乌鲁木齐到可可托海路较远，建议作为路线第一站", image: "https://agent.qianwen.com/service/a6f0c5cb-53ca-45/e99e2628285aa8ba9f6d0291050f2121" },
+    { name: "五彩滩", region: "阿勒泰·布尔津县", regionKey: "阿勒泰", ticket: "45元/人", ticketVal: 45, hours: "9:00-21:00", duration: "2小时", best: "日落时分", type: "雅丹地貌", highlights: "雅丹地貌、额尔齐斯河、日落", photo: "观景台日落（建议日落前1小时到）", notes: "风大，注意保暖；景区不大，不用留太多时间", image: "https://agent.qianwen.com/service/2d406aa0-5c21-4d/c985b80c37b2890a96f4105530f89613" },
+    { name: "魔鬼城（乌尔禾）", region: "克拉玛依·乌尔禾区", regionKey: "克拉玛依", ticket: "42元/人+区间车20元", ticketVal: 62, hours: "9:00-20:00", duration: "2-3小时", best: "日落时分", type: "雅丹地貌", highlights: "雅丹地貌、风城、卧虎藏龙取景地", photo: "观景台日落、小火车沿途", notes: "景区内坐小火车游览，不能自驾穿行；日落时人多", image: "https://agent.qianwen.com/service/a9043733-fea4-44/ba972bbdf673f3bc7e7fb68c192d6556" },
+    { name: "赛里木湖", region: "博尔塔拉蒙古自治州", regionKey: "博尔塔拉", ticket: "145元/人（含区间车，自驾车另收费）", ticketVal: 145, hours: "全天", duration: "半天-1天", best: "6月（花海）或9月（秋景）", type: "湖泊山水", highlights: "高山湖泊、天鹅、果子沟大桥", photo: "环湖公路多处、果子沟大桥观景台", notes: "10月可能下雪，注意路况；自驾车进湖需另付车费；可自驾环湖约90公里", image: "https://agent.qianwen.com/service/cec27242-a92a-45/1ef43001c44118a1ad4a460a36134085" },
+    { name: "那拉提草原", region: "伊犁·新源县", regionKey: "伊犁", ticket: "95元/人+区间车", ticketVal: 95, hours: "8:30-20:00", duration: "半天-1天", best: "6-8月（绿草），9月（金黄）", type: "草原", highlights: "空中草原、河谷草原、哈萨克毡房", photo: "空中草原观景台、河谷草原", notes: "国庆期间草已黄，但人相对少；区间车分多条线", image: "https://agent.qianwen.com/service/75f4618e-3b26-46/2bcb68a118fca8ff1c9eae899b7ecbe0" },
+    { name: "独库公路", region: "独山子-库车", regionKey: "跨地州", ticket: "免费", ticketVal: 0, hours: "通常6-10月开放（以交警公告为准）", duration: "1-2天", best: "7-8月，9月底可能因雪关闭", type: "公路", highlights: "中国最美公路、一日四季、雪山草原", photo: "哈希勒根达坂、乔尔玛、大小龙池", notes: "国庆期间大概率因下雪封闭北段；出发前务必查路况；七座以上车禁行", image: "https://agent.qianwen.com/service/491c2505-ed8f-42/0bd49066e057a168c22b6750576827f9" },
+    { name: "天山天池", region: "昌吉·阜康市", regionKey: "昌吉", ticket: "155元/人（含区间车）", ticketVal: 155, hours: "9:00-19:00", duration: "半天", best: "全年", type: "湖泊山水", highlights: "高山湖泊、博格达峰、西王母庙", photo: "天池湖边、马牙山观景台（需另购索道）", notes: "离乌鲁木齐近，适合作为首站或末站；国庆人多", image: "https://agent.qianwen.com/service/c7960f54-a9d3-48/48ac45a43455eaa57edc73948bcc2570" },
+    { name: "吐鲁番（葡萄沟/火焰山/坎儿井）", region: "吐鲁番市", regionKey: "吐鲁番", ticket: "各景点单独收费（葡萄沟75、火焰山40、坎儿井40）", ticketVal: 75, hours: "9:00-19:00", duration: "1天", best: "9-10月（葡萄成熟）", type: "人文古迹", highlights: "葡萄沟、火焰山、坎儿井、交河故城", photo: "火焰山温度计、葡萄沟长廊", notes: "10月仍较热（30度左右），注意防晒；建议买联票；各景点分散，自驾最方便", image: "https://agent.qianwen.com/service/66fa3df3-f35e-45/d327b2eef4c5c09b8cc52e54075fb6d2" },
+    { name: "国际大巴扎", region: "乌鲁木齐市天山区", regionKey: "乌鲁木齐", ticket: "免费（登塔另收费）", ticketVal: 0, hours: "10:00-22:00", duration: "2-3小时", best: "傍晚/晚上", type: "城市街区", highlights: "伊斯兰建筑、手工艺品、美食", photo: "大巴扎夜景、清真寺外观", notes: "注意保管财物；买东西可以砍价；晚上更热闹", image: "https://agent.qianwen.com/service/71474779-0061-43/58adce93d3711cb0171c71891ca00bbe" },
+    { name: "安集海大峡谷（红山大峡谷）", region: "塔城·沙湾市", regionKey: "塔城", ticket: "免费（未完全开发）", ticketVal: 0, hours: "全天", duration: "1-2小时", best: "下午", type: "峡谷地貌", highlights: "丹霞地貌、峡谷、河流", photo: "峡谷边缘观景（注意安全）", notes: "未开发景区，无护栏，注意安全；部分路段土路；自驾可达，路边即可观景", image: "https://agent.qianwen.com/service/17304f88-d8b3-47/9358a1929b08ba836267b5b1ecc9b51b" },
+    { name: "巴音布鲁克", region: "巴音郭楞·和静县", regionKey: "巴音郭楞", ticket: "65元/人+区间车90元", ticketVal: 155, hours: "8:30-18:30", duration: "半天", best: "6-8月（天鹅），9月", type: "草原", highlights: "九曲十八弯、天鹅湖、草原日落", photo: "九曲十八弯观景台（日落）", notes: "从那拉提到巴音布鲁克走独库公路南段；国庆可能因雪封路；日落结束后区间车排队久", image: "https://agent.qianwen.com/service/345794ac-c257-4e/14124a8d53e2395c42638c156da31cea" }
+  ],
+
+  /* ---- 美食（知识库「美食推荐」表全 12 条） ---- */
+  foods: [
+    { name: "大盘鸡", cat: "主食", place: "全疆", price: "80-150元/份", feature: "鸡肉+土豆+皮带面，分量大", shop: "乌鲁木齐血站大盘鸡、布尔津县城", tips: "一份够2-3人吃，配皮带面", image: "https://agent.qianwen.com/service/70e8ec5f-d338-47/c071e79c25767803f73c8432bb4d882f" },
+    { name: "烤羊肉串", cat: "烤肉", place: "全疆", price: "5-10元/串", feature: "炭火烤制，肥瘦相间", shop: "乌鲁木齐大巴扎、布尔津河堤夜市", tips: "认准红柳烤肉，比铁签的香", image: "https://agent.qianwen.com/service/a3a05651-7846-40/fcf7f59c27e8207c7ff7786c2544a1e7" },
+    { name: "手抓饭", cat: "主食", place: "全疆", price: "25-40元/份", feature: "羊肉+胡萝卜+米饭，油香", shop: "乌鲁木齐一杆旗抓饭、库车", tips: "中午吃最好，晚上很多店卖完了", image: "https://agent.qianwen.com/service/be543d61-6528-4e/30cb60a70030a4246052ceb923da746f" },
+    { name: "烤包子", cat: "小吃", place: "全疆", price: "3-5元/个", feature: "羊肉洋葱馅，外皮酥脆", shop: "乌鲁木齐大巴扎、库车老城区", tips: "刚出炉的最好吃，小心烫", image: "https://agent.qianwen.com/service/d7feb35a-fc78-4b/73b111e1acca1a7a2790903a523e69a4" },
+    { name: "馕", cat: "主食", place: "全疆", price: "3-10元/个", feature: "新疆主食，种类多（芝麻馕、肉馕、库车大馕）", shop: "库车大馕（直径1米）、乌鲁木齐", tips: "可以当干粮带在路上，放一周不坏", image: "https://agent.qianwen.com/service/2ffaf5ee-37f3-47/93b4a20cbbd0ef4f3a9289a8bdf8f2b4" },
+    { name: "冷水鱼", cat: "烤肉", place: "布尔津", price: "80-150元/条", feature: "额尔齐斯河狗鱼、五道黑", shop: "布尔津河堤夜市", tips: "河堤夜市可以砍价，注意看秤", image: "https://agent.qianwen.com/service/dad50cb3-4dc6-4f/b29cb841b154708ab521980d873c9c85" },
+    { name: "纳仁", cat: "主食", place: "伊犁/阿勒泰", price: "40-60元/份", feature: "哈萨克族传统美食，马肉/羊肉+面片", shop: "那拉提镇、布尔津", tips: "膻味较重，不一定吃得惯", image: "https://agent.qianwen.com/service/ba74c669-0232-42/c1e221fa8ec3a3a50a800f10463ebcb1" },
+    { name: "酸奶", cat: "饮品", place: "全疆", price: "5-15元/碗", feature: "浓稠醇厚，配蜂蜜", shop: "乌鲁木齐、伊宁", tips: "本地酸奶很酸，要加糖或蜂蜜", image: "https://agent.qianwen.com/service/d3737347-67d4-41/efdc7140b75e1a5124b13d4b51dbadac" },
+    { name: "瓜果", cat: "瓜果", place: "吐鲁番/哈密", price: "按斤称", feature: "葡萄、哈密瓜、西瓜，10月葡萄正甜", shop: "吐鲁番葡萄沟、乌鲁木齐农贸市场", tips: "10月葡萄品种多（无核白、马奶子、红提），便宜甜", image: "https://agent.qianwen.com/service/574a4ca9-abe0-46/e5ba5c6327a5e5353cca65d1878d78af" },
+    { name: "椒麻鸡", cat: "主食", place: "乌鲁木齐/昌吉", price: "60-100元/份", feature: "麻辣鲜香，配皮带面", shop: "乌鲁木齐胖老汉椒麻鸡", tips: "不能吃辣的慎点", image: "https://agent.qianwen.com/service/8467b8ac-1fed-49/b8c691b7718c61b2835552aacb61d9cf" },
+    { name: "丸子汤", cat: "小吃", place: "昌吉/乌鲁木齐", price: "20-35元/份", feature: "牛肉丸子+粉块+菠菜，配油塔子", shop: "昌吉四十九丸子汤", tips: "早餐或午餐吃，配油塔子（花卷）", image: "https://agent.qianwen.com/service/af8222fd-418c-4b/567e20b397b5b8b980665c45aff73d39" },
+    { name: "冰淇淋（玛洛什）", cat: "饮品", place: "阿勒泰/伊犁", price: "10-20元/杯", feature: "哈萨克族手工冰淇淋，奶味浓", shop: "布尔津、那拉提", tips: "路边摊的手工冰淇淋比连锁店好吃", image: "https://agent.qianwen.com/service/bdbac175-0513-42/49bcb9fa1dfcd1acf064c3250cc29ed7" }
+  ],
+
+  /* ---- 加油攻略（知识库「加油攻略」表全 10 段） ---- */
+  fuel: [
+    { seg: "乌鲁木齐→可可托海", dist: "高速沿线加油站多，富蕴县有加油站", point: "出发前加满，富蕴县补油", price: "7.5-8元/升", notes: "全程高速，加油无忧", flags: [] },
+    { seg: "可可托海→布尔津", dist: "国道沿线加油站少，间隔约150公里", point: "富蕴县加满，布尔津补油", price: "7.5-8元/升", notes: "部分加油站只收现金或指定APP，备点现金", flags: ["站少", "只收现金"] },
+    { seg: "布尔津→喀纳斯（贾登峪）", dist: "布尔津到贾登峪约150公里，中途无加油站", point: "布尔津加满；贾登峪有加油站（贵）", price: "贾登峪约8.5-9元/升", notes: "贾登峪加油站经常排队，建议布尔津加满再上山", flags: ["无加油站", "易排队"] },
+    { seg: "喀纳斯/禾木景区", dist: "景区内无加油站", point: "出景区后在布尔津或冲乎尔乡加油", price: "—", notes: "景区内不能自驾，不用担心油", flags: ["无加油站"] },
+    { seg: "布尔津→魔鬼城→克拉玛依", dist: "国道沿线有加油站，克拉玛依油城加油方便", point: "布尔津加满，乌尔禾补油，克拉玛依加满", price: "7.5-8元/升", notes: "克拉玛依是油城，加油站多且便宜", flags: [] },
+    { seg: "克拉玛依→赛里木湖", dist: "高速沿线加油站多", point: "奎屯加满，赛里木湖附近有加油站", price: "7.5-8元/升", notes: "全程高速，加油无忧", flags: [] },
+    { seg: "赛里木湖→那拉提", dist: "伊宁有加油站，那拉提镇有加油站", point: "清水河加满，那拉提补油", price: "7.5-8元/升", notes: "那拉提镇加油站可能排队，建议伊宁加满", flags: ["易排队"] },
+    { seg: "那拉提→巴音布鲁克→库车（独库南段）", dist: "独库公路沿线加油站极少，巴音布鲁克有加油站", point: "那拉提加满，巴音布鲁克补油（贵且可能排队）", price: "巴音布鲁克约8.5-9元/升", notes: "独库公路上几乎没有加油站，务必在那拉提加满；巴音布鲁克加油站经常缺油", flags: ["站少", "易排队", "重点"] },
+    { seg: "库车→吐鲁番", dist: "高速沿线加油站多", point: "库车加满，和硕/托克逊补油", price: "7.5-8元/升", notes: "全程高速，加油无忧", flags: [] },
+    { seg: "吐鲁番→乌鲁木齐", dist: "高速沿线加油站多", point: "吐鲁番加满，还车前在乌鲁木齐加满", price: "7.5-8元/升", notes: "还车前加满油，否则租车公司收高价油费", flags: [] }
+  ],
+
+  /* ---- 避坑指南（知识库「避坑指南」表全 12 条） ---- */
+  pitfalls: [
+    { cat: "住宿", pit: "禾木/喀纳斯住宿临时订", detail: "国庆期间一房难求，价格翻3-5倍", fix: "提前2-3个月预订，或选择住布尔津/贾登峪", alt: "住布尔津每天往返（但每天多3小时车程）" },
+    { cat: "交通", pit: "独库公路国庆开放", detail: "9月底-10月初北段常因下雪封闭", fix: "出发前查「新疆交警」公众号实时路况，准备备选路线", alt: "如独库封闭，那拉提→库车改走和静→托克逊高速（多3小时）" },
+    { cat: "景区", pit: "景区区间车排队", detail: "国庆喀纳斯/禾木区间车排队1-2小时", fix: "住景区内（喀纳斯村/禾木村），避开进出高峰", alt: "早起（7点前）或傍晚（6点后）乘区间车" },
+    { cat: "餐饮", pit: "布尔津河堤夜市宰客", detail: "鱼价虚高，缺斤短两", fix: "先问价再点，注意看秤，可以砍价", alt: "去布尔津县城里的餐馆吃，比夜市便宜" },
+    { cat: "交通", pit: "加油站只收现金", detail: "部分偏远地区加油站不支持微信/支付宝", fix: "备500-1000元现金", alt: "提前在城市加满油，减少偏远地区加油" },
+    { cat: "景区", pit: "边防证没办", detail: "白哈巴、塔城等边境地区需要边防证", fix: "在户籍地或乌鲁木齐/布尔津公安局免费办理", alt: "不去白哈巴就不需要边防证" },
+    { cat: "交通", pit: "租车公司坑", detail: "还车时乱扣押金、说有划痕", fix: "取车时全车拍照录像（含底盘、玻璃），买全险", alt: "选大平台（一嗨、神州），不要选小公司" },
+    { cat: "天气", pit: "10月下雪没准备", detail: "北疆10月可能下雪，路面结冰", fix: "带防滑链（或租四驱车），关注天气预报", alt: "如下大雪，调整行程，先去南疆（吐鲁番）再回北疆" },
+    { cat: "餐饮", pit: "景区吃饭贵", detail: "喀纳斯/禾木村内吃饭很贵（一碗面50+）", fix: "自带干粮、方便面、自热米饭", alt: "在布尔津/乌鲁木齐采购好物资进山" },
+    { cat: "天气", pit: "吐鲁番10月还很热", detail: "10月吐鲁番仍有30度+，和北疆温差大", fix: "带短袖+薄外套，注意防晒补水", alt: "上午早出发，中午最热时在酒店休息" },
+    { cat: "交通", pit: "高速限速严格", detail: "新疆高速限速多（60-80公里/小时），测速密集", fix: "严格按限速开，不要超速", alt: "用导航提醒测速，新疆超速罚款很重" },
+    { cat: "其他", pit: "时差问题", detail: "新疆用北京时间，但实际作息晚2小时", fix: "早上8点天还没亮，晚上9点才日落，餐厅10点才开门", alt: "调整作息，不用早起，晚上可以玩到很晚" }
+  ],
+
+  /* ---- 打包清单（知识库「打包清单」表全 40 条） ---- */
+  packing: [
+    { cat: "衣物", item: "羽绒服/厚冲锋衣", must: "必备", qty: "1件/人", note: "10月北疆早晚0度以下，喀纳斯/禾木可能下雪" },
+    { cat: "衣物", item: "抓绒衣/毛衣", must: "必备", qty: "1-2件/人", note: "中间层，白天穿" },
+    { cat: "衣物", item: "长袖T恤/衬衫", must: "必备", qty: "3-4件/人", note: "内层，可叠穿" },
+    { cat: "衣物", item: "保暖裤/秋裤", must: "必备", qty: "1-2条/人", note: "北疆10月必须穿" },
+    { cat: "衣物", item: "牛仔裤/休闲裤", must: "必备", qty: "2条/人", note: "耐磨，适合户外" },
+    { cat: "衣物", item: "保暖内衣", must: "推荐", qty: "1套/人", note: "怕冷的人必备" },
+    { cat: "衣物", item: "短袖T恤", must: "推荐", qty: "2件/人", note: "吐鲁番/乌鲁木齐白天可能穿" },
+    { cat: "衣物", item: "保暖帽/围巾/手套", must: "必备", qty: "1套/人", note: "看日出日落时很冷" },
+    { cat: "衣物", item: "舒适运动鞋/徒步鞋", must: "必备", qty: "1双/人", note: "景区要走路，防滑保暖" },
+    { cat: "衣物", item: "拖鞋", must: "推荐", qty: "1双/人", note: "酒店/车内穿" },
+    { cat: "护肤", item: "防晒霜（SPF50+）", must: "必备", qty: "1瓶", note: "新疆紫外线强，即使阴天也晒" },
+    { cat: "护肤", item: "润唇膏", must: "必备", qty: "1支/人", note: "非常干燥，嘴唇容易裂" },
+    { cat: "护肤", item: "保湿面霜/身体乳", must: "必备", qty: "1瓶", note: "新疆干燥到起皮" },
+    { cat: "护肤", item: "面膜", must: "推荐", qty: "5-10片", note: "每天敷一片救急" },
+    { cat: "药品", item: "感冒药/退烧药", must: "必备", qty: "1盒", note: "温差大容易感冒" },
+    { cat: "药品", item: "肠胃药（蒙脱石散/黄连素）", must: "必备", qty: "1盒", note: "饮食变化容易拉肚子" },
+    { cat: "药品", item: "晕车药", must: "推荐", qty: "1盒", note: "盘山路多，容易晕车" },
+    { cat: "药品", item: "高反药（红景天/葡萄糖）", must: "推荐", qty: "1盒", note: "喀纳斯/那拉提海拔1000-2000米，一般不高反，但备着" },
+    { cat: "药品", item: "创可贴/碘伏", must: "必备", qty: "1包", note: "小伤口处理" },
+    { cat: "药品", item: "布洛芬/止痛药", must: "推荐", qty: "1盒", note: "头痛/牙痛/痛经" },
+    { cat: "自驾", item: "车载手机支架", must: "必备", qty: "1个", note: "导航必备" },
+    { cat: "自驾", item: "车载充电器", must: "必备", qty: "1个", note: "长时间开车手机耗电快" },
+    { cat: "自驾", item: "防滑链", must: "推荐", qty: "1套", note: "10月可能下雪，两驱车必备" },
+    { cat: "自驾", item: "充气泵/补胎工具", must: "推荐", qty: "1套", note: "偏远地区轮胎出问题可应急" },
+    { cat: "自驾", item: "保温水壶", must: "必备", qty: "1-2个", note: "新疆干燥，随时喝热水" },
+    { cat: "食物", item: "方便面/自热米饭", must: "必备", qty: "5-10份", note: "景区内吃饭贵且不好吃" },
+    { cat: "食物", item: "零食（巧克力/牛肉干/坚果）", must: "必备", qty: "适量", note: "开车补充能量，景区垫肚子" },
+    { cat: "食物", item: "矿泉水", must: "必备", qty: "1箱", note: "新疆干燥，每天喝2升以上" },
+    { cat: "证件", item: "身份证", must: "必备", qty: "每人", note: "新疆安检多，随时查身份证" },
+    { cat: "证件", item: "驾驶证", must: "必备", qty: "开车的人", note: "租车和路上检查都需要" },
+    { cat: "证件", item: "边防证", must: "按需", qty: "去白哈巴才需要", note: "户籍地或新疆当地公安局免费办" },
+    { cat: "证件", item: "学生证/军官证等", must: "按需", qty: "有就带", note: "部分景区门票优惠" },
+    { cat: "电子", item: "充电宝", must: "必备", qty: "1-2个", note: "景区拍照耗电快" },
+    { cat: "电子", item: "相机/无人机", must: "推荐", qty: "按需", note: "新疆风景好，相机出片；无人机部分景区禁飞" },
+    { cat: "电子", item: "多功能插线板", must: "推荐", qty: "1个", note: "酒店插座可能不够" },
+    { cat: "其他", item: "墨镜", must: "必备", qty: "1副/人", note: "雪地/戈壁反光强，保护眼睛" },
+    { cat: "其他", item: "雨伞/雨衣", must: "推荐", qty: "1件/人", note: "9-10月可能下雨下雪" },
+    { cat: "其他", item: "垃圾袋", must: "推荐", qty: "若干", note: "车内保持清洁，景区不乱扔" }
+  ],
+
+  /* ---- 住宿推荐（知识库「住宿推荐」表：城市/区域、推荐住宿区域、价格区间、推荐理由、预订建议、注意事项） ---- */
+  stays: [
+    { city: "乌鲁木齐", area: "沙依巴克区/水磨沟区", price: "300-600元/晚", reason: "取车还车方便，美食多，大巴扎近", book: "提前1个月订", note: "首末两天住这里，选有停车场的酒店",
+      nav: { name: "沙依巴克区酒店", address: "乌鲁木齐市沙依巴克区/水磨沟区", coord: "43.82,87.60" },
+      image: "https://agent.qianwen.com/service/cc89452e-b433-43/d11de91766e0ffefc8d14996f8c63e02" },
+    { city: "可可托海", area: "可可托海镇", price: "400-800元/晚", reason: "离景区近，第二天方便", book: "提前1个月订", note: "镇上住宿选择少，条件一般，不要期待太高",
+      nav: { name: "可可托海镇民宿", address: "阿勒泰地区富蕴县可可托海镇", coord: "47.20,89.73" },
+      image: "https://agent.qianwen.com/service/217979f4-9c2b-42/4c807aa1482b4c5e69c734d8477077d5" },
+    { city: "布尔津", area: "布尔津县城", price: "300-600元/晚", reason: "住宿选择多，美食多（河堤夜市）", book: "提前2周订", note: "县城不大，住哪里都方便；河堤夜市附近晚上吵",
+      nav: { name: "布尔津县城酒店", address: "阿勒泰地区布尔津县河堤夜市", coord: "47.70,86.87" },
+      image: "https://agent.qianwen.com/service/b9b608ea-59cf-44/553c1634fe38e763c5757d979496e19b" },
+    { city: "喀纳斯", area: "喀纳斯村/贾登峪", price: "800-2000元/晚", reason: "住景区内方便看晨雾，不用每天进出", book: "提前2个月订", note: "喀纳斯村条件简陋（木屋、公共卫浴多）；贾登峪条件好但在景区外",
+      nav: { name: "喀纳斯村/贾登峪民宿", address: "阿勒泰地区布尔津县喀纳斯景区贾登峪", coord: "48.50,87.02" },
+      image: "https://agent.qianwen.com/service/10c66eb3-3fd7-4e/0e3df428c83d6c7500b94eda41d0c00e" },
+    { city: "禾木", area: "禾木村", price: "1000-3000元/晚", reason: "住村内方便看晨雾日落", book: "提前2-3个月订", note: "国庆价格暴涨且一房难求；村内多为木屋，条件一般，有独立卫浴的贵",
+      nav: { name: "禾木村民宿", address: "阿勒泰地区布尔津县禾木村", coord: "48.10,87.02" },
+      image: "https://agent.qianwen.com/service/9c55c101-5ed5-47/e62eaeb0f9551ec01580770b2b407d32" },
+    { city: "克拉玛依", area: "克拉玛依市区", price: "300-500元/晚", reason: "石油城市，住宿条件好，性价比高", book: "提前1周订", note: "市区酒店选择多，都有停车场",
+      nav: { name: "克拉玛依市区酒店", address: "克拉玛依市克拉玛依区", coord: "45.60,84.87" },
+      image: "https://agent.qianwen.com/service/a3c8bed9-5636-4d/6fb994ba509d65b66d35976c4645a148" },
+    { city: "赛里木湖", area: "清水河镇/霍尔果斯", price: "300-600元/晚", reason: "离赛里木湖近，住宿选择比湖边多", book: "提前2周订", note: "湖边有房车营地（贵），清水河镇性价比高",
+      nav: { name: "清水河镇酒店", address: "博尔塔拉蒙古自治州霍城县清水河镇", coord: "44.30,80.90" },
+      image: "https://agent.qianwen.com/service/59bfe2bf-e8c7-47/515fb428afc6f58ca16e378aa8678f9d" },
+    { city: "那拉提", area: "那拉提镇", price: "400-800元/晚", reason: "离景区近，餐饮选择多", book: "提前2周订", note: "镇上住宿条件一般，好酒店少",
+      nav: { name: "那拉提镇民宿", address: "伊犁哈萨克自治州新源县那拉提镇", coord: "43.30,84.02" },
+      image: "https://agent.qianwen.com/service/3c2d5c0c-710a-43/bbe82310f220ea03d11c039b860595da" },
+    { city: "库车", area: "库车市区", price: "250-500元/晚", reason: "住宿便宜，美食多（库车大馕、烤肉）", book: "提前1周订", note: "老城区有特色民宿，新城区酒店条件好",
+      nav: { name: "库车老城民宿", address: "阿克苏地区库车市老城区", coord: "41.72,82.93" },
+      image: "https://agent.qianwen.com/service/71c5166d-95e8-48/fff5387f0d9faf012cbfc1ba9df609e9" },
+    { city: "吐鲁番", area: "吐鲁番市区", price: "250-500元/晚", reason: "离各景点近，葡萄成熟季有鲜果", book: "提前1周订", note: "10月仍热，选有空调的酒店",
+      nav: { name: "吐鲁番市区酒店", address: "吐鲁番市高昌区", coord: "42.95,89.18" },
+      image: "https://agent.qianwen.com/service/89e312c0-1a33-4e/f120fa7013c8c508251c92d5cf216712" }
+  ],
+
+  /* ---- 预算（知识库「预算清单」表 + 攻略预算章节） ---- */
+  budget: [
+    { cat: "交通", item: "往返机票（杭州-乌鲁木齐）", unit: "2000-3500元", qty: "1人", sub: "2000-3500元", note: "国庆机票贵，提前1-2个月订；9.24晚出发可能便宜些" },
+    { cat: "交通", item: "租车（SUV）", unit: "400-600元/天", qty: "12天（4人分摊）", sub: "1200-1800元", note: "4人一车分摊；含全险" },
+    { cat: "交通", item: "油费", unit: "约0.8元/公里", qty: "3800公里（4人分摊）", sub: "760元", note: "SUV油耗约8-10升/百公里" },
+    { cat: "交通", item: "过路费", unit: "约0.5元/公里", qty: "3800公里（4人分摊）", sub: "475元", note: "新疆高速过路费便宜" },
+    { cat: "住宿", item: "酒店/民宿", unit: "400-800元/晚", qty: "12晚（2人一间）", sub: "2400-4800元", note: "喀纳斯/禾木贵（1000-2000/晚），其他地方便宜；2人一间分摊" },
+    { cat: "门票", item: "景区门票+区间车", unit: "约1500元/人", qty: "全程", sub: "1500元", note: "喀纳斯230+禾木102+赛里木湖145+那拉提95+可可托海126+魔鬼城62+五彩滩45+天池155等" },
+    { cat: "餐饮", item: "餐饮", unit: "100-150元/人/天", qty: "12天", sub: "1200-1800元", note: "景区内贵，城市里便宜；新疆菜分量大，人均不高" },
+    { cat: "购物", item: "购物/特产", unit: "500-1000元", qty: "按需", sub: "500-1000元", note: "葡萄干、坚果、手工艺品等" },
+    { cat: "其他", item: "应急备用金", unit: "500-1000元", qty: "按需", sub: "500-1000元", note: "车辆故障、医疗等意外" }
+  ],
+  budgetTotal: { item: "人均总预算（4人同行、2人一间）", sub: "约10000-15000元", note: "单人出行会贵30%-50%" },
+
+  /* ---- 实用信息（知识库「实用信息」表） ---- */
+  practical: [
+    { icon: "🪪", cat: "边防证", desc: "白哈巴、塔城、阿勒泰部分边境地区需要。户籍地公安局免费办理，或乌鲁木齐/布尔津公安局现场办。", tip: "办理时写「新疆阿勒泰地区、塔城地区」即可覆盖；免费，立等可取" },
+    { icon: "🚗", cat: "租车建议", desc: "推荐一嗨、神州等大平台，APP预订、乌鲁木齐机场/市区取车；建议租SUV（底盘高），买全险（不计免赔）。", tip: "SUV约300-600元/天（国庆涨价）；取车时全车拍照录像；还车加满油" },
+    { icon: "⛰️", cat: "独库公路路况", desc: "通常6月-10月初开放，以交警公告为准；国庆期间北段大概率因雪封闭；七座以上车辆禁行。", tip: "关注「新疆交警」微信公众号查实时路况；封闭则绕行和静→托克逊高速" },
+    { icon: "🌡️", cat: "天气", desc: "10月北疆白天10-20度、早晚0度以下、可能下雪；喀纳斯/禾木比乌鲁木齐冷5-10度。吐鲁番白天25-35度。", tip: "带羽绒服+短袖两套装备；查「中国天气网」或「墨迹天气」" },
+    { icon: "🕘", cat: "时差", desc: "新疆用北京时间，但实际作息晚2小时：早上8点天没亮，晚上9点才日落，餐厅10点后才开门。", tip: "适应即可，不用早起，晚上可以玩到很晚" },
+    { icon: "🛂", cat: "安检", desc: "乌鲁木齐、各城市入口、景区都有安检；加油站也要刷身份证。", tip: "随身携带身份证，配合检查，不要带违禁品（刀具等）" },
+    { icon: "📶", cat: "网络", desc: "城市4G/5G正常，景区/山区信号弱；喀纳斯/禾木/独库公路部分路段无信号。", tip: "提前下载离线地图很重要" },
+    { icon: "💰", cat: "支付方式", desc: "城市微信/支付宝通用，偏远地区部分加油站、小餐馆只收现金。", tip: "备500-1000元现金+零钱" },
+    { icon: "🎫", cat: "门票预约", desc: "喀纳斯、禾木、赛里木湖等需提前预约（景区官方公众号或「新疆景区预约」平台）。", tip: "国庆门票紧张，提前3-7天预约；喀纳斯/禾木建议提前7天" },
+    { icon: "⚠️", cat: "自驾安全", desc: "高速限速60-120不等、测速密集、区间测速多；新疆超速罚款重（200-2000元）。每天开车4-6小时易疲劳。", tip: "严格按限速开；两人轮换、每2小时休息一次" }
+  ],
+  emergency: {
+    phones: [
+      ["报警", "110"], ["急救", "120"], ["交通事故", "122"],
+      ["旅游投诉", "12301"], ["查路况", "「新疆交警」微信公众号"]
+    ],
+    hospitals: [
+      "乌鲁木齐：新疆医科大学第一附属医院、自治区人民医院",
+      "布尔津县人民医院：布尔津县神湖路",
+      "那拉提镇卫生院：那拉提镇",
+      "库车市人民医院：库车市解放北路"
+    ],
+    reminder: "新疆地广人稀，偏远地区手机信号弱。出发前下载离线地图，告知家人行程。车辆故障打保险公司救援电话（大平台有全国救援）。"
+  },
+
+  /* ---- 行前策划（活动策划方法论：节奏/分工/风险/复盘，事实数据取自知识库） ---- */
+  campaign: {
+    phases: [
+      { name: "筹备期", time: "出发前1-3个月", goal: "锁定刚性资源", items: ["请9.28-9.30三天年假，连休9.25-10.7共13天", "提前1-2个月订机票（9.24晚班机更便宜）", "提前2-3个月订喀纳斯/禾木住宿、订SUV租车", "办边防证（如需白哈巴）"] },
+      { name: "预热期", time: "9.24-9.30（错峰窗口）", goal: "低峰完成北疆核心段", items: ["9.24晚飞乌鲁木齐，9.25取车出发", "9.25-9.30人少，优先吃透喀纳斯+禾木（各住2晚）", "节奏原则：单日开车不超过6小时，D1/D10/D11长驾段提前排轮换"] },
+      { name: "爆发期", time: "10.1-10.6", goal: "错峰在外，避开出疆高峰", items: ["10.1已离开喀纳斯区域，避开景区最高峰", "魔鬼城/赛里木湖/那拉提/巴音布鲁克按D7-D10推进", "独库南段出发前必查「新疆交警」路况，预设和静→托克逊备选"] },
+      { name: "返场期", time: "10.6-10.7", goal: "收尾与复盘", items: ["10.6吐鲁番短驾+还车（加满油），大巴扎买特产", "10.7返程航班，避开10.7出疆机票最高峰的前一天", "取车/还车照片留存，押金核对后再离场"] }
+    ],
+    xhs: {
+      title: "🚗 请3天假玩赚13天！打工人国庆新疆自驾不踩坑攻略",
+      body: "中秋连国庆，请9.28-9.30三天年假，直接换13天长假✅ 我们9.24晚飞乌鲁木齐，9.25取车出发，12天北疆+伊犁环线，全程约3800公里。\n\n📍 路线：乌鲁木齐→可可托海→布尔津→喀纳斯（2天）→禾木（2天）→五彩滩→魔鬼城→赛里木湖→那拉提→巴音布鲁克→吐鲁番→乌鲁木齐\n\n🍁 9.25-9.30错峰进喀纳斯，人少一半，晨雾随便拍；禾木哈登观景台6:30前到，全天精华\n💰 人均预算约1万-1.5万（4人一车、2人一间的口径）：机票2000-3500、租车摊1200-1800、油费760、住宿2400-4800、门票1500\n⚠️ 三大生死线：喀纳斯/禾木住宿提前2-3个月订；独库公路国庆可能封北段，出发前查「新疆交警」；加油站内蒙古→布尔津段只收现金，备500-1000元现金\n\n大盘鸡、红柳烤肉、布尔津烤冷水鱼、库车大馕…新疆菜分量大，人均反而不高😋 完整12天行程+避坑清单放评论区，收藏备用！",
+      tags: "#新疆自驾 #国庆去哪儿 #喀纳斯 #禾木 #独库公路 #打工人请假攻略 #伊犁 #自驾环线 #国庆旅游 #旅行攻略"
+    }
+  }
+};
+
+</script>
+<script>
+/* SECTION: map2d-data —— 手绘旅行地图数据：示意坐标（保持新疆北阿尔泰/西伊犁/中东吐鲁番方位），贴纸+标签经碰撞求解无重叠；里程/时长转录知识库「每天行程」，沿路线文字排列 */
+window.MAP2D = {
+  img: {
+    wlmq: "https://workspace-cdn.uzone.com/0a795ad805f94f53a240c678354588ad%2Fo%2F1789540096262-c.png?auth_key=1792132096-0-0-c5839f5224e63b38d6637262c8a7cad5",
+    kkth: "https://workspace-cdn.uzone.com/38f240dc88ae406da33db78030d53dda%2Fo%2F1789540097250-c.png?auth_key=1792132097-0-0-53ef0998193abf55d62fadfebddc7002",
+    be:   "https://workspace-cdn.uzone.com/35cafa9264fb4504a6693b8d3d674aa6%2Fo%2F1789540098356-c.png?auth_key=1792132098-0-0-5b879c042b7271029f4dc60e91a42c27",
+    kns:  "https://workspace-cdn.uzone.com/7a2c7f2e1524427787ec4f6060d26324%2Fo%2F1789540099557-c.png?auth_key=1792132099-0-0-9e0344267c69ee7dd98d3973faf84c2e",
+    hm:   "https://workspace-cdn.uzone.com/473b42bd09844167b64badc37d3c6147%2Fo%2F1789540100453-c.png?auth_key=1792132100-0-0-33c5260ec0bf68e42401dd1c1c9ad18f",
+    wct:  "https://workspace-cdn.uzone.com/a4625b16eaaa41d8a671af46fe6595ae%2Fo%2F1789540101423-c.png?auth_key=1792132101-0-0-003b620c7dd84e2d19d727d1e1cfb9a1",
+    mgc:  "https://workspace-cdn.uzone.com/5eab57170bab41e6b680233ceeab48f4%2Fo%2F1789540102522-c.png?auth_key=1792132102-0-0-d4f8c5ff1246c39649f6733808ebbe67",
+    slym: "https://workspace-cdn.uzone.com/6edbe8f24bd74f3a96f3d717661f2c82%2Fo%2F1789540103416-c.png?auth_key=1792132103-0-0-fb88a8e0461f7e6cce6a93ea81d16dfd",
+    nlt:  "https://workspace-cdn.uzone.com/4ffd5c80160d4f6bbc1e36e18e3bf75a%2Fo%2F1789540104403-c.png?auth_key=1792132104-0-0-1f001ff004baefd477d34c497cb1dc44",
+    bybk: "https://workspace-cdn.uzone.com/96222108628548529a21f6677f4c36a4%2Fo%2F1789540105438-c.png?auth_key=1792132105-0-0-c1ddfdf830b6b54b5de62000122b453a",
+    kcg:  "https://workspace-cdn.uzone.com/50f1acc84a4c4af4814c7dc22868d5bb%2Fo%2F1789540106387-c.png?auth_key=1792132106-0-0-5c01bacb7099667359513dd67d047ea0",
+    tlf:  "https://workspace-cdn.uzone.com/38e32d79e512494a9ef5582f918e5d38%2Fo%2F1789540107337-c.png?auth_key=1792132107-0-0-930ac620ffa3f91854c5a9abd20fcb5a"
+  },
+  /* x,y = 手绘示意坐标(viewBox 1000x630)；side 标签方向；img 贴纸键；dot=无贴纸；spot 关联知识库景点 */
+  nodes: [
+    { id:"umeq", name:"乌鲁木齐", sub:"取车/还车 · 大巴扎", x:654, y:360, tags:["D1","D12"], img:"wlmq", side:1, spot:"国际大巴扎" },
+    { id:"kkth", name:"可可托海", sub:"神钟山 · 额河峡谷", x:782, y:200, tags:["D1"], img:"kkth", side:-1, spot:"可可托海" },
+    { id:"be",   name:"布尔津",   sub:"河堤夜市 · 冷水鱼", x:602, y:226, tags:["D2","D6"], img:"be", side:1, spot:"" },
+    { id:"kns",  name:"喀纳斯",   sub:"三湾 · 住村内看晨雾", x:617, y:70, tags:["D3"], img:"kns", side:-1, spot:"喀纳斯景区" },
+    { id:"gyt",  name:"观鱼台·白哈巴", sub:"D4 深度", x:452, y:52, tags:["D4"], dot:true, side:1, spot:"白哈巴村" },
+    { id:"hm",   name:"禾木村",   sub:"白桦林 · 星空 · 晨雾", x:505, y:150, tags:["D5"], img:"hm", side:1, spot:"禾木村" },
+    { id:"wct",  name:"五彩滩",   sub:"雅丹 · 日落", x:360, y:150, tags:["D7"], img:"wct", side:1, spot:"五彩滩" },
+    { id:"mgc",  name:"乌尔禾魔鬼城", sub:"风城 · 小火车", x:300, y:270, tags:["D7"], img:"mgc", side:1, spot:"魔鬼城（乌尔禾）" },
+    { id:"klm",  name:"克拉玛依", sub:"D7 宿 · 油城", x:168, y:272, tags:["D7"], dot:true, side:1, spot:"" },
+    { id:"slym", name:"赛里木湖", sub:"环湖90km · 果子沟", x:130, y:400, tags:["D8"], img:"slym", side:1, spot:"赛里木湖" },
+    { id:"nlt",  name:"那拉提",   sub:"空中草原", x:410, y:430, tags:["D9"], img:"nlt", side:-1, spot:"那拉提草原" },
+    { id:"bybk", name:"巴音布鲁克", sub:"九曲十八弯日落", x:300, y:525, tags:["D10"], img:"bybk", side:1, spot:"巴音布鲁克" },
+    { id:"kce",  name:"库车",     sub:"D10 宿 · 大馕烤肉", x:470, y:560, tags:["D10"], dot:true, side:1, spot:"" },
+    { id:"kcg",  name:"库车天山大峡谷", sub:"D11 途经", x:600, y:548, tags:["D11"], img:"kcg", side:1, spot:"" },
+    { id:"tlf",  name:"吐鲁番",   sub:"葡萄沟 · 火焰山 · 坎儿井", x:815, y:470, tags:["D11","D12"], img:"tlf", side:-1, spot:"吐鲁番（葡萄沟/火焰山/坎儿井）" },
+    { id:"apt",  name:"地窝堡机场", sub:"D13 返程 · 提前2h到", x:550, y:300, tags:["D13"], dot:true, side:-1, spot:"" }
+  ],
+  chains: [
+    { day:"D1",  g:0, path:["umeq","kkth"],          label:"约480km · 5.5h" },
+    { day:"D2",  g:0, path:["kkth","be"],            label:"约330km · 4h" },
+    { day:"D3",  g:0, path:["be","kns"],             label:"约150km · 3.5h盘山" },
+    { day:"D4",  g:1, path:["kns","gyt"],            label:"景区内区间车" },
+    { day:"D5",  g:1, path:["gyt","hm"],             label:"区间车+摆渡 约2h" },
+    { day:"D6",  g:1, path:["hm","be"],              label:"约3.5h" },
+    { day:"D7",  g:2, path:["be","wct","mgc","klm"], label:"约320km · 4h" },
+    { day:"D8",  g:2, path:["klm","slym"],           label:"约400km · 4.5h" },
+    { day:"D9",  g:2, path:["slym","nlt"],           label:"约380km · 5h 经伊宁" },
+    { day:"D10", g:3, path:["nlt","bybk","kce"],     label:"约300km · 6h 独库南段" },
+    { day:"D11", g:3, path:["kce","kcg","tlf"],      label:"约650km · 7h" },
+    { day:"D12", g:3, path:["tlf","umeq"],           label:"约200km · 2.5h" },
+    { day:"D13", g:3, path:["umeq","apt"],           label:"返程 · 飞杭州" }
+  ]
+};
+
+</script>
+<script type="module">
+/* SECTION: app-core */
+const KB = window.KB;
+const $ = (s) => document.querySelector(s);
+const $$ = (s) => [...document.querySelectorAll(s)];
+const LS = { get(k){ try { return JSON.parse(localStorage.getItem(k)) || {}; } catch { return {}; } }, set(k,v){ try { localStorage.setItem(k, JSON.stringify(v)); } catch {} } };
+
+/* 图片运行时赋值：src 只来自 data.js 的 image 字段，失败时隐藏并保留渐变底 */
+function bindImg(img, url){ if(!url){ return; } img.dataset.image = url; img.onload = () => { img.style.opacity = '1'; }; img.onerror = () => { img.remove(); }; img.src = url; }
+
+/* SECTION: nav */
+const MODS = [["map","🗺️ 路线地图"],["trip","📅 13天行程"],["spots","⛰️ 景点推荐"],["food","🍢 美食推荐"],["fuel","⛽ 加油攻略"],["pit","🕳️ 避坑指南"],["pack","🎒 打包清单"],["stay","🏨 住宿推荐"],["bud","💰 预算+实用信息"]];
+const navEl = $('#nav');
+MODS.forEach(([k,label],i)=>{ const b=document.createElement('button'); b.textContent=label; b.dataset.k=k; if(i===0)b.classList.add('on'); b.onclick=()=>{ $$('.nav-in button').forEach(x=>x.classList.toggle('on',x===b)); $$('.mod').forEach(s=>s.classList.toggle('on',s.id==='m-'+k)); if(k==='map') setTimeout(resizeMap,0); window.scrollTo({top:0}); }; navEl.appendChild(b); });
+
+/* SECTION: hero */
+(function(){ const img=$('#heroImg'); img.style.opacity='0'; img.style.transition='opacity .4s';
+  img.onload=()=>{ img.style.opacity='.38'; }; img.onerror=()=>img.remove(); img.src=KB.meta.heroImage; })();
+
+/* SECTION: map2d —— 二维俯视手绘旅行地图：米黄做旧纸张 + 新疆轮廓底 + 水彩贴纸（示意坐标，方位与真实地理一致） + 暖棕路线箭头与沿线里程标注 + 指南针 */
+const M2 = window.MAP2D;
+const host = $('#mapHost'), svg = $('#mapSvg');
+const NS = 'http://www.w3.org/2000/svg';
+const ACC = '#8B6914', R = 26;
+/* 内联墨卡托投影（复刻 d3 geoMercator().fitExtent 语义，无外部依赖） */
+const GEOB = window.__GEO_DATA__;
+const MR = (lo,la)=>[lo*Math.PI/180, Math.log(Math.tan(Math.PI/4+la*Math.PI/360))];
+let gx0=1e9,gy0=1e9,gx1=-1e9,gy1=-1e9;
+for (const f of GEOB.features){ if(f.properties?.name){ (function w(c){ if(typeof c[0]==='number'){ const[mx,my]=MR(c[0],c[1]); if(mx<gx0)gx0=mx; if(mx>gx1)gx1=mx; if(my<gy0)gy0=my; if(my>gy1)gy1=my; return; } for(const x of c) w(x); })(f.geometry.coordinates); } }
+const FE=[30,60,970,585], FW=FE[2]-FE[0], FH=FE[3]-FE[1];
+const FS=Math.min(FW/(gx1-gx0), FH/(gy1-gy0)), FCX=(gx0+gx1)/2, FCY=(gy0+gy1)/2;
+const proj = ([lo,la])=>{ const[mx,my]=MR(lo,la); return [FE[0]+FW/2+(mx-FCX)*FS, FE[1]+FH/2-(my-FCY)*FS]; };
+const pathGen = (f)=>{ /* 多边形转 SVG path */
+  let d=''; const ringsOf=(poly)=>poly; const polys=f.geometry.type==='Polygon'?[f.geometry.coordinates]:f.geometry.coordinates;
+  for(const poly of polys) for(const ring of poly){ d+='M'; ring.forEach((c,i)=>{ const p=proj(c); d+=(i?'L':'')+p[0].toFixed(1)+','+p[1].toFixed(1); }); d+='Z '; }
+  return d; };
+function el(tag, attrs){ const n=document.createElementNS(NS,tag); for(const k in attrs) n.setAttribute(k,attrs[k]); return n; }
+function estW(t,fs){ return t.length*fs; }
+const NODE = Object.fromEntries(M2.nodes.map(n=>[n.id,n]));
+/* 行政区轮廓（淡墨虚线） */
+const gProv = el('g',{}); svg.appendChild(gProv);
+for (const f of window.__GEO_DATA__.features){
+  if (!f.properties?.name) continue;
+  gProv.appendChild(el('path',{ d: pathGen(f), fill:'rgba(120,150,90,0.05)', stroke:'#B9AC85', 'stroke-width':1, 'stroke-dasharray':'5 4' }));
+}
+/* 装饰：淡淡山水纹 */
+const gDeco = el('g',{ opacity:.55 }); svg.appendChild(gDeco);
+[[150,170],[700,130],[210,430],[790,470],[420,180]].forEach(([x,y])=>{
+  gDeco.appendChild(el('path',{ d:`M${x},${y} q10,-14 20,0 q10,-14 20,0`, fill:'none', stroke:'#C4B98F', 'stroke-width':1.4 }));
+});
+[[560,560],[880,300],[90,300]].forEach(([x,y])=>{
+  gDeco.appendChild(el('path',{ d:`M${x},${y} q6,-5 12,0 t12,0 t12,0 M${x},${y+7} q6,-5 12,0 t12,0`, fill:'none', stroke:'#A5BED0', 'stroke-width':1.4 }));
+});
+/* 路线层（暖棕粗线 + 方向箭头 + 沿线里程/时长标注） */
+const gRoute = el('g',{}); svg.appendChild(gRoute);
+const gDefs = el('defs',{}); svg.insertBefore(gDefs, gRoute);
+function chainD(ids){ return ids.map((id,i)=>{ const n=NODE[id]; return (i?'L':'M')+n.x+','+n.y; }).join(' '); }
+const chains = M2.chains.map((c,ci)=>{
+  const pts = c.path.map(id=>[NODE[id].x,NODE[id].y]);
+  const d = chainD(c.path);
+  const g = el('g',{ class:'mchain' }); g.dataset.g = c.g;
+  /* 隐形走线供 textPath 排版 */
+  const pid = 'chain-'+ci;
+  const guide = el('path',{ id:pid, d, fill:'none', stroke:'none' }); gDefs.appendChild(guide);
+  g.appendChild(el('path',{ d, fill:'none', stroke:ACC, 'stroke-width':5, 'stroke-linecap':'round', 'stroke-linejoin':'round', opacity:.92 }));
+  for(let i=0;i<pts.length-1;i++){
+    const [x1,y1]=pts[i], [x2,y2]=pts[i+1];
+    const ang=Math.atan2(y2-y1,x2-x1)*180/Math.PI;
+    const mx=x1+(x2-x1)*0.6, my=y1+(y2-y1)*0.6;
+    g.appendChild(el('path',{ d:'M0,-5.5 L10,0 L0,5.5 Z', fill:ACC, transform:`translate(${mx.toFixed(1)},${my.toFixed(1)}) rotate(${ang.toFixed(1)})` }));
+  }
+  const tx=el('text',{ class:'km', 'font-size':11.5, 'font-weight':600, fill:'#5E4A0F' });
+  const tp=el('textPath',{ href:'#'+pid, startOffset:'50%', 'text-anchor':'middle' });
+  tp.setAttributeNS('http://www.w3.org/1999/xlink','href','#'+pid);
+  tp.textContent = `${c.day} ${c.label}`; tx.appendChild(tp);
+  tx.style.paintOrder='stroke'; tx.style.stroke='#F1E8D2'; tx.style.strokeWidth='3.5';
+  g.appendChild(tx);
+  gRoute.appendChild(g);
+  return { g, group:+c.g };
+});
+/* 目的地节点（水彩贴纸 + D 标签） */
+const gNode = el('g',{}); svg.appendChild(gNode);
+const nodesG = M2.nodes.map(n=>{
+  const groups=[...new Set(n.tags.map(t=>{ const dd=+t.slice(1); return dd<=3?0:dd<=6?1:dd<=9?2:3; }))];
+  const wrap = el('g',{ class:'mnode' }); wrap.dataset.g = groups.join(',');
+  const st = el('g',{ class:'sticker' });
+  if(n.img){
+    st.appendChild(el('circle',{ cx:n.x, cy:n.y, r:R+3, fill:'#FBF7EA', stroke:ACC, 'stroke-width':2.2 }));
+    const cp=el('clipPath',{ id:'clip-'+n.id }); cp.appendChild(el('circle',{ cx:n.x, cy:n.y, r:R })); st.appendChild(cp);
+    const im=el('image',{ x:n.x-R, y:n.y-R, width:R*2, height:R*2, preserveAspectRatio:'xMidYMid slice', 'clip-path':`url(#clip-${n.id})` });
+    im.dataset.image = M2.img[n.img]; im.setAttribute('href', M2.img[n.img]);
+    im.addEventListener('error',()=>im.remove());
+    st.appendChild(im);
+    st.style.transformOrigin=`${n.x}px ${n.y}px`;
+  } else {
+    st.appendChild(el('circle',{ cx:n.x, cy:n.y, r:6, fill:ACC, stroke:'#FBF7EA', 'stroke-width':2.5 }));
+  }
+  const hw = n.img ? R+3 : 7;
+  const boxW = Math.max(estW(n.tags.join(' · '),11.5), estW(n.name,12.5)) + 16;
+  const tx0 = n.side>0 ? n.x + hw + 6 : n.x - hw - 6 - boxW;
+  const lg = el('g',{});
+  lg.appendChild(el('rect',{ x:tx0, y:n.y-13, width:boxW, height:26, rx:9, fill:'#FFFDF6', stroke:'#C9B98C', 'stroke-width':1.3 }));
+  const t1=el('text',{ x:tx0+7, y:n.y-1, 'font-size':11.5, 'font-weight':700, fill:ACC });
+  t1.textContent = n.tags.join(' · '); lg.appendChild(t1);
+  const t2=el('text',{ x:tx0+7, y:n.y+11, 'font-size':12.5, 'font-weight':600, fill:'#33443A' });
+  t2.textContent = n.name; lg.appendChild(t2);
+  const sub=el('text',{ x:tx0, y:n.y+25, 'font-size':10, fill:'#8a7c58' });
+  sub.textContent = n.sub; lg.appendChild(sub);
+  wrap.appendChild(st); wrap.appendChild(lg);
+  wrap.addEventListener('mouseenter',()=>{ st.style.transition='transform .18s'; st.style.transform='scale(1.25)'; });
+  wrap.addEventListener('mouseleave',()=>{ st.style.transform='scale(1)'; });
+  wrap.addEventListener('click',(e)=>{ e.stopPropagation(); showTip(n); });
+  gNode.appendChild(wrap);
+  return { g:wrap, groups };
+});
+/* 指南针（左下角） */
+const gC = el('g',{ transform:'translate(60,556)' });
+gC.appendChild(el('circle',{ r:26, fill:'#FFFDF6', stroke:ACC, 'stroke-width':2 }));
+gC.appendChild(el('circle',{ r:20, fill:'none', stroke:'#C9B98C', 'stroke-width':1 }));
+gC.appendChild(el('path',{ d:'M0,-17 L5.5,4 L0,-1 Z', fill:'#2F6F5E' }));
+gC.appendChild(el('path',{ d:'M0,-17 L-5.5,4 L0,-1 Z', fill:'#8B6914' }));
+gC.appendChild(el('path',{ d:'M0,17 L5.5,-4 L0,1 Z', fill:'#B9AC85' }));
+gC.appendChild(el('path',{ d:'M0,17 L-5.5,-4 L0,1 Z', fill:'#D5CBA8' }));
+const nt=el('text',{ y:-30, 'text-anchor':'middle', 'font-size':12.5, 'font-weight':700, fill:'#33443A' }); nt.textContent='N'; gC.appendChild(nt);
+svg.appendChild(gC);
+svg.setAttribute('viewBox','0 0 1000 630');
+/* 目的地详情（名称/门票/建议游玩时长） */
+const mapTip=$('#mapTip');
+function showTip(n){
+  const s = n.spot ? KB.spots.find(x=>x.name===n.spot) : null;
+  mapTip.innerHTML=`<button class="close" onclick="this.parentNode.style.display='none'">✕</button>
+    <b>${n.tags.join('/')} ${n.name}</b>
+    <div class="row">📍 ${s? s.region : (n.sub||'')}</div>
+    ${s?`<div class="row">🎫 门票：${s.ticket}</div><div class="row">⏱️ 建议游玩：${s.duration}</div>`:''}`;
+  mapTip.style.display='block';
+}
+/* 按天筛选：高亮对应组，其他变灰 */
+let dayFilter='all';
+const filterBar=$('#dayFilter');
+[['all','全部'],['0','Day1-3'],['1','Day4-6'],['2','Day7-9'],['3','Day10-13']].forEach(([v,lab],i)=>{
+  const b=document.createElement('button'); b.className='pill'+(i===0?' on':''); b.textContent=lab;
+  b.setAttribute('data-primary-action','map-day-filter');
+  b.onclick=()=>{ dayFilter=v; $$('#dayFilter .pill').forEach(x=>x.classList.toggle('on',x===b)); applyFilter(); };
+  filterBar.appendChild(b);
+});
+function applyFilter(){
+  const on = dayFilter==='all' ? null : +dayFilter;
+  chains.forEach(c=> c.g.classList.toggle('dim', on!==null && c.group!==on));
+  nodesG.forEach(n=> n.g.classList.toggle('dim', on!==null && !n.groups.includes(on)));
+}
+function resizeMap(){ /* viewBox 自适应，无需重绘 */ }
+$('#legend').innerHTML = `<span><i style="background:${ACC}"></i>暖棕粗线 = 行驶路线（箭头指示方向，线上文字为 D·里程·时长）</span>
+  <span><i style="background:#FBF7EA;border:1.5px solid #8B6914;border-radius:50%"></i>手绘水彩贴纸 = 目的地（点击查看门票/时长）</span>
+  <span style="color:#8a7c58">手绘示意地图：方位按真实地理排布 · 按天筛选后非选中变灰</span>`;
+$('#routeOvw').innerHTML = KB.mapLegendDays.map(t=>`<div>${t}</div>`).join('');
+
+/* SECTION: itinerary */
+const tabsEl=$('#dayTabs'), dayBody=$('#dayBody');
+KB.days.forEach((d,i)=>{ const b=document.createElement('button'); b.textContent='D'+d.d;
+  b.setAttribute('data-primary-action','trip-day-tab');
+  b.onclick=()=>{ $$('#dayTabs button').forEach(x=>x.classList.toggle('on',x===b)); renderDay(i); };
+  if(i===0)b.classList.add('on'); tabsEl.appendChild(b); });
+function fmtHours(h){ return h>4; }
+function renderDay(i){ const d=KB.days[i];
+  const stay=KB.stays.find(s=>d.stay.includes(s.city)) || KB.stays.find(s=>d.stay.startsWith(s.city));
+  const longDrive=fmtHours(d.driveHours);
+  const seg=(tm,obj,cls='',tag='')=>`<div class="tl-item ${cls}"><div class="tm">${tm}${tag}</div><div class="tx">${obj.t}</div>${obj.drv?`<div class="tags"><em>🚗 ${obj.drv}</em></div>`:''}</div>`;
+  const driveWarn = longDrive? '<span class="warn">长驾段 &gt;4h · 建议两人轮换</span>':'';
+  dayBody.innerHTML=`
+  <div class="day-head"><div class="rt">D${d.d}（${d.date}）${d.route}</div>
+    <div class="meta"><span>🚗 开车 ${d.drive}</span><span>🏨 宿：${d.stay}</span>${longDrive?'<span style="background:rgba(139,105,20,.9)">⚠️ 超4小时驾驶段</span>':''}</div></div>
+  <div class="tl">
+    ${seg('上午 · 出发/游玩',d.am, d.am.rest?'rest':'', d.am.rest?'<span class="tagr">午休/错峰停留</span>':'')}
+    ${seg('行车 · 全天驾驶段',{t:`${d.route.split('→').join(' → ')}${d.driveHours?`：${d.drive}`:'（景区区间车）'}`}, longDrive?'long':'', driveWarn)}
+    ${seg('下午 · 游览/赶路', d.pm, d.pm.rest?'rest':'', d.pm.rest?'<span class="tagr">午休/错峰停留</span>':'')}
+    ${seg('晚上 · 抵达/住宿',d.night,'')}
+  </div>
+  <div class="notes"><b>⚠️ 当日注意事项</b><ul>${d.notes.map(n=>`<li>${n}</li>`).join('')}</ul></div>
+  ${stay?`<div class="stay-card">🏨 <b>${stay.city}住宿</b>：${stay.area} · 国庆 ${stay.price} · ${stay.book} · ${stay.note}</div>`:''}`;
+}
+renderDay(0);
+
+/* SECTION: spots */
+const favs=LS.get('xj_fav_spots');
+const spotCards=$('#spotCards'), spotQ=$('#spotQ');
+function uniq(a){ return [...new Set(a)]; }
+$('#spotRegion').innerHTML='<option value="">全部地区</option>'+uniq(KB.spots.map(s=>s.regionKey)).map(r=>`<option>${r}</option>`).join('');
+$('#spotPrice').innerHTML='<option value="">全部门票</option><option value="free">免费</option><option value="lt50">50元及以下</option><option value="50-150">50-150元</option><option value="gt150">150元以上</option>';
+$('#spotType').innerHTML='<option value="">全部类型</option>'+uniq(KB.spots.map(s=>s.type)).map(t=>`<option>${t}</option>`).join('');
+function priceOk(s,v){ if(!v) return true; if(v==='free') return s.ticketVal===0; if(v==='lt50') return s.ticketVal>0&&s.ticketVal<=50; if(v==='50-150') return s.ticketVal>50&&s.ticketVal<=150; return s.ticketVal>150; }
+function renderSpots(){ const q=spotQ.value.trim().toLowerCase(), rg=$('#spotRegion').value, pr=$('#spotPrice').value, tp=$('#spotType').value;
+  const list=KB.spots.filter(s=>(!q || (s.name+s.region+s.highlights).toLowerCase().includes(q)) && (!rg||s.regionKey===rg) && priceOk(s,pr) && (!tp||s.type===tp));
+  spotCards.innerHTML=''; $('#spotEmpty').style.display=list.length?'none':'block';
+  list.forEach(s=>{ const el=document.createElement('div'); el.className='card';
+    el.innerHTML=`<div class="pic"><img alt="${s.name} 实景"><button class="fav ${favs[s.name]?'on':''}" title="收藏">♥</button></div>
+    <div class="body"><h3>${s.name} <span class="sub">📍${s.region}</span></h3>
+    <div class="kv"><i>门票</i><span>${s.ticket}</span></div>
+    <div class="kv"><i>开放</i><span>${s.hours}</span></div>
+    <div class="kv"><i>时长</i><span>${s.duration}</span></div>
+    <div class="kv"><i>最佳</i><span>${s.best}</span></div>
+    <div class="kv"><i>看点</i><span>${s.highlights}</span></div>
+    <div class="kv"><i>机位</i><span>${s.photo}</span></div>
+    <div class="kv"><i>提醒</i><span>${s.notes}</span></div></div>`;
+    const img=el.querySelector('img'); img.style.cssText='width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .3s'; bindImg(img,s.image);
+    el.querySelector('.fav').onclick=(e)=>{ const on=!favs[s.name]; if(on)favs[s.name]=1; else delete favs[s.name];
+      LS.set('xj_fav_spots',favs); e.currentTarget.classList.toggle('on',on); };
+    spotCards.appendChild(el); });
+}
+[spotQ,$('#spotRegion'),$('#spotPrice'),$('#spotType')].forEach(x=>{ x.addEventListener('input',renderSpots); x.addEventListener('change',renderSpots); });
+renderSpots();
+
+/* SECTION: foods */
+const foodTabs=$('#foodTabs');
+[['','全部'],...uniq(KB.foods.map(f=>f.cat))].forEach(([c],i)=>{ const b=document.createElement('button'); b.className='pill'+(i===0?' on':''); b.textContent=c||'全部';
+  b.onclick=()=>{ $$('#foodTabs .pill').forEach(x=>x.classList.toggle('on',x===b)); renderFoods(c); }; foodTabs.appendChild(b); });
+function renderFoods(cat){ const list=cat?KB.foods.filter(f=>f.cat===cat):KB.foods; const wrap=$('#foodCards'); wrap.innerHTML='';
+  list.forEach(s=>{ const el=document.createElement('div'); el.className='card';
+    el.innerHTML=`<div class="pic"><img alt="${s.name} 实拍"></div>
+    <div class="body"><h3>${s.name} <span class="badge">${s.cat}</span></h3>
+    <div class="kv"><i>地点</i><span>${s.place}</span></div>
+    <div class="kv"><i>价格</i><span>${s.price}</span></div>
+    <div class="kv"><i>特色</i><span>${s.feature}</span></div>
+    <div class="kv"><i>推荐</i><span>${s.shop}</span></div>
+    <div class="kv"><i>提醒</i><span>${s.tips}</span></div></div>`;
+    const img=el.querySelector('img'); img.style.cssText='width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .3s'; bindImg(img,s.image);
+    wrap.appendChild(el); }); }
+renderFoods('');
+
+/* SECTION: fuel */
+const flagStyle={few:['few','加油站少'],cash:['cash','只收现金'],line:['line','易排队'],na:['na','中途无站'],key:['key','重点']};
+$('#fuelList').innerHTML=KB.fuel.map(f=>`<div class="fuel-card ${(f.flags.includes('站少')||f.flags.includes('无加油站')||f.flags.includes('重点'))?'hot':''}">
+  <h3>⛽ ${f.seg} ${f.flags.map(k=>{const s=flagStyle[k];return s?`<span class="flag ${s[0]}">${s[1]}</span>`:'';}).join('')}</h3>
+  <div class="fuel-grid"><div><b>加油站分布</b><br>${f.dist}</div><div><b>建议加油点</b><br>${f.point}</div><div><b>油价参考(92号)</b><br>${f.price}</div><div><b>注意事项</b><br>${f.notes}</div></div></div>`).join('');
+
+/* SECTION: pitfalls */
+const pitTabs=$('#pitTabs'), cats=[['','全部'],...uniq(KB.pitfalls.map(p=>p.cat)).map(c=>[c,c])];
+cats.forEach(([c,lab],i)=>{ const b=document.createElement('button'); b.className='pill'+(i===0?' on':''); b.textContent=lab;
+  b.onclick=()=>{ $$('#pitTabs .pill').forEach(x=>x.classList.toggle('on',x===b));
+    $('#pitList').innerHTML=KB.pitfalls.filter(p=>!c||p.cat===c).map(p=>`<div class="pit">
+    <h3>🕳️ ${p.pit} <span class="badge">${p.cat}</span></h3>
+    <div class="rowx"><div class="x"><b>✕ 坑点</b>${p.detail}</div><div class="c"><b>✓ 怎么避</b>${p.fix}</div></div>
+    <div class="alt"><b>替代方案：</b>${p.alt}</div></div>`).join(''); };
+  pitTabs.appendChild(b); });
+pitTabs.querySelector('.pill').click();
+
+/* SECTION: packing */
+const packDone=LS.get('xj_pack_checks');
+const packCats=uniq(KB.packing.map(p=>p.cat));
+$('#packList').innerHTML=packCats.map(cat=>`<div class="pack-grp"><h3>${cat}</h3><div class="pack-list">${
+  KB.packing.map((p,idx)=>p.cat!==cat?'':`<label class="pk ${packDone[idx]?'done':''}" data-i="${idx}">
+  <input type="checkbox" ${packDone[idx]?'checked':''}><span><span class="nm">${p.item}<span class="mst ${p.must==='必备'?'m1':p.must==='推荐'?'m2':'m3'}">${p.must}</span></span>
+  <span class="ds">${p.qty} · ${p.note}</span></span></label>`).join('')}</div></div>`).join('');
+function packProg(){ const n=$$('#packList input:checked').length;
+  $('#packProg').textContent=`已勾选 ${n}/${KB.packing.length} 项`; $('#packBar').style.width=(n/KB.packing.length*100)+'%'; }
+$('#packList').addEventListener('change',(e)=>{ const lb=e.target.closest('.pk'); if(!lb) return; const i=lb.dataset.i;
+  if(e.target.checked) packDone[i]=1; else delete packDone[i]; LS.set('xj_pack_checks',packDone); lb.classList.toggle('done',e.target.checked); packProg(); });
+$('#packClear').onclick=()=>{ if(!confirm('确定清空所有勾选，重新开始打包吗？')) return;
+  Object.keys(packDone).forEach(k=>delete packDone[k]); LS.set('xj_pack_checks',packDone);
+  $$('#packList input').forEach(x=>{x.checked=false;}); $$('#packList .pk').forEach(x=>x.classList.remove('done')); packProg(); };
+packProg();
+
+/* SECTION: stay —— 住宿推荐卡片 + 地图导航（高德 URI 优先，百度 URI 备选） */
+(function(){
+  const enc = encodeURIComponent;
+  const amapUrl = nv => `https://uri.amap.com/marker?name=${enc(nv.name)}&address=${enc(nv.address)}&callnative=1`;
+  const baiduUrl = nv => `https://api.map.baidu.com/marker?location=${enc(nv.coord)}&title=${enc(nv.name)}&content=${enc(nv.address)}&coord_type=gcj02&src=webapp.baidu.openAPIdemo`;
+  const wrap = $('#stayCards'); wrap.innerHTML = '';
+  KB.stays.forEach(s=>{
+    const el = document.createElement('div'); el.className = 'card stay-card2';
+    const nv = s.nav;
+    el.innerHTML = `
+      <div class="pic"><img alt="${s.city} 住宿实景"></div>
+      <div class="body">
+        <h3>🏨 ${s.city} <span class="sub">📍${s.area}</span></h3>
+        <div class="kv"><i>价格</i><span class="prc">${s.price}</span></div>
+        <div class="kv"><i>理由</i><span>${s.reason}</span></div>
+        <div class="kv"><i>预订</i><span>${s.book}</span></div>
+        <div class="nt">⚠️ ${s.note}</div>
+        <div class="navrow">
+          <a class="navbtn" href="${amapUrl(nv)}" target="_blank" rel="noopener noreferrer">📍 导航到这里<span class="ar">高德地图 ↗</span></a>
+          <div class="navsub"><button type="button" class="bd">🗺️ 百度地图</button><span class="tipx">高德打不开？点百度备选</span></div>
+        </div>
+      </div>`;
+    const img = el.querySelector('img');
+    img.style.cssText = 'width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .3s';
+    bindImg(img, s.image);
+    el.querySelector('.bd').onclick = () => window.open(baiduUrl(nv), '_blank', 'noopener,noreferrer');
+    wrap.appendChild(el);
+  });
+})();
+
+/* SECTION: budget */
+$('#budTable').innerHTML=`<tr><th>类别</th><th>项目</th><th>单价/费用</th><th>数量/天数</th><th>小计(人均)</th><th>说明</th></tr>`+
+  KB.budget.map(b=>`<tr><td>${b.cat}</td><td>${b.item}</td><td>${b.unit}</td><td>${b.qty}</td><td class="sub">${b.sub}</td><td class="note">${b.note}</td></tr>`).join('')+
+  `<tr class="total"><td>合计</td><td colspan="3">${KB.budgetTotal.item}</td><td>${KB.budgetTotal.sub}</td><td class="note">${KB.budgetTotal.note}</td></tr>`;
+$('#practicalCards').innerHTML=KB.practical.map(p=>`<div class="info-card"><h3>${p.icon} ${p.cat}</h3><div>${p.desc}</div><div class="tip">💡 ${p.tip}</div></div>`).join('');
+$('#sosBox').innerHTML=`<h3>🚨 应急信息</h3><div class="ph">${KB.emergency.phones.map(([k,v])=>`<span>${k}：<b>${v}</b></span>`).join('')}</div>
+  <ul>${KB.emergency.hospitals.map(h=>`<li>${h}</li>`).join('')}</ul><p style="margin-top:6px;color:#A8CBD9">${KB.emergency.reminder}</p>`;
+$('#stayTable').innerHTML=`<tr><th>城市</th><th>推荐区域</th><th>国庆价格</th><th>预订建议</th><th>注意事项</th></tr>`+
+  KB.stays.map(s=>`<tr><td>${s.city}</td><td>${s.area}</td><td class="sub">${s.price}</td><td>${s.book}</td><td class="note">${s.note}</td></tr>`).join('');
+/* 行前节奏策划（活动策划） + 小红书分享文案（内容创作） */
+$('#campBox').innerHTML=KB.campaign.phases.map(p=>`<div><h4>▍${p.name}（${p.time}）</h4><p style="color:var(--ink2);font-size:12px">目标：${p.goal}</p><ul>${p.items.map(i=>`<li>${i}</li>`).join('')}</ul></div>`).join('');
+const xhs=$('#xhsBox');
+xhs.innerHTML=`<h3>📕 小红书分享文案（发布可直接复制）</h3><div class="ttl">${KB.campaign.xhs.title}</div><pre id="xhsPre">${KB.campaign.xhs.body}</pre><div class="tagl">${KB.campaign.xhs.tags}</div><button class="copy-btn" id="xhsCopy">📋 一键复制文案</button>`;
+$('#xhsCopy').onclick=async()=>{ const txt=`${KB.campaign.xhs.title}\n\n${KB.campaign.xhs.body}\n\n${KB.campaign.xhs.tags}`;
+  try{ await navigator.clipboard.writeText(txt); }catch{ const ta=document.createElement('textarea'); ta.value=txt; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); ta.remove(); }
+  $('#xhsCopy').textContent='✅ 已复制'; setTimeout(()=>$('#xhsCopy').textContent='📋 一键复制文案',1600); };
+
+/* SECTION: render-loop */
+resizeMap(); applyFilter();
+</script>
+</body>
+</html>
