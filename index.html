@@ -902,7 +902,7 @@ renderSpots();
 
 /* SECTION: foods */
 const foodTabs=$('#foodTabs');
-[['','全部'],...uniq(KB.foods.map(f=>f.cat))].forEach(([c],i)=>{ const b=document.createElement('button'); b.className='pill'+(i===0?' on':''); b.textContent=c||'全部';
+[['','全部'],...uniq(KB.foods.map(f=>f.cat)).map(c=>[c,c])].forEach(([c,lab],i)=>{ const b=document.createElement('button'); b.className='pill'+(i===0?' on':''); b.textContent=lab;
   b.onclick=()=>{ $$('#foodTabs .pill').forEach(x=>x.classList.toggle('on',x===b)); renderFoods(c); }; foodTabs.appendChild(b); });
 function renderFoods(cat){ const list=cat?KB.foods.filter(f=>f.cat===cat):KB.foods; const wrap=$('#foodCards'); wrap.innerHTML='';
   list.forEach(s=>{ const el=document.createElement('div'); el.className='card';
